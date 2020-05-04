@@ -23,10 +23,10 @@
     </head>
 
     <body class="backgroundColor">
-        <?php 
+        <?php
         require('../app/views/header.php');
         ?>
-        
+
         <main>
             <!-- Carousel -->
             <section id="carousel" class="carousel slide mb-4" data-ride="carousel">
@@ -173,5 +173,36 @@
                 </div>
             </section>
         </main>
+        <footer class="backgroundColor">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+                <a class="logo float-center" href="#"><img id="logo" src="../app/images/logo.svg" alt=""></a>
+                  <ul>
+                    <i class="fab fa-instagram fa-lg"></i>
+                    <i class="fab fa-twitter fa-lg"></i>
+                    <i class="fab fa-facebook-square fa-lg"></i>
+                    <i class="fab fa-whatsapp fa-lg"></i>
+                  </ul>
+            </div>
+            <div class="col-md-3">
+                <h4 class="title">Find us</h4>
+                <p> Studio Lotus - Dublin 1</p>
+                <p> Studio Three - Dublin 2</p>
+                <p> Studio Balance - Dublin 8</p>
+            </div>
+            <div class="col-md-3">
+                <h4 class="title">
+                  Any questions</h4>
+                <a class="fColorYellow" href="faq.php">See our FAQ</a>
+            </div>
+            <div class="col-md-3">
+                <h4 class="title">Contact Us</h4>
+                <a class="fColorYellow" href="contact_us.php">Send a message</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
     </body>
 </html>
