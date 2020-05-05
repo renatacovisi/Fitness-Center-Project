@@ -23,6 +23,10 @@ body {
     color: #94d4ed;
 }
 
+.fColorSilver {
+    color: silver;
+}
+
 .fColorIndigo {
     color: #0e0e44;
 }
@@ -117,4 +121,19 @@ nav {
 #hamburgerButton {
     color: #fdd55b;
 }
+
+/* image tint to make text clearer */
+.aboutUsImage{
+    
+
+    background-image: 
+    linear-gradient(
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.5)
+      ),
+      url("../../app/images/carousel2_1000_660.jpg");
+
+
+}
+
 
