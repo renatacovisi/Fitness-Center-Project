@@ -124,16 +124,29 @@ nav {
 
 /* image tint to make text clearer */
 .aboutUsImage{
-    
-
     background-image: 
     linear-gradient(
         rgba(0, 0, 0, 0.5),
         rgba(0, 0, 0, 0.5)
       ),
       url("../../app/images/carousel2_1000_660.jpg");
-
-
 }
 
+.classIconSizeClasses {
+    width: 30%;
+}
+
+.classesCardsSize {
+    width: 70%;
+}
+
+/* image tint to make text clearer */
+.classesImage{
+    background-image: 
+    linear-gradient(
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.5)
+      ),
+      url("../../app/images/classesPage.jpg");
+}
 
