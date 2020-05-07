@@ -150,10 +150,41 @@ nav {
       url("../../app/images/classesPage.jpg");
 }
 
+/* contact us page*/
 .contact_us{
     background-image:
     linear-gradient(
         rgba(0, 0, 0, 0.5),
         rgba(0, 0, 0, 0.5)
       ),url("../../app/images/jumbotron_contact_us.jpg");
+}
+
+.fColorWhite{
+    color: #FCFAFA;
+}
+
+.form-group{
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/*our team*/
+.our_team{
+    background-image:
+    linear-gradient(
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.5)
+      ),url("../../app/images/jumbotron_our_team.jpg");
+}
+
+.cardHeightOurTeamP1{
+    height: 200px;
+}
+.cardHeightOurTeamP2{
+    height: 120px;
+}
+
+.card-img-top{
+  padding: 10px 5px 0px 5px;
+  border-radius: 70%;
 }

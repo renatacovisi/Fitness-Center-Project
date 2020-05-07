@@ -22,12 +22,12 @@
         <link rel="stylesheet" href="../app/css/style.css" type="text/css" />
     </head>
 
-    <body class="backgroundColor mr-3 ml-3">
-        <?php 
+    <body class="backgroundColor mr-1 ml-1">
+        <?php
         require('../app/views/header.php');
         ?>
-        
-        <main class="mr-3 ml-3">
+
+        <main class="mr-1 ml-1">
             <!-- jumbotron -->
             <section class="jumbotron jumbotron-fluid rounded aboutUsImage text-white">
                 <div class="container">
@@ -44,8 +44,13 @@
                 <p>We strive to provide daily varieties to include all body forms the spectrum of young to older, mobile to less mobile, pre & post natal ­ Yoga & Pilates for EveryBody. </p>
                 <p>Sunrise Fitness Center comprises of 3 Bespoke studios!  Come take time for you, for your body and mind. Come grow with us, on your mat. to be curious, to open to, to discover, to feel, to explore, to release, to increase strength, and most of all to believe in your own wonderful potential.
                 </p>
-                
             </section>
 
         </main>
     </body>
+
+      <?php
+      require('../app/views/footer.php');
+      ?>
+
+    </html>
