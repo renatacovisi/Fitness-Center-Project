@@ -120,15 +120,13 @@
                 </div>
             </div>
 
-
             </section>
         </main>
-    </body>
 
-    <footer class="backgroundColor mr-1 ml-1">
         <?php
         require('../app/views/footer.php');
         ?>
-    </footer>
+
+  </body>
 
 </html>

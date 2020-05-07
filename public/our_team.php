@@ -109,10 +109,11 @@
               </div>
             </div>
           </main>
-        </body>
 
             <?php
             require('../app/views/footer.php');
             ?>
+
+          </body>
 
       </html>
