@@ -47,10 +47,11 @@
             </section>
 
         </main>
-    </body>
 
       <?php
       require('../app/views/footer.php');
       ?>
 
-    </html>
+    </body>
+
+  </html>
