@@ -22,12 +22,12 @@
         <link rel="stylesheet" href="../app/css/style.css" type="text/css" />
     </head>
 
-    <body class="backgroundColor">
-        <?php 
+    <body class="backgroundColor mr-1 ml-1">
+        <?php
         require('../app/views/header.php');
         ?>
-        
-        <main class="mr-3 ml-3">
+
+        <main class="mr-1 ml-1">
             <!-- jumbotron -->
             <section class="jumbotron jumbotron-fluid rounded classesImage text-white">
                 <div class="container">
@@ -119,9 +119,16 @@
                     </div>
                 </div>
             </div>
-            
-            
+
+
             </section>
         </main>
     </body>
+
+    <footer class="backgroundColor mr-1 ml-1">
+        <?php
+        require('../app/views/footer.php');
+        ?>
+    </footer>
+
 </html>
