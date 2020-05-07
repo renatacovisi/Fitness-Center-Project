@@ -72,6 +72,10 @@ nav {
     color: #fdd55b;
 }
 
+#hamburgerButton {
+    color: #fdd55b;
+}
+
 .inlineBlock{
     display: block;
 }
