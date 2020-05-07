@@ -68,6 +68,10 @@ nav {
     color: #fdd55b;
 }
 
+#hamburgerButton {
+    color: #fdd55b;
+}
+
 .inlineBlock{
     display: block;
 }
@@ -158,16 +162,6 @@ nav {
 
 .classesCardsSize {
     width: 70%;
-}
-
-/* image tint to make text clearer */
-.classesImage{
-    background-image:
-    linear-gradient(
-        rgba(0, 0, 0, 0.5),
-        rgba(0, 0, 0, 0.5)
-      ),
-    url("../../app/images/classesPage.jpg");
 }
 
 /* Testimonial Page */
