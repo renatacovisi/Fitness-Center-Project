@@ -23,7 +23,8 @@
     </head>
 
     <body class="backgroundColor">
-        <?php
+        <!-- header -->
+        <?php 
         require('../app/views/header.php');
         ?>
 
@@ -34,6 +35,7 @@
                     <h1 class="display-4 mt-5 pt-5">Classes</h1>
                     <p class="lead">We have different classes  to suit your necessities and help to find your health and mind balance.
                     </p>
+                    <button type="button" class="fColorIndigo btn btn-light buttonSize">Join Us</button>
                 </div>
             </section>
 

@@ -23,7 +23,8 @@
     </head>
 
     <body class="backgroundColor">
-        <?php
+        <!-- header -->
+        <?php 
         require('../app/views/header.php');
         ?>
 
