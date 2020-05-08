@@ -180,7 +180,6 @@ nav {
       url("../../app/images/testimonialPage.jpg");
 }
 
-
 /* contact us page*/
 .contact_us{
     background-image:
@@ -189,7 +188,6 @@ nav {
         rgba(0, 0, 0, 0.5)
       ),url("../../app/images/jumbotron_contact_us.jpg");
 }
-
 
 /*our team*/
 .our_team{
@@ -221,4 +219,15 @@ nav {
 }
 
 .form-group.registration{
+}
+
+/* FAQ Page */
+/* image tint to make text clearer and apply image background */
+.faqImage{
+    background-image: 
+    linear-gradient(
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.5)
+      ),
+      url("../../app/images/faqPage.jpg");
 }
