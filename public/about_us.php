@@ -33,7 +33,7 @@
             <section class="jumbotron jumbotron-fluid rounded aboutUsImage text-white">
                 <div class="container">
                     <h1 class="display-4 mt-5 pt-5">About us</h1>
-                    <p class="lead">We are a zen space that helps your mental and body health.
+                    <p class="lead mb-5 pm-5">We are a zen space that helps your mental and body health.
                     </p>
                 </div>
             </section>
@@ -46,11 +46,10 @@
                 <p>Sunrise Fitness Center comprises of 3 Bespoke studios!  Come take time for you, for your body and mind. Come grow with us, on your mat. to be curious, to open to, to discover, to feel, to explore, to release, to increase strength, and most of all to believe in your own wonderful potential.
                 </p>
             </section>
-
         </main>
 
         <?php
          require('../app/views/footer.php');
         ?>
     </body>
-  </html>
+</html>
