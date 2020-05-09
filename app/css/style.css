@@ -45,7 +45,11 @@ nav {
     max-width: 15em;
     font: 'Italianno';
 }
+#logoFooter{
+    height: 5em;
+    max-width: 15em;
 
+}
 .inlineBlock{
     display: block;
 }
@@ -159,14 +163,6 @@ nav {
       ),url("../../app/images/jumbotron_contact_us.jpg");
 }
 
-.fColorWhite{
-    color: #FCFAFA;
-}
-
-.form-group{
-    max-width: 500px;
-    margin: 0 auto;
-}
 
 /*our team*/
 .our_team{
@@ -178,13 +174,24 @@ nav {
 }
 
 .cardHeightOurTeamP1{
-    height: 200px;
+    height: 250px;
 }
 .cardHeightOurTeamP2{
-    height: 120px;
+    height: 150px;
 }
 
 .card-img-top{
-  padding: 10px 5px 0px 5px;
-  border-radius: 70%;
+    padding: 10px 5px 0px 5px;
+    border-radius: 70%;
+}
+
+.registration{
+    background-image:
+    linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),url("../../app/images/jumbotron_registration.jpg");
+}
+
+.form-group.registration{
 }

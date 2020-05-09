@@ -30,7 +30,7 @@
 </body>
 
 
-
+            <!--require footer-->
             <?php
             require('../app/views/footer.php');
             ?>
