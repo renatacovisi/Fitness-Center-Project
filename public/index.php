@@ -2,24 +2,11 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <!--Specifying the charsert to be used and make sure special chars will apper ok-->
-        <meta charset="utf-8">
-        <!-- bootstrap -->
-        <meta name="viewport" content="width=device-width, initial-scale=1">
         <!--title to be showed in the tab of the window-->
         <title>Home</title>
-        <!-- bootstrap -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-        <!--Font Awesome kit to use icons-->
-        <script src="https://kit.fontawesome.com/6756b41fc1.js" crossorigin="anonymous"></script>
-        <!-- Google fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Alegreya|Lato&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet">
-        <!--Use the styling css created in another file-->
-        <link rel="stylesheet" href="../app/css/style.css" type="text/css" />
+        <?php 
+        require('../app/views/common_head.php');
+        ?>
     </head>
 
     <body class="backgroundColor">
@@ -43,7 +30,7 @@
                         <div class="carousel-caption d-none d-md-block">
                             <h2 class="shadow">Yoga for everyone</h2>
                             <p class="shadow">Start your practice now!</p>
-                            <button type="button" class="fColorIndigo btn btn-light buttonSize">Join Us</button>
+                            <a role="button" class="fColorIndigo btn btn-light buttonSize" href="registration.php">Join Us</a>
                         </div>
                     </div>
                     <div class="carousel-item">
@@ -51,7 +38,7 @@
                         <div class="carousel-caption d-none d-md-block">
                             <h2 class="shadow">Our community is waiting for you</h2>
                             <p class="shadow">Our members and teachers are always happy to see our community grow up</p>
-                            <button type="button" class="fColorIndigo btn btn-light buttonSize">Join Us</button>
+                            <a type="button" class="fColorIndigo btn btn-light buttonSize" href="registration.php">Join Us</a>
                         </div>
                     </div>
                     <div class="carousel-item">
@@ -59,7 +46,7 @@
                         <div class="carousel-caption d-none d-md-block">
                             <h2 class="shadow">Classes</h2>
                             <p class="shadow">Our classes have prepared teachers to help you find your own balance</p>
-                            <button type="button" class="fColorIndigo btn btn-light buttonSize">Join Us</button>
+                            <a type="button" class="fColorIndigo btn btn-light buttonSize" href="class.php">See classes</a>
                         </div>
                     </div>
                 </div>
@@ -105,7 +92,7 @@
                     <div class="col-6 hero-image overlap">
                         <div class="hero-text shadow">
                             <h3>See all classes</h3>
-                            <i class="fas fa-plus-circle"></i>
+                            <a href="class.php"><i class="fas fa-plus-circle fColorYellow"></i></a>
                         </div>
                     </div>
                 </div>
@@ -125,7 +112,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Online Classes</h5>
                                     <p class="card-text cardHeight">Be with us every morning on our online classes to meditate and work out with us in this difficult times</p>
-                                    <a href="#" class="btn btn-dark">Join Online</a>
+                                    <a href="registration.php" class="btn btn-dark">Join Online</a>
                                 </div>
                             </div>
                         </div>
@@ -154,7 +141,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title">Free Trial</h5>
                                     <p class="card-text cardHeight">Do your first class free!</p>
-                                    <a href="#" class="btn btn-dark">Contact Us</a>
+                                    <a href="contact_us.php" class="btn btn-dark">Contact Us</a>
                                 </div>
                             </div>
                         </div>
@@ -164,7 +151,7 @@
                                 <div class="card-body">
                                     <h5 class="card-title ">First month free</h5>
                                     <p class="card-text cardHeight">Ten first registered members will have first month free</p>
-                                    <a href="#" class="btn btn-dark">Register now!</a>
+                                    <a href="registration.php" class="btn btn-dark">Register now!</a>
                                 </div>
                             </div>
 

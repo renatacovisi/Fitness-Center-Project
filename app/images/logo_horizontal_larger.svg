@@ -10,12 +10,12 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    inkscape:version="1.0rc1 (09960d6, 2020-04-09)"
-   sodipodi:docname="logo.svg"
+   sodipodi:docname="logo_horizontal larger.svg"
    id="svg32"
    version="1.1"
-   viewBox="0 0 842.40036 473.64356"
-   height="631.44556"
-   width="1123.0635">
+   viewBox="0 0 1356.7318 362.98784"
+   height="483.9231"
+   width="1808.7551">
   <metadata
      id="metadata38">
     <rdf:RDF>
@@ -94,7 +94,7 @@
          style="stop-color:#fdd55b;stop-opacity:1;" />
     </linearGradient>
     <linearGradient
-       gradientTransform="translate(-155.60071,-53.329699)"
+       gradientTransform="translate(-155.60176,-53.329699)"
        gradientUnits="userSpaceOnUse"
        y2="232.97168"
        x2="996.51196"
@@ -144,16 +144,16 @@
      fit-margin-top="5"
      units="px"
      inkscape:current-layer="svg32"
-     inkscape:window-maximized="1"
+     inkscape:window-maximized="0"
      inkscape:window-y="23"
      inkscape:window-x="0"
-     inkscape:cy="222.6636"
-     inkscape:cx="327.6541"
-     inkscape:zoom="0.92826572"
+     inkscape:cy="411.96685"
+     inkscape:cx="432.05908"
+     inkscape:zoom="0.74771966"
      showgrid="false"
      id="namedview34"
-     inkscape:window-height="2115"
-     inkscape:window-width="3840"
+     inkscape:window-height="1564"
+     inkscape:window-width="3239"
      inkscape:pageshadow="2"
      inkscape:pageopacity="1"
      guidetolerance="10"
@@ -167,13 +167,13 @@
      style="display:inline;fill:url(#linearGradient873);fill-opacity:1;stroke:none;stroke-width:0.999875;stroke-miterlimit:4;stroke-dasharray:none"
      sodipodi:nodetypes="cccscsssscssccsccc"
      inkscape:connector-curvature="0"
-     d="m 582.34494,334.02606 c 14.12358,5.82263 19.33648,8.43772 46.5992,16.56171 l 28.80674,6.72232 c -50.34327,-3.96415 -91.35274,-19.02465 -127.67523,-48.19858 -25.5907,-20.55425 -48.85151,-52.29878 -84.91151,-50.96878 -45.67796,5.06919 -87.94076,73.13901 -123.64728,84.80666 -31.05521,10.14776 -59.88736,6.59051 -90.23514,-0.83515 -59.92342,-14.66239 -109.75753,-39.66479 -117.03448,-39.48396 -7.99087,0.19856 -19.829089,21.07133 -33.882429,27.24379 -30.72889,13.49665 -76.615431,16.27679 -76.615431,16.27679 36.916841,-6.25356 63.340661,-11.0759 83.374041,-29.67019 7.54862,-7.00637 15.506229,-22.76006 25.275869,-23.77037 11.66104,-1.2059 80.07539,30.78866 119.73453,39.20121 29.92241,5.794 69.1632,11.3014 83.8812,0.0115 42.22192,-23.41784 82.21939,-91.38213 127.06063,-91.22366 33.74688,0.11927 49.13849,14.60637 67.08849,30.84637 22.35827,21.19227 47.58394,50.3469 72.1808,62.48031 z"
+     d="m 582.34389,334.02606 c 14.12358,5.82263 19.33648,8.43772 46.5992,16.56171 l 28.80674,6.72232 c -50.34327,-3.96415 -91.35274,-19.02465 -127.67523,-48.19858 -25.5907,-20.55425 -48.85151,-52.29878 -84.91151,-50.96878 -45.67796,5.06919 -87.94076,73.13901 -123.64728,84.80666 -31.05521,10.14776 -59.88736,6.59051 -90.23514,-0.83515 -59.92342,-14.66239 -109.75753,-39.66479 -117.03448,-39.48396 -7.99087,0.19856 -19.829092,21.07133 -33.882432,27.24379 -30.72889,13.49665 -76.6154309,16.27679 -76.6154309,16.27679 36.9168409,-6.25356 63.3406609,-11.0759 83.3740409,-29.67019 7.54862,-7.00637 15.506232,-22.76006 25.275872,-23.77037 11.66104,-1.2059 80.07539,30.78866 119.73453,39.20121 29.92241,5.794 69.1632,11.3014 83.8812,0.0115 42.22192,-23.41784 82.21939,-91.38213 127.06063,-91.22366 33.74688,0.11927 49.13849,14.60637 67.08849,30.84637 22.35827,21.19227 47.58394,50.3469 72.1808,62.48031 z"
      stroke-width="1"
      stroke="#000000"
      fill="none"
      id="Yellow" />
   <g
-     transform="translate(-155.60071,-53.329699)"
+     transform="translate(-155.60176,-53.329699)"
      style="display:inline"
      inkscape:label="Sun"
      id="layer1"
@@ -186,7 +186,7 @@
        style="display:inline;fill:url(#linearGradient871);fill-opacity:1;stroke:none;stroke-width:1.01071;stroke-miterlimit:4;stroke-dasharray:none" />
   </g>
   <g
-     transform="translate(-155.60071,-53.329699)"
+     transform="translate(-155.60176,-53.329699)"
      style="display:inline"
      inkscape:label="Belly"
      id="layer3"
@@ -202,7 +202,7 @@
        id="Blue" />
   </g>
   <g
-     transform="translate(-155.60071,-53.329699)"
+     transform="translate(-155.60176,-53.329699)"
      inkscape:label="Thigh"
      id="layer4"
      inkscape:groupmode="layer">
@@ -217,7 +217,7 @@
        id="Pink" />
   </g>
   <g
-     transform="translate(-155.60071,-53.329699)"
+     transform="translate(-155.60176,-53.329699)"
      style="display:inline"
      inkscape:label="Head"
      id="layer2"
@@ -230,23 +230,19 @@
        style="display:inline;fill:url(#linearGradient883);fill-opacity:1;stroke:none;stroke-width:1.13939;stroke-miterlimit:4;stroke-dasharray:none" />
   </g>
   <text
-     xml:space="preserve"
-     id="text4685"
-     style="font-size:72px;line-height:1.25;font-family:Sriracha, cursive;white-space:pre;shape-inside:url(#rect4687);fill:url(#linearGradient871);fill-opacity:1;stroke:none;"
-     transform="translate(-188.83892,-15.350896)"><tspan
-       sodipodi:role="line"
-       x="191.50781"
-       y="209.11557"><tspan
-         style="font-size:130.016px">Sunrise</tspan></tspan></text>
-  <text
      id="text90"
-     y="466.25262"
-     x="2.578886"
+     y="169.31267"
+     x="883.36591"
      style="font-style:normal;font-weight:normal;font-size:30.0038px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.750094"
      xml:space="preserve"><tspan
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:130.016px;font-family:Sriracha;-inkscape-font-specification:Sriracha;fill:url(#linearGradient865);stroke:none;stroke-width:0.750094"
-       y="466.25262"
-       x="2.578886"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:144.018px;font-family:Sriracha;-inkscape-font-specification:Sriracha;fill:url(#linearGradient865);stroke:none;stroke-width:0.750094"
+       y="169.31267"
+       x="883.36591"
        id="tspan88"
-       sodipodi:role="line">Fitness Centre</tspan></text>
+       sodipodi:role="line">Sunrise</tspan><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:73.0092px;font-family:Sriracha;-inkscape-font-specification:Sriracha;fill:url(#linearGradient865);stroke:none;stroke-width:0.750094"
+       y="287.20248"
+       x="883.36591"
+       sodipodi:role="line"
+       id="tspan168">Fitness Centre</tspan></text>
 </svg>
