@@ -22,12 +22,12 @@
         <link rel="stylesheet" href="../app/css/style.css" type="text/css" />
     </head>
 
-    <body class="backgroundColor mr-1 ml-1">
+    <body class="backgroundColor">
         <?php
         require('../app/views/header.php');
         ?>
 
-        <main class="mr-1 ml-1">
+        <main>
             <!-- Carousel -->
             <section id="carousel" class="carousel slide mb-4" data-ride="carousel">
                 <!-- slide icons -->
@@ -119,9 +119,9 @@
                     </div>
                     <div class="row">
 
-                        <div class="col-md-6">
+                        <div class="col-6">
                             <div class="card m-1 backgroundColorYellow fColorIndigo">
-                                <img class="card-img-top" src="../app/images/online-yoga.jpg" alt="Card image cap">
+                                <img src="../app/images/online-yoga.jpg" alt="Card image cap">
                                 <div class="card-body">
                                     <h5 class="card-title">Online Classes</h5>
                                     <p class="card-text cardHeight">Be with us every morning on our online classes to meditate and work out with us in this difficult times</p>
@@ -129,9 +129,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-6">
                             <div class="card m-1 backgroundColorYellow fColorIndigo">
-                                <img class="card-img-top" src="../app/images/yoga-park.jpg" alt="Card image cap">
+                                <img src="../app/images/yoga-park.jpg" alt="Card image cap">
                                 <div class="card-body">
                                     <h5 class="card-title">Yoga in the Park</h5>
                                     <p class="card-text cardHeight">On 13th february we will have a class on St Stephen's Green </p>
@@ -148,9 +148,9 @@
                     </div>
                     <div class="row">
 
-                        <div class="col-md-6">
+                        <div class="col-6">
                             <div class="card m-1 backgroundColorYellow fColorIndigo">
-                                <img class="card-img-top" src="../app/images/free-trial.jpg" alt="Card image cap">
+                                <img  src="../app/images/free-trial.jpg" alt="Card image cap">
                                 <div class="card-body">
                                     <h5 class="card-title">Free Trial</h5>
                                     <p class="card-text cardHeight">Do your first class free!</p>
@@ -158,9 +158,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-6">
                             <div class="card m-1 backgroundColorYellow fColorIndigo">
-                                <img class="card-img-top" src="../app/images/pilates.jpg" alt="Card image cap">
+                                <img src="../app/images/pilates.jpg" alt="Card image cap">
                                 <div class="card-body">
                                     <h5 class="card-title ">First month free</h5>
                                     <p class="card-text cardHeight">Ten first registered members will have first month free</p>
