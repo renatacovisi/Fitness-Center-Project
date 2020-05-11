@@ -27,8 +27,7 @@
     require('../app/views/header.php');
     ?>
 
-    <main class="">
-
+    <main>
     <!-- jumbotron -->
     <section class="jumbotron jumbotron-fluid rounded our_team text-white">
       <div class="container">
@@ -38,11 +37,13 @@
       </div>
     </section>
 
+
+
     <!--card group-->
     <div class="card-group">
-      <div class="row m-0">
-        <div class="col-6 col-md-4 d-flex align-items-stretch p-2">
-          <div class="card  backgroundColorYellow fColorIndigo">
+      <div class="row">
+        <div class="col-6 col-md-4 d-flex align-items-stretch">
+          <div class="card m-1 backgroundColorYellow fColorIndigo">
             <img class="card-img-top" src="../app/images/our_team_audrey.jpg" alt="Audrey O'Connell">
             <div class="card-body">
               <h5 class="card-title">Audrey O'Connell</h5>
@@ -52,8 +53,8 @@
               </div>
             </div>
           </div>
-          <div class="col-6 col-md-4 d-flex align-items-stretch p-2">
-            <div class="card backgroundColorYellow fColorIndigo">
+          <div class="col-6 col-md-4 d-flex align-items-stretch">
+            <div class="card m-1 backgroundColorYellow fColorIndigo">
               <img class="card-img-top" src="../app/images/our_team_nance.jpg" alt="Nance McGowen">
               <div class="card-body">
                 <h5 class="card-title">Nance McGowen</h5>
@@ -63,8 +64,8 @@
                 </div>
               </div>
             </div>
-            <div class="col-6 col-md-4 d-flex align-items-stretch p-2">
-              <div class="card backgroundColorYellow fColorIndigo">
+            <div class="col-6 col-md-4 d-flex align-items-stretch">
+              <div class="card m-1 backgroundColorYellow fColorIndigo">
                 <img class="card-img-top" src="../app/images/our_team_zoe.jpg" alt="Zoe Burke">
                 <div class="card-body">
                   <h5 class="card-title">Zoe Burke</h5>
@@ -74,8 +75,8 @@
                   </div>
                 </div>
               </div>
-              <div class="col-6 col-md-4 d-flex align-items-stretch p-2">
-                <div class="card backgroundColorYellow fColorIndigo">
+              <div class="col-6 col-md-4 d-flex align-items-stretch">
+                <div class="card m-1 backgroundColorYellow fColorIndigo">
                   <img class="card-img-top" src="../app/images/our_team_patrick.jpg" alt="Patrick Prince">
                   <div class="card-body">
                     <h5 class="card-title">Patrick Prince</h5>
@@ -85,8 +86,8 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-6 col-md-4 d-flex align-items-stretch p-2">
-                  <div class="card backgroundColorYellow fColorIndigo">
+                <div class="col-6 col-md-4 d-flex align-items-stretch">
+                  <div class="card m-1 backgroundColorYellow fColorIndigo">
                     <img class="card-img-top" src="../app/images/our_team_paul.jpg" alt="Paul O'Brien">
                     <div class="card-body">
                       <h5 class="card-title">Paul O'Brien</h5>
@@ -96,8 +97,8 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-6 col-md-4 d-flex align-items-stretch p-2">
-                    <div class="card backgroundColorYellow fColorIndigo">
+                  <div class="col-6 col-md-4 d-flex align-items-stretch">
+                    <div class="card m-1 backgroundColorYellow fColorIndigo">
                       <img class="card-img-top" src="../app/images/our_team_julie.jpg" alt="Julie Lyane">
                       <div class="card-body">
                         <h5 class="card-title">Julie Lyane</h5>
