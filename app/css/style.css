@@ -151,7 +151,7 @@ nav {
 /* Classes Page */
 /* image tint to make text clearer and apply image background */
 .classesImage{
-    background-image: 
+    background-image:
     linear-gradient(
         rgba(0, 0, 0, 0.5),
         rgba(0, 0, 0, 0.5)
@@ -175,7 +175,7 @@ nav {
 
 /* image tint to make text clearer and apply image background */
 .testimonialImage{
-    background-image: 
+    background-image:
     linear-gradient(
         rgba(0, 0, 0, 0.5),
         rgba(0, 0, 0, 0.5)
@@ -204,6 +204,7 @@ nav {
 .cardHeightOurTeamP1{
     height: 250px;
 }
+
 .cardHeightOurTeamP2{
     height: 150px;
 }
@@ -213,6 +214,8 @@ nav {
     border-radius: 70%;
 }
 
+
+/* registration*/
 .registration{
     background-image:
     linear-gradient(
@@ -232,7 +235,7 @@ nav {
 /* FAQ Page */
 /* image tint to make text clearer and apply image background */
 .faqImage{
-    background-image: 
+    background-image:
     linear-gradient(
         rgba(0, 0, 0, 0.5),
         rgba(0, 0, 0, 0.5)

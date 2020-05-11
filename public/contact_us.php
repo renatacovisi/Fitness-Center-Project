@@ -22,12 +22,12 @@
 <link rel="stylesheet" href="../app/css/style.css" type="text/css" />
 </head>
 
-<body class="backgroundColor mr-2 ml-2">
-<?php
-require('../app/views/header.php');
-?>
+<body class="backgroundColor">
+    <?php
+    require('../app/views/header.php');
+    ?>
 
-<main class="mr-1 ml-1">
+    <main>
   <!-- jumbotron -->
   <section class="jumbotron jumbotron-fluid rounded contact_us text-white">
     <div class="container">
