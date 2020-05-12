@@ -224,6 +224,14 @@ nav {
     ),url("../../app/images/jumbotron_registration.jpg");
 }
 
+.typeOfPlan{
+    font-size: 25px;
+}
+
+.pricePeriod{
+    font-size: 13px;
+}
+
 .testimonialIconSizeClasses {
     width: 20%;
 }
