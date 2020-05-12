@@ -44,7 +44,7 @@
             <div class="card mt-1 backgroundColorYellow fColorIndigo">
               <div class="card-body text-center">
                 <input id="planTypeTree" type="radio" value="Tree" name="Plan" checked="Checked">
-                <label class="inline font-weight-bold typeOfPlan" for="planType">Tree</label>
+                <label class="inline font-weight-bold typeOfPlan" for="planTypeTree">Tree</label>
                 <p class="card-text">Basic plan where you can choose 2 differente classes*</p>
                 <h5 class="card-text font-weight-bold">€59,90</h5>
                 <p class="card-text pricePeriod">monthly</p>
@@ -77,7 +77,7 @@
             <div class="card mt-1 backgroundColorYellow fColorIndigo">
               <div class="card-body text-center">
                 <input id="planTypeLotus" type="radio" value="Lotus" name="Plan" checked="Checked">
-                <label class="inline font-weight-bold typeOfPlan" for="planType">Lotus</label>
+                <label class="inline font-weight-bold typeOfPlan" for="planTypeLotus">Lotus</label>
                 <p class="card-text">Medium plan where you can choose 4 differente classes*</p>
                 <h5 class="card-text font-weight-bold">€89,90</h5>
                 <p class="card-text pricePeriod">monthly</p>
@@ -116,7 +116,7 @@
             <div class="card mt-1 backgroundColorYellow fColorIndigo">
               <div class="card-body text-center">
                 <input id="planTypeButterfly" type="radio" value="Butterfly" name="Plan" checked="Checked">
-                <label class="inline font-weight-bold typeOfPlan" for="planType">Butterfly</label>
+                <label class="inline font-weight-bold typeOfPlan" for="planTypeButterfly">Butterfly</label>
                 <p class="card-text">Unlimited plan where you can do all differente classes*</p>
                 <h5 class="card-text font-weight-bold ">€129,90</h5>
                 <p class="card-text pricePeriod">monthly</p>
@@ -170,7 +170,7 @@
         <label class="font-weight-bold mt-3" for="birthday">Date of birth</label>
         <input type="date" class="form-control" id="birthday" name="birthday">
         <label class="font-weight-bold mt-3" for="FormPhoneNumberInput">Cellphone</label>
-        <input type="tel" class="form-control" id="phone" name="phone">
+        <input type="tel" class="form-control" id="FormPhoneNumberInput" name="phone">
       </div>
 
       <h3 class="text-center mt-5">Chose your classes</h3>
@@ -186,25 +186,25 @@
           </thead>
           <tbody>
             <tr>
-              <td><input id="planType" type="radio" value="choseClass" name="Plan" checked="Checked"></td>
+              <td><input id="typeOne" type="radio" value="SlowVinyasaClass" name="Plan" checked="Checked"></td>
               <td>Slow Vinyasa</td>
               <td>7h45</td>
               <td>Nance</td>
             </tr>
             <tr>
-              <td><input id="planType" type="radio" value="choseClass" name="Plan" checked="Checked"></td>
+              <td><input id="typeTwo" type="radio" value="YinClass" name="Plan" checked="Checked"></td>
               <td>Yin</td>
               <td>10h30</td>
               <td>Audrey</td>
             </tr>
             <tr>
-              <td><input id="planType" type="radio" value="choseClass" name="Plan" checked="Checked"></td>
+              <td><input id="typeThree" type="radio" value="PowerVinyasaClass" name="Plan" checked="Checked"></td>
               <td>Power Vinyasa</td>
               <td>8h00</td>
               <td>Zoe</td>
             </tr>
             <tr>
-              <td><input id="planType" type="radio" value="choseClass" name="Plan" checked="Checked"></td>
+              <td><input id="typeFour" type="radio" value="HathaClass" name="Plan" checked="Checked"></td>
               <td>Hatha</td>
               <td>9h30</td>
               <td>Audrey</td>
@@ -243,17 +243,17 @@
 
       <h3 class="mt-3">Card details</h3>
       <div class="col-md-8">
-        <label class="font-weight-bold mt-1" for="ccnum">Card</label>
-        <input type="text" class="form-control" id="ccnum" name="cardnumber" placeholder="">
-        <label class="font-weight-bold mt-3" for="cname">Name </label>
-        <input type="text" class="form-control" id="cname" name="cardname" placeholder="">
+        <label class="font-weight-bold mt-1" for="cNum">Card</label>
+        <input type="text" class="form-control" id="cNum" name="cardnumber">
+        <label class="font-weight-bold mt-3" for="cName">Name </label>
+        <input type="text" class="form-control" id="cName" name="cardname">
         <label class="font-weight-bold mt-3" for="secCode">Security code</label>
-        <input type="text" class="form-control" id="secCode" name="cvv" placeholder="">
+        <input type="text" class="form-control" id="secCode" name="cvv">
         <label class="font-weight-bold mt-3" for="expDAte">Expiration date</label>
         <input type="date" class="form-control" id="expDate" name="expDAte">
         <input type="submit" class="btn btn-dark mt-3" value="Submit">
       </div>
-      
+
     </form>
 
     <!-- require footer-->
