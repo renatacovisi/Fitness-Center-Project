@@ -1,172 +1,80 @@
-<!-- Specifying the use of html, opening the HTML document and setting the language to english -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <!--title to be showed in the tab of the window-->
-    <title>Home</title>
-    <?php
-    require('../app/views/common_head.php');
-    ?>
-</head>
-
-<body class="backgroundColor">
 <?php
-require('../app/views/header.php');
+#Include the config file - configuration settings are available to the script
+require( "config.php" );
+require("../classes/Post.php");
+
+$results = array();
+#calls the getList() method of the Article class
+$data = Post::getList(2, "news");
+#stores the results, along with the page title, in a $results associative array
+#so the template can display them in the page
+$results['news'] = $data['results'];
+
+
+
+
+
+require( "homePage.php" );
 ?>
 
-<main>
-    <!-- Carousel -->
-    <section id="carousel" class="carousel slide mb-4" data-ride="carousel">
-        <!-- slide icons -->
-        <ul class="carousel-indicators">
-            <li data-target="#carousel" data-slide-to="0" class="active"></li>
-            <li data-target="#carousel" data-slide-to="1"></li>
-            <li data-target="#carousel" data-slide-to="2"></li>
-        </ul>
-        <!-- carousel images and captions -->
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img class="d-block w-100 bluring" src="../app/images/carousel1_1000_660.jpg" alt="First slide">
-                <div class="carousel-caption d-none d-md-block">
-                    <h2 class="shadow">Yoga for everyone</h2>
-                    <p class="shadow">Start your practice now!</p>
-                    <a role="button" class="fColorIndigo btn btn-light buttonSize" href="registration.php">Join Us</a>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="../app/images/carousel2-v2.jpg" alt="Second slide">
-                <div class="carousel-caption d-none d-md-block">
-                    <h2 class="shadow">Our community is waiting for you</h2>
-                    <p class="shadow">Our members and teachers are always happy to see our community grow up</p>
-                    <a type="button" class="fColorIndigo btn btn-light buttonSize" href="registration.php">Join Us</a>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="../app/images/carousel3_1000_660.jpg" alt="Third slide">
-                <div class="carousel-caption d-none d-md-block">
-                    <h2 class="shadow">Classes</h2>
-                    <p class="shadow">Our classes have prepared teachers to help you find your own balance</p>
-                    <a type="button" class="fColorIndigo btn btn-light buttonSize" href="class.php">See classes</a>
-                </div>
-            </div>
-        </div>
-        <!-- carousel buttons to pass slides -->
-        <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </section>
 
-    <!-- Classes Icons -->
-    <section class="mt-4">
-        <h3 class="m-2">Classes</h3>
-        <div class="row">
-
-            <div class="col-6 classesIconsPosition">
-                <div class="col-12 col-md-6 float-left p-0">
-                    <img src="../app/images/cobra.svg"
-                         class="classesIconSize backgroundColorYellow float-left customMarginIcons">
-                    <img src="../app/images/hold_leg_up.svg"
-                         class="classesIconSize backgroundColorYellow float-left customMarginIcons">
-                    <img src="../app/images/one_leg_up.svg"
-                         class="classesIconSize backgroundColorYellow float-left customMarginIcons">
-                    <img src="../app/images/seated_heart.svg"
-                         class="classesIconSize backgroundColorYellow float-left customMarginIcons">
-                </div>
-                <div class="col-12 col-md-6 float-left p-0">
-                    <img src="../app/images/side_plank.svg"
-                         class="classesIconSize backgroundColorYellow float-left customMarginIcons">
-                    <img src="../app/images/stratch_seated.svg"
-                         class="classesIconSize backgroundColorYellow float-left customMarginIcons">
-                    <img src="../app/images/tree.svg"
-                         class="classesIconSize backgroundColorYellow float-left customMarginIcons">
-                    <img src="../app/images/two_legs_up.svg"
-                         class="classesIconSize backgroundColorYellow float-left customMarginIcons">
-                </div>
-            </div>
-            <!-- Classes image and text -->
-            <div class="col-6 hero-image overlap">
-                <div class="hero-text shadow">
-                    <h3>See all classes</h3>
-                    <a href="class.php"><i class="fas fa-plus-circle fColorYellow"></i></a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features - News and Offers -->
-    <section class="row">
-        <div class="col-md-6 ">
-            <div class="row ml-1">
-                <h3>News</h3>
-            </div>
-            <div class="row">
-
-                <div class="col-6">
-                    <div class="card m-1 backgroundColorYellow fColorIndigo">
-                        <img src="../app/images/online-yoga.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Online Classes</h5>
-                            <p class="card-text cardHeight">Be with us every morning on our online classes to meditate
-                                and work out with us in this difficult times</p>
-                            <a href="registration.php" class="btn btn-dark">Join Online</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6">
-                    <div class="card m-1 backgroundColorYellow fColorIndigo">
-                        <img src="../app/images/yoga-park.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Yoga in the Park</h5>
-                            <p class="card-text cardHeight">On 13th february we will have a class on St Stephen's
-                                Green </p>
-                            <a href="#" class="btn btn-dark">See more</a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="row ml-1">
-                <h3>Offers</h3>
-            </div>
-            <div class="row">
-
-                <div class="col-6">
-                    <div class="card m-1 backgroundColorYellow fColorIndigo">
-                        <img src="../app/images/free-trial.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Free Trial</h5>
-                            <p class="card-text cardHeight">Do your first class free!</p>
-                            <a href="contact_us.php" class="btn btn-dark">Contact Us</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6">
-                    <div class="card m-1 backgroundColorYellow fColorIndigo">
-                        <img src="../app/images/pilates.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title ">First month free</h5>
-                            <p class="card-text cardHeight">Ten first registered members will have first month free</p>
-                            <a href="registration.php" class="btn btn-dark">Register now!</a>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </section>
-</main>
-
-<?php
-require('../app/views/footer.php');
-?>
-
-</body>
-
-</html>
+//#check that the $_GET['action'] value exists by using isset
+//#If it doesn’t, we set the corresponding $action variable to an empty string ("")
+//#ternary operator provides a shorthand way of writing the if...else statements
+//#The ternary operator is represented by the question mark (?) symbol
+//#it takes three operands: a condition to check, a result for true, and a result for false.
+//$action = isset( $_GET['action'] ) ? $_GET['action'] : "";
+//#looks at the action parameter in the URL to determine which action to perform
+//#(display the archive, or view an article)
+//#If no action parameter is in the URL then the script displays the site homepage
+//switch ( $action ) {
+//    case 'archive':
+//        archive();
+//        break;
+//    case 'viewArticle':
+//        viewArticle();
+//        break;
+//    default:
+//        homepage();
+//}
+//
+//#displays a list of all the articles in the database
+//function archive() {
+//    $results = array();
+//    #calls the getList() method of the Article class
+//    $data = Article::getList();
+//    #stores the results, along with the page title, in a $results associative array
+//    #so the template can display them in the page
+//    $results['articles'] = $data['results'];
+//    $results['totalRows'] = $data['totalRows'];
+//    $results['pageTitle'] = "Article Archive | Widget News";
+//    #include the path to the template file to display the page.
+//    require( TEMPLATE_PATH . "/archive.php" );
+//}
+//#displays a single article page
+//function viewArticle() {
+//    #retrieves the ID of the article to display from the articleId URL parameter
+//    if ( !isset($_GET["articleId"]) || !$_GET["articleId"] ) {
+//        homepage();
+//        return;
+//    }
+//
+//    $results = array();
+//    #calls the Article class’s getById() method to retrieve the article object
+//    #which it stores in the $results array for the template to use.
+//    $results['article'] = Article::getById( (int)$_GET["articleId"] );
+//    $results['pageTitle'] = $results['article']->title . " | Widget News";
+//    require( TEMPLATE_PATH . "/viewArticle.php" );
+//}
+//#displays the site homepage containing a list of up to HOMEPAGE_NUM_ARTICLES articles
+//#it passes HOMEPAGE_NUM_ARTICLES to the getList() method to limit the number of articles returned
+//function homepage() {
+//    $results = array();
+//    $data = Article::getList( HOMEPAGE_NUM_ARTICLES );
+//    $results['articles'] = $data['results'];
+//    $results['totalRows'] = $data['totalRows'];
+//    $results['pageTitle'] = "Widget News";
+//    require( TEMPLATE_PATH . "/homepage.php" );
+//}
+//
+//?>
