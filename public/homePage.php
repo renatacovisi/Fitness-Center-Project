@@ -15,6 +15,30 @@ require('../app/views/header.php');
 ?>
 
 <main>
+    <?php
+    if ($results["confirmLogout"] == true) {
+    ?>
+    <div class="modal fade" id="logoutConfirmation" tabindex="-1" role="dialog" aria-labelledby="logoutConfirmation" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fColorIndigo" id="exampleModalLabel">Logout</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <p class="modal-body fColorIndigo">
+                    You logged out successfully!
+                </p>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+        <script>$('#logoutConfirmation').modal('show')</script>
+    <?php } ?>
+
     <!-- Carousel -->
     <section id="carousel" class="carousel slide mb-4" data-ride="carousel">
         <!-- slide icons -->
@@ -107,7 +131,7 @@ require('../app/views/header.php');
             <div class="row">
 
                 <!-- a for each loop to make the news feature be populated (two records are retrieved from the database)-->
-                <?php foreach ($results1['news'] as $article) { ?>
+                <?php foreach ($results['news'] as $article) { ?>
                 <div class="col-6">
                     <div class="card m-1 backgroundColorYellow fColorIndigo">
                         <!-- populate the photo of each article -->
@@ -134,7 +158,7 @@ require('../app/views/header.php');
 
                 <!-- one more loop because we have two different features here, derived both from the post class-->
                 <!-- a for each loop to make the news feature be populated (two records are retrieved from the database)-->
-                <?php foreach ($results2['offers'] as $article) { ?>
+                <?php foreach ($results['offers'] as $article) { ?>
                 <div class="col-6">
                     <div class="card m-1 backgroundColorYellow fColorIndigo">
                         <!-- populate the photo of each article -->

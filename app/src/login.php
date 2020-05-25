@@ -1,5 +1,7 @@
 <?php
-require_once('session.php');
+$root = realpath($_SERVER["DOCUMENT_ROOT"]);
+
+require_once("$root/Fitness-Center-project/app/src/session.php");
 #Include the config file - configuration settings are available to the script
 
 
@@ -23,7 +25,7 @@ function login(&$results) {
     $user = user::getByEmail($email, connect());
     if (isset($user) and $user->password == $password) {
         $_SESSION['userEmail'] = $email;
-        header( "Location: index.php" );
+        header( "Location: /Fitness-Center-Project/public/index.php" );
     }
     else {
         // Login failed: display an error message to the user
@@ -43,14 +45,14 @@ function isLoggedIn($user) {
     <!--title to be showed in the tab of the window-->
     <title>Login</title>
     <?php
-    require('../app/views/common_head.php');
+    require("$root/Fitness-Center-project/app/views/common_head.php");
     ?>
 </head>
 
 <body class="backgroundColor">
 <!-- header -->
 <?php
-require('../app/views/header.php');
+require("$root/Fitness-Center-project/app/views/header.php");
 ?>
 
 
@@ -95,7 +97,7 @@ require('../app/views/header.php');
 </main>
 <!-- requires footer-->
 <?php
-require('../app/views/footer.php');
+require("$root/Fitness-Center-project/app/views/footer.php");
 ?>
 </body>
 </html>

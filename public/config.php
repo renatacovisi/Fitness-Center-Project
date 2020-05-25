@@ -10,7 +10,9 @@ define( "TEMPLATE_PATH", "templates" );
 define( "ADMIN_USERNAME", "admin" );
 define( "ADMIN_PASSWORD", "mypass" );
 define( "CLASSES_PER_PAGE", 8);
-require( "../app/src/connection.php" );
+$root = realpath($_SERVER["DOCUMENT_ROOT"]);
+require_once("$root/Fitness-Center-project/app/src/connection.php");
+
 
 
 function handleException( $exception ) {
