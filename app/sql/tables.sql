@@ -29,6 +29,16 @@ CREATE TABLE post (
   PRIMARY KEY (id)
 )DEFAULT CHARSET=UTF8;
 
+DROP TABLE IF EXISTS fee;
+CREATE TABLE fee (
+  id int unsigned NOT NULL auto_increment,
+  name varchar(255) NOT NULL,
+  text varchar(255) NOT NULL,
+  price double NOT NULL,
+  maxClasses int NOT NULL,
+  PRIMARY KEY (id)
+)DEFAULT CHARSET=UTF8;
+
 INSERT INTO post (publicationData, title, text, link, type, buttonText, photoLink)
     VALUES (2020-05-10, 'Online Classes', 'Be with us every morning on our online classes to meditate and work out with us in this difficult times', 'registration.php', 'news', 'Join Online', '../app/images/online-yoga.jpg');
 
@@ -47,3 +57,12 @@ INSERT INTO user (name, surname, PPS, email, password, dateOfBirth, phone, plan,
 
 INSERT INTO user (name, surname, PPS, email, password, dateOfBirth, phone, plan, photo, type)
     VALUES ('Alex', 'B', '2222222', 'alex@hotmail.com', '87654321', 1990-06-21, '3333333', 'tree', 'xxxx.jpg', 'member');
+
+INSERT INTO fee (name, text, price, maxClasses)
+    VALUES ('Tree', 'Basic plan where you can choose 4 differente classes*', 59.90, 4 );
+
+INSERT INTO fee (name, text, price, maxClasses)
+    VALUES ('Lotus', 'Medium plan where you can choose 6 differente classes*', 89.90, 6 );
+
+INSERT INTO fee (name, text, price, maxClasses)
+    VALUES ('Butterfly', 'Unlimited plan where you can do all differente classes*', 129.90, 8 );

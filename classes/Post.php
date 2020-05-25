@@ -177,7 +177,7 @@ class Post
             $Post = new Post( $row );
             $list[] = $Post;
         }
-//        $conn = null;
+        $connection = null;
 #return both the list of Post objects ($list) and the total row count as an associative array
         return ( array ( "results" => $list ) );
     }

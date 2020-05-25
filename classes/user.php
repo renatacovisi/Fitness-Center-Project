@@ -99,8 +99,8 @@ class user {
 
     }
 
-    public function insert($connection) {
-
+    public function insert() {
+        $connection = connect();
         // Does the User object already have an ID?
         if (!is_null($this->id)) trigger_error("User::insert(): Attempt to insert an User object that already has its ID property set (to $this->id).", E_USER_ERROR);
 
@@ -122,8 +122,8 @@ class user {
         $connection = null;
     }
 
-    public static function getByEmail($email, $connection) {
-
+    public static function getByEmail($email) {
+        $connection = connect();
         $sql = "SELECT * FROM user WHERE email = :email";
         $st = $connection->prepare($sql);
         $st->bindValue(":email", $email, PDO::PARAM_STR);
