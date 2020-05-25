@@ -15,8 +15,7 @@ else {
 
 homePage($results);
 
-function homePage($results)
-{
+function homePage($results){
     require("../classes/Post.php");
 
 #calls the getList() method of the Article class

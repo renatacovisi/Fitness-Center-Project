@@ -1,3 +1,14 @@
+<?php
+$root = realpath($_SERVER["DOCUMENT_ROOT"]);
+#Include the config file - configuration settings are available to the script
+require_once("$root/Fitness-Center-project/public/config.php");
+    require("../classes/Fee.php");
+    $data = Fee::getList(3);
+    $results['feePlans'] = $data['results'];
+?>
+
+
+
 <!-- Specifying the use of html, opening the HTML document and setting the language to english -->
 <!DOCTYPE html>
 <html lang="en">
@@ -26,13 +37,14 @@ require('../app/views/header.php');
         <h3 class="mt-5">Plans</h3>
         <div class="card-deck">
             <div class="row">
+                <?php foreach ($results['feePlans'] as $feePlan) { ?>
                 <div class="col-6 col-md-4 d-flex align-items-stretch">
                     <div class="card mt-1 backgroundColorYellow fColorIndigo">
                         <div class="card-body text-center">
-                            <input id="planTypeTree" type="radio" value="Tree" name="userPlan" checked="Checked">
-                            <label class="inline font-weight-bold typeOfPlan" for="planTypeTree">Tree</label>
-                            <p class="card-text">Basic plan where you can choose 2 differente classes*</p>
-                            <h5 class="card-text font-weight-bold">€59,90</h5>
+                            <input id=<?php echo $feePlan->name?> type="radio" value=<?php echo $feePlan->name?> name=<?php echo $feePlan->name?>>
+                            <label class="inline font-weight-bold typeOfPlan" for="planTypeTree"><?php echo $feePlan->name?></label>
+                            <p class="card-text"><?php echo $feePlan->text?></p>
+                            <h5 class="card-text font-weight-bold"><?php echo $feePlan->price?></h5>
                             <p class="card-text pricePeriod">monthly</p>
                             <table class="table table-borderless fColorIndigo">
                                 <thead>
@@ -58,93 +70,9 @@ require('../app/views/header.php');
                         </div>
                     </div>
                 </div>
-
-                <div class="col-6 col-md-4 d-flex align-items-stretch">
-                    <div class="card mt-1 backgroundColorYellow fColorIndigo">
-                        <div class="card-body text-center">
-                            <input id="planTypeLotus" type="radio" value="Lotus" name="userPlan" checked="Checked">
-                            <label class="inline font-weight-bold typeOfPlan" for="planTypeLotus">Lotus</label>
-                            <p class="card-text">Medium plan where you can choose 4 differente classes*</p>
-                            <h5 class="card-text font-weight-bold">€89,90</h5>
-                            <p class="card-text pricePeriod">monthly</p>
-                            <table class="table table-borderless fColorIndigo">
-                                <thead>
-                                <tr>
-                                    <th>Classes*</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>Slow Vinyasa</td>
-                                </tr>
-                                <tr>
-                                    <td>Power Vinyasa</td>
-                                </tr>
-                                <tr>
-                                    <td>Yin</td>
-                                </tr>
-                                <tr>
-                                    <td>Hatha</td>
-                                </tr>
-                                <tr>
-                                    <td>Meditation</td>
-                                </tr>
-                                <tr>
-                                    <td>Pregnancy</td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-6 col-md-4 d-flex align-items-stretch">
-                    <div class="card mt-1 backgroundColorYellow fColorIndigo">
-                        <div class="card-body text-center">
-                            <input id="planTypeButterfly" type="radio" value="Butterfly" name="userPlan" checked="Checked">
-                            <label class="inline font-weight-bold typeOfPlan" for="planTypeButterfly">Butterfly</label>
-                            <p class="card-text">Unlimited plan where you can do all differente classes*</p>
-                            <h5 class="card-text font-weight-bold ">€129,90</h5>
-                            <p class="card-text pricePeriod">monthly</p>
-                            <table class="table table-borderless fColorIndigo">
-                                <thead>
-                                <tr>
-                                    <th>Classes*</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>Slow Vinyasa</td>
-                                </tr>
-                                <tr>
-                                    <td>Power Vinyasa</td>
-                                </tr>
-                                <tr>
-                                    <td>Yin</td>
-                                </tr>
-                                <tr>
-                                    <td>Hatha</td>
-                                </tr>
-                                <tr>
-                                    <td>Meditation</td>
-                                </tr>
-                                <tr>
-                                    <td>Pregnancy</td>
-                                </tr>
-                                <tr>
-                                    <td>Pilates</td>
-                                </tr>
-                                <tr>
-                                    <td>Zumba</td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
+                <?php } ?>
             </div>
         </div>
-
         <h3 class="mt-5">Your details</h3>
         <div class="col-md-9">
             <label class="font-weight-bold mt-1" for="userName">Name</label>
