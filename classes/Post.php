@@ -32,14 +32,24 @@ class Post
     public $text = null;
 
     /**
-     * @var string The HTML content of the Post
+     * @var string The link of the Post
      */
     public $link = null;
 
     /**
-     * @var string The HTML content of the Post
+     * @var string The type of the Post - news or offers
      */
     public $type = null;
+
+    /**
+     * @var string The text of the button of the Post
+     */
+    public $buttonText = null;
+
+    /**
+     * @var string The link for a photo in the images folder
+     */
+    public $photoLink = null;
 
 
     /**
@@ -62,6 +72,8 @@ class Post
         if ( isset( $data['text'] ) ) $this->text = $data['text'];
         if ( isset( $data['link'] ) ) $this->link = $data['link'];
         if ( isset( $data['type'] ) ) $this->type = $data['type'];
+        if ( isset( $data['buttonText'] ) ) $this->buttonText = $data['buttonText'];
+        if ( isset( $data['photoLink'] ) ) $this->photoLink = $data['photoLink'];
     }
 
 

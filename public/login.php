@@ -1,3 +1,41 @@
+<?php
+require_once('session.php');
+#Include the config file - configuration settings are available to the script
+
+
+if (isLoggedIn($user)) {
+    header( "Location: index.php" );
+    exit;
+}
+
+$action = isset( $_GET['action'] ) ? $_GET['action'] : "";
+$results = array();
+
+if ( $action == "tryLogin") {
+    login($results);
+}
+
+function login(&$results) {
+
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    $user = user::getByEmail($email, connect());
+    if (isset($user) and $user->password == $password) {
+        $_SESSION['userEmail'] = $email;
+        header( "Location: index.php" );
+    }
+    else {
+        // Login failed: display an error message to the user
+        $results['errorMessage'] = "Incorrect username or password. Please try again.";
+
+    }
+}
+
+function isLoggedIn($user) {
+    return $user->type == "admin" || $user->type == "member";
+}
+?>
 <!-- Specifying the use of html, opening the HTML document and setting the language to english -->
 <!DOCTYPE html>
 <html lang="en">
@@ -15,6 +53,11 @@
 require('../app/views/header.php');
 ?>
 
+
+
+
+<!--login form-->
+
 <main class="mx-3">
     <!-- jumbotron -->
     <section class="jumbotron jumbotron-fluid rounded faqImage text-white">
@@ -24,17 +67,20 @@ require('../app/views/header.php');
     </section>
 
     <section>
-        <form class="col-md-6 mx-auto">
+        <?php if ( isset( $results['errorMessage'] ) ) { ?>
+            <div class="col-md-6 mx-auto"><?php echo $results['errorMessage'] ?></div>
+        <?php } ?>
+        <form class="col-md-6 mx-auto" action="login.php?action=tryLogin" method="post">
             <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                       placeholder="Enter email">
+                <label for="email">Email address</label>
+                <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
+                       placeholder="Enter email" name="email">
                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
                     else.</small>
             </div>
             <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Password" name="password">
                 <small id="emailHelp" class="form-text text-muted">Your password must be 8-20 characters long, contain
                     letters and numbers, and must not contain spaces, special characters, or emoji.</small>
 
@@ -47,5 +93,9 @@ require('../app/views/header.php');
     </section>
 
 </main>
+<!-- requires footer-->
+<?php
+require('../app/views/footer.php');
+?>
 </body>
 </html>

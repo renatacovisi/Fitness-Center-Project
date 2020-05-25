@@ -106,30 +106,23 @@ require('../app/views/header.php');
             </div>
             <div class="row">
 
-                <?php foreach ($results['news'] as $article) { ?>
+                <!-- a for each loop to make the news feature be populated (two records are retrieved from the database)-->
+                <?php foreach ($results1['news'] as $article) { ?>
                 <div class="col-6">
                     <div class="card m-1 backgroundColorYellow fColorIndigo">
-                        <img src="../app/images/online-yoga.jpg" alt="Card image cap">
+                        <!-- populate the photo of each article -->
+                        <img src=<?php echo $article->photoLink?> alt="Card image cap">
                         <div class="card-body">
+                            <!-- populate the title of each article -->
                             <h5 class="card-title"><?php echo $article->title?></h5>
-                            <p class="card-text cardHeight">Be with us every morning on our online classes to meditate
-                                and work out with us in this difficult times</p>
-                            <a href="registration.php" class="btn btn-dark">Join Online</a>
+                            <!-- populate the text of each article -->
+                            <p class="card-text cardHeight"><?php echo $article->text?></p>
+                            <!-- populate the link and the buttons of each article -->
+                            <a href=<?php echo $article->link?> class="btn btn-dark"><?php echo $article->buttonText?></a>
                         </div>
                     </div>
                 </div>
                 <?php } ?>
-<!--                <div class="col-6">-->
-<!--                    <div class="card m-1 backgroundColorYellow fColorIndigo">-->
-<!--                        <img src="../app/images/yoga-park.jpg" alt="Card image cap">-->
-<!--                        <div class="card-body">-->
-<!--                            <h5 class="card-title">Yoga in the Park</h5>-->
-<!--                            <p class="card-text cardHeight">On 13th february we will have a class on St Stephen's-->
-<!--                                Green </p>-->
-<!--                            <a href="#" class="btn btn-dark">See more</a>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
 
             </div>
         </div>
@@ -139,32 +132,30 @@ require('../app/views/header.php');
             </div>
             <div class="row">
 
+                <!-- one more loop because we have two different features here, derived both from the post class-->
+                <!-- a for each loop to make the news feature be populated (two records are retrieved from the database)-->
+                <?php foreach ($results2['offers'] as $article) { ?>
                 <div class="col-6">
                     <div class="card m-1 backgroundColorYellow fColorIndigo">
-                        <img src="../app/images/free-trial.jpg" alt="Card image cap">
+                        <!-- populate the photo of each article -->
+                        <img src=<?php echo $article->photoLink?> alt="Card image cap">
                         <div class="card-body">
-                            <h5 class="card-title">Free Trial</h5>
-                            <p class="card-text cardHeight">Do your first class free!</p>
-                            <a href="contact_us.php" class="btn btn-dark">Contact Us</a>
+                            <!-- populate the title of each article -->
+                            <h5 class="card-title"><?php echo $article->title?></h5>
+                            <!-- populate the text of each article -->
+                            <p class="card-text cardHeight"><?php echo $article->text?></p>
+                            <!-- populate the link and the buttons of each article -->
+                            <a href=<?php echo $article->link?> class="btn btn-dark"><?php echo $article->buttonText?></a>
                         </div>
                     </div>
                 </div>
-                <div class="col-6">
-                    <div class="card m-1 backgroundColorYellow fColorIndigo">
-                        <img src="../app/images/pilates.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title ">First month free</h5>
-                            <p class="card-text cardHeight">Ten first registered members will have first month free</p>
-                            <a href="registration.php" class="btn btn-dark">Register now!</a>
-                        </div>
-                    </div>
-
-                </div>
+                <?php } ?>
             </div>
         </div>
     </section>
 </main>
 
+<!-- requires the foot-->
 <?php
 require('../app/views/footer.php');
 ?>
