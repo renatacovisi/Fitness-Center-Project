@@ -1,3 +1,5 @@
+
+
         <!--Specifying the charsert to be used and make sure special chars will apper ok-->
         <meta charset="utf-8">
         <!-- bootstrap -->
@@ -11,4 +13,4 @@
         <script src="https://kit.fontawesome.com/6756b41fc1.js" crossorigin="anonymous"></script>
         <!-- Google fonts -->
         <!--Use the styling css created in another file-->
-        <link rel="stylesheet" href="../app/css/style.css" type="text/css" />
+        <link rel="stylesheet" href="/Fitness-Center-Project/app/css/style.css" type="text/css" />

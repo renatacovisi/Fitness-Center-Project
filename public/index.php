@@ -1,26 +1,36 @@
 <?php
+$root = realpath($_SERVER["DOCUMENT_ROOT"]);
 #Include the config file - configuration settings are available to the script
-require( "config.php" );
+require_once("$root/Fitness-Center-project/public/config.php");
 
+$action = isset( $_GET['action'] ) ? $_GET['action'] : "";
+$results = array();
 
-homePage();
+if ( $action == "confirmLogout") {
+    $results['confirmLogout'] = true;
+}
+else {
+    $results['confirmLogout'] = false;
+}
 
-function homePage()
+homePage($results);
+
+function homePage($results)
 {
     require("../classes/Post.php");
 
-    $results1 = array();
-    $results2 = array();
 #calls the getList() method of the Article class
     $data1 = Post::getList(2, "news");
     $data2 = Post::getList(2, "offers");
 #stores the results, along with the page title, in a $results associative array
 #so the template can display them in the page
-    $results1['news'] = $data1['results'];
-    $results2['offers'] = $data2['results'];
+    $results['news'] = $data1['results'];
+    $results['offers'] = $data2['results'];
 
     require("homePage.php");
 }
+
+
 
 ?>
 

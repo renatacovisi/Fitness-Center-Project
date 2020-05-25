@@ -2,7 +2,7 @@
 <footer class="mt-4 stick-bottom">
   <div class="backgroundColorYellow row fColorIndigo pt-4 m-0 d-flex justify-content-around">
     <div class="p-0 my-auto">
-      <a href="#"><img id="logoFooter" src="../app/images/logo_symbol_only.svg" alt=""></a>
+      <a href="#"><img id="logoFooter" src="/Fitness-Center-Project/app/images/logo_symbol_only.svg" alt=""></a>
     </div>
     <div class="px-3 d-none d-lg-block">
       <h5 class="title font-weight-bold">Locations</h5>
