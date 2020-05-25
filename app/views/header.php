@@ -1,3 +1,9 @@
+<?php
+require_once ('../public/session.php');
+?>
+
+
+
 <header>
     <nav class="navbar navbar-expand-lg fixed-top shadow">
 
@@ -52,8 +58,13 @@
             </ul>
             <!-- buttons -->
             <div class="d-block float-right">
+                <?php if ($user->type == "public") {?>
                 <a role="button" class="fColorIndigo btn btn-light m-1 ml-3 d-block buttonSize noShadow" href="registration.php">Sign Up</a>
                 <a role="button" class="fColorIndigo btn btn-light m-1 ml-3 d-block buttonSize noShadow" href="login.php">Sign In</a>
+                <?php }
+                else {?>
+                <a role="button" class="fColorIndigo btn btn-light m-1 ml-3 d-block buttonSize noShadow" href="registration.php">Log out</a>
+                <?php }?>
             </div>
         </div>
     </nav>

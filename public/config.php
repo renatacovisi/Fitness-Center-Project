@@ -15,7 +15,7 @@ require( "../app/src/connection.php" );
 
 function handleException( $exception ) {
     echo "Sorry, a problem occurred. Please try later.";
-    error_log( $exception->getMessage() );
+    echo $exception;
 }
 
 set_exception_handler( 'handleException' );

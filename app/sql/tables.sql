@@ -1,17 +1,18 @@
 DROP TABLE IF EXISTS user;
 CREATE TABLE user (
-  userId int unsigned NOT NULL auto_increment,
-  userName varchar(255) NOT NULL,
-  userSurname varchar(255) NOT NULL,
-  userPPS varchar(15) NOT NULL,
-  userEmail varchar(255) NOT NULL,
-  userPassword varchar(255) NOT NULL,
-  userDateOfBirth date NOT NULL,
-  userPhone varchar(255) NOT NULL,
-  userFeePlan varchar(255) NOT NULL,
-  userPhoto varchar(255),
+  id int unsigned NOT NULL auto_increment,
+  name varchar(255) NOT NULL,
+  surname varchar(255) NOT NULL,
+  PPS varchar(15) NOT NULL,
+  email varchar(100) NOT NULL UNIQUE,
+  password varchar(255) NOT NULL,
+  dateOfBirth date NOT NULL,
+  phone varchar(255) NOT NULL,
+  plan varchar(255) NOT NULL,
+  photo varchar(255),
+  type varchar(40),
 
-  PRIMARY KEY (userId)
+  PRIMARY KEY (id)
 );
 
 DROP TABLE IF EXISTS post;
@@ -22,12 +23,27 @@ CREATE TABLE post (
   text varchar(255) NOT NULL,
   link varchar(255) NOT NULL,
   type varchar(20) NOT NULL,
+  buttonText varchar(20) NOT NULL,
+  photoLink varchar(255) NOT NULL,
 
   PRIMARY KEY (id)
-);
+)DEFAULT CHARSET=UTF8;
 
-INSERT INTO post (publicationData, title, text, link, type)
-    VALUES (2020-05-10, 'test1', 'testando', 'bla', 'news');
+INSERT INTO post (publicationData, title, text, link, type, buttonText, photoLink)
+    VALUES (2020-05-10, 'Online Classes', 'Be with us every morning on our online classes to meditate and work out with us in this difficult times', 'registration.php', 'news', 'Join Online', '../app/images/online-yoga.jpg');
 
-INSERT INTO post (publicationData, title, text, link, type)
-    VALUES (2020-05-10, 'test2', 'testando', 'bla', 'news');
+INSERT INTO post (publicationData, title, text, link, type, buttonText, photoLink)
+    VALUES (2020-05-10, 'Yoga in the Park', 'On 13th february we will have a class on St Stephens Green', '#', 'news', 'Join us', '../app/images/yoga-park.jpg');
+
+INSERT INTO post (publicationData, title, text, link, type, buttonText, photoLink)
+    VALUES (2020-05-10, 'Free Trial', 'Do your first class free!', 'contact_us.php', 'offers', 'Contact Us', '../app/images/free-trial.jpg');
+
+INSERT INTO post (publicationData, title, text, link, type, buttonText, photoLink)
+    VALUES (2020-05-10, 'First month free', 'Ten first registered members will have first month free',
+    'registration.php', 'offers', 'Register now!', '../app/images/pilates.jpg');
+
+INSERT INTO user (name, surname, PPS, email, password, dateOfBirth, phone, plan, photo, type)
+    VALUES ('Renata', 'Covisi', '111111', 'renata@hotmail.com', '12345678', 1991-11-18, '3333333', 'tree', 'xxxx.jpg', 'admin');
+
+INSERT INTO user (name, surname, PPS, email, password, dateOfBirth, phone, plan, photo, type)
+    VALUES ('Alex', 'B', '2222222', 'alex@hotmail.com', '87654321', 1990-06-21, '3333333', 'tree', 'xxxx.jpg', 'member');

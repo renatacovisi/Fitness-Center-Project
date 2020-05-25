@@ -10,53 +10,58 @@ class user {
     /**
      * @var int The user ID from the database
      */
-    public $userId = null;
+    public $id = null;
 
     /**
      * @var string The user name
      */
-    public $userName = null;
+    public $name = null;
 
     /**
      * @var string The user surname
      */
-    public $userSurname = null;
+    public $surname = null;
 
     /**
      * @var string The user PPS number
      */
-    public $userPPS = null;
+    public $PPS = null;
 
     /**
-     * @var string The user e-mail adress
+     * @var string The user e-mail address
      */
-    public $userEmail = null;
+    public $email = null;
 
 
     /**
      * @var string The user password
      */
-    public $userPassword = null;
+    public $password = null;
 
     /**
      * @var int The user date of birth
      */
-    public $userDateOfBirth = null;
+    public $dateOfBirth = null;
 
     /**
      * @var String The user phone
      */
-    public $userPhone = null;
+    public $phone = null;
 
     /**
      * @var String The user fee plan
      */
-    public $userFeePlan = null;
+    public $feePlan = null;
 
     /**
      * @var String The user photo
      */
-    public $userPhoto = null;
+    public $photo = null;
+
+    /**
+     * @var String The user photo
+     */
+    public $type = null;
 
     /**
      * Sets the object's properties using the values in the supplied array
@@ -66,16 +71,17 @@ class user {
 
     public function __construct($userData = array())
     {
-        if (isset($userData['userId'])) $this->userId = (int)$userData['userId'];
-        if (isset($userData['userName'])) $this->userName = preg_replace("/[^\.\,\-\_\'\"\@\?\!\:\$ a-zA-Z0-9()]/", "", $userData['userName']);
-        if (isset($userData['userSurname'])) $this->userSurname = preg_replace("/[^\.\,\-\_\'\"\@\?\!\:\$ a-zA-Z0-9()]/", "", $userData['userSurname']);
-        if (isset($userData['userPPS'])) $this->userPPS = preg_replace("/[^\.\,\-\_\'\"\@\?\!\:\$ a-zA-Z0-9()]/", "", $userData['userPPS']);
-        if (isset($userData['userEmail']) and (filter_var(userEmail, FILTER_VALIDATE_EMAIL))) $this->userEmail = $userData['userEmail'];
-        if (isset($userData['userPassword'])) $this->userPassword = preg_replace("/[^\.\,\-\_\'\"\@\?\!\:\$ a-zA-Z0-9()]/", "", $userData['userPassword']);
-        if (isset($userData['userDateOfBirth'])) $this->userDateOfBirth = strtotime($userData['userDateOfBirth']);
-        if (isset($userData['userPhone'])) $this->userPhone = preg_replace("/[^\.\,\-\_\'\"\@\?\!\:\$ a-zA-Z0-9()]/", "", $userData['userPhone']);
-        if (isset($userData['userFeePlan'])) $this->userFeePlan = $userData['userFeePlan'];
-        if (isset($userData['userPhoto'])) $this->userPhoto = $userData['userPhoto'];
+        if (isset($userData['id'])) $this->id = (int)$userData['id'];
+        if (isset($userData['name'])) $this->name = preg_replace("/[^\.\,\-\_\'\"\@\?\!\:\$ a-zA-Z0-9()]/", "", $userData['name']);
+        if (isset($userData['surname'])) $this->surname = preg_replace("/[^\.\,\-\_\'\"\@\?\!\:\$ a-zA-Z0-9()]/", "", $userData['surname']);
+        if (isset($userData['PPS'])) $this->PPS = preg_replace("/[^\.\,\-\_\'\"\@\?\!\:\$ a-zA-Z0-9()]/", "", $userData['PPS']);
+        if (isset($userData['email']) and (filter_var($userData['email'], FILTER_VALIDATE_EMAIL))) $this->email = $userData['email'];
+        if (isset($userData['password'])) $this->password = preg_replace("/[^\.\,\-\_\'\"\@\?\!\:\$ a-zA-Z0-9()]/", "", $userData['password']);
+        if (isset($userData['dateOfBirth'])) $this->dateOfBirth = strtotime($userData['dateOfBirth']);
+        if (isset($userData['phone'])) $this->phone = preg_replace("/[^\.\,\-\_\'\"\@\?\!\:\$ a-zA-Z0-9()]/", "", $userData['phone']);
+        if (isset($userData['feePlan'])) $this->feePlan = $userData['feePlan'];
+        if (isset($userData['photo'])) $this->photo = $userData['photo'];
+        if (isset($userData['type'])) $this->type = $userData['type'];
     }
 
 
@@ -89,39 +95,48 @@ class user {
 
         // Store all the parameters
         $this->__construct($params);
+        $this->type = "member";
 
     }
 
     public function insert($connection) {
 
         // Does the User object already have an ID?
-        if (!is_null($this->userId)) trigger_error("User::insert(): Attempt to insert an User object that already has its ID property set (to $this->Userid).", E_USER_ERROR);
+        if (!is_null($this->id)) trigger_error("User::insert(): Attempt to insert an User object that already has its ID property set (to $this->id).", E_USER_ERROR);
 
         // Insert the User
-        $sql = "INSERT INTO user (userId, userName, userSurname, userPPS, userEmail, userPassword, userDateOfBirth, userPhone, userFeePlan, userPhoto) VALUES (:userId, :userName, :userSurname, :userPPS, :userEmail, :userPassword, :userDateOfBirth, :userPhone, :userFeePlan, :userPhoto)";
+        $sql = "INSERT INTO user (id, name, surname, PPS, email, password, dateOfBirth, phone, feePlan, photo) VALUES (:id, :name, :surname, :PPS, :email, :password, :dateOfBirth, :phone, :feePlan, :photo)";
         $st = $connection->prepare($sql);
-        $st->bindValue(":userName", $this->userName, PDO::PARAM_STR);
-        $st->bindValue(":userSurname", $this->userSurname, PDO::PARAM_STR);
-        $st->bindValue(":userPPS", $this->userPPS, PDO::PARAM_STR);
-        $st->bindValue(":userEmail", $this->userEmail, PDO::PARAM_STR);
-        $st->bindValue(":userPassword", $this->userPassword, PDO::PARAM_STR);
-        $st->bindValue(":userDateOfBirth", $this->userDateOfBirth, PDO::PARAM_INT);
-        $st->bindValue(":userPhone", $this->userPhone, PDO::PARAM_STR);
-        $st->bindValue(":userFeePlan", $this->userFeePlan, PDO::PARAM_STR);
-        $st->bindValue(":userPhoto", $this->userPhoto, PDO::PARAM_STR);
+        $st->bindValue(":name", $this->name, PDO::PARAM_STR);
+        $st->bindValue(":surname", $this->surname, PDO::PARAM_STR);
+        $st->bindValue(":PPS", $this->PPS, PDO::PARAM_STR);
+        $st->bindValue(":email", $this->email, PDO::PARAM_STR);
+        $st->bindValue(":password", $this->password, PDO::PARAM_STR);
+        $st->bindValue(":dateOfBirth", $this->dateOfBirth, PDO::PARAM_INT);
+        $st->bindValue(":phone", $this->phone, PDO::PARAM_STR);
+        $st->bindValue(":feePlan", $this->feePlan, PDO::PARAM_STR);
+        $st->bindValue(":photo", $this->photo, PDO::PARAM_STR);
+        $st->bindValue(":type", $this->type, PDO::PARAM_STR);
         $st->execute();
-        $this->userId = $connection->lastInsertId();
+        $this->id = $connection->lastInsertId();
         $connection = null;
     }
 
-    public static function getByEmail($userEmail, $connection) {
+    public static function getByEmail($email, $connection) {
 
-        $sql = "SELECT * FROM user WHERE userEmail = :userEmail";
+        $sql = "SELECT * FROM user WHERE email = :email";
         $st = $connection->prepare($sql);
-        $st->bindValue(":userEmail", $userEmail, PDO::PARAM_STR);
+        $st->bindValue(":email", $email, PDO::PARAM_STR);
         $st->execute();
         $row = $st->fetch();
         $connection = null;
         if ($row) return new User($row);
+    }
+
+    public static function generatePublicUser() {
+        $user = new User();
+        $user->id = -1;
+        $user->type = 'public';
+        return $user;
     }
 }
