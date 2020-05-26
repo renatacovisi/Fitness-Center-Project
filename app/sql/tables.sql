@@ -6,11 +6,15 @@ CREATE TABLE user (
   PPS varchar(15) NOT NULL,
   email varchar(100) NOT NULL UNIQUE,
   password varchar(255) NOT NULL,
+  securityMessage varchar (255) NOT NULL,
   dateOfBirth date NOT NULL,
   phone varchar(255) NOT NULL,
-  plan varchar(255) NOT NULL,
-  photo varchar(255),
-  type varchar(40),
+  card varchar (255) NOT NULL,
+  nameOnCard varchar (255) NOT NULL,
+  securityCode varchar (4) NOT NULL,
+  expirationDate date NOT NULL,
+  plan varchar(255),
+  type varchar(40) NOT NULL,
 
   PRIMARY KEY (id)
 );
@@ -52,11 +56,11 @@ INSERT INTO post (publicationData, title, text, link, type, buttonText, photoLin
     VALUES (2020-05-10, 'First month free', 'Ten first registered members will have first month free',
     'registration.php', 'offers', 'Register now!', '../app/images/pilates.jpg');
 
-INSERT INTO user (name, surname, PPS, email, password, dateOfBirth, phone, plan, photo, type)
-    VALUES ('Renata', 'Covisi', '111111', 'renata@hotmail.com', '12345678', 1991-11-18, '3333333', 'tree', 'xxxx.jpg', 'admin');
+INSERT INTO user (name, surname, PPS, email, password, securityMessage, dateOfBirth, phone, card, nameOnCard, securityCode, expirationDate, plan, type)
+    VALUES ('Renata', 'Covisi', '111111', 'renata@hotmail.com', '12345678', 'hashtagmuito', 1991-11-18, '3333333', '2222222','Renata', '111', 2022-10-11, 'tree', 'admin');
 
-INSERT INTO user (name, surname, PPS, email, password, dateOfBirth, phone, plan, photo, type)
-    VALUES ('Alex', 'B', '2222222', 'alex@hotmail.com', '87654321', 1990-06-21, '3333333', 'tree', 'xxxx.jpg', 'member');
+INSERT INTO user (name, surname, PPS, email, password, securityMessage, dateOfBirth, phone, card, nameOnCard, securityCode, expirationDate, plan, type)
+    VALUES ('Alex', 'B', '2222222', 'alex@hotmail.com', '87654321', 'hashtagmuito', 1990-06-21, '3333333', '4444444', 'Alex', '222', 2025-10-22, 'tree', 'member');
 
 INSERT INTO fee (name, text, price, maxClasses)
     VALUES ('Tree', 'Basic plan where you can choose 4 differente classes*', 59.90, 4 );

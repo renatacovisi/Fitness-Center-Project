@@ -22,7 +22,7 @@ function login(&$results) {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $user = user::getByEmail($email, connect());
+    $user = User::getByEmail($email, connect());
     if (isset($user) and $user->password == $password) {
         $_SESSION['userEmail'] = $email;
         header( "Location: /Fitness-Center-Project/public/index.php" );
