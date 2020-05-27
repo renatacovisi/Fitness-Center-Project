@@ -3,20 +3,34 @@ $root = realpath($_SERVER["DOCUMENT_ROOT"]);
 #Include the config file - configuration settings are available to the script
 require_once("$root/Fitness-Center-project/public/config.php");
 
-$action = isset( $_GET['action'] ) ? $_GET['action'] : "";
+$action = isset($_GET['action']) ? $_GET['action'] : "";
 $results = array();
+$status = isset($_GET['status']) ? $_GET['status'] : "";
 
-if ( $action == "confirmLogout") {
-    $results['confirmLogout'] = true;
+$results['confirmLogout'] = $action == "confirmLogout";
+
+$results['showEditPosts'] = ($action == "showEditPosts" || $action == 'savePostResult');
+
+$results['showEditCarousel'] = ($action == "showEditCarousel" || $action == 'savePostResult');
+
+if ($action == 'savePostResult' and $status == 'uploadSuccess') {
+    $results['message'] = "Changes Saved!";
+} elseif ($action == 'savePostResult' and $status == 'uploadFailed') {
+    $results['message'] = "An error occurred, please try again.";
 }
-else {
-    $results['confirmLogout'] = false;
+
+if ($action == 'saveCarouselResult' and $status == 'uploadSuccess') {
+    $results['message'] = "Changes Saved!";
+} elseif ($action == 'saveCarouselResult' and $status == 'uploadFailed') {
+    $results['message'] = "An error occurred, please try again.";
 }
+
 
 homePage($results);
 
-function homePage($results){
-    require("../classes/Post.php");
+function homePage($results)
+{
+    require_once("../classes/Post.php");
 
 #calls the getList() method of the Article class
     $data1 = Post::getList(2, "news");
@@ -28,7 +42,6 @@ function homePage($results){
 
     require("homePage.php");
 }
-
 
 
 ?>
