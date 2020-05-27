@@ -66,8 +66,6 @@ class Post
         #cast to integers (int)
         if ( isset( $data['id'] ) ) $this->id = (int) $data['id'];
         if ( isset( $data['publicationDate'] ) ) $this->publicationDate = (int) $data['publicationDate'];
-        #regular expression only allows a certain range of characters
-        #https://www.ntu.edu.sg/home/ehchua/programming/howto/Regexe.html
         if ( isset( $data['title'] ) ) $this->title = $data['title'];
         if ( isset( $data['text'] ) ) $this->text = $data['text'];
         if ( isset( $data['link'] ) ) $this->link = $data['link'];
@@ -159,8 +157,8 @@ class Post
         $connection = connect();
         #see getById() above
         #SQL_CALC_FOUND_ROWS tells MySQL to return the actual number of records returned
-        $sql = "SELECT SQL_CALC_FOUND_ROWS *, UNIX_TIMESTAMP(publicationData) AS publicationData FROM Post
-            WHERE type = :type ORDER BY publicationData DESC LIMIT :numRows";
+        $sql = "SELECT SQL_CALC_FOUND_ROWS *, UNIX_TIMESTAMP(publicationDate) AS publicationDate FROM Post
+            WHERE type = :type ORDER BY publicationDate DESC LIMIT :numRows";
 
         $st = $connection->prepare( $sql );
         $st->bindValue( ":numRows", $numRows, PDO::PARAM_INT );
@@ -194,19 +192,26 @@ class Post
         if ( !is_null( $this->id ) ) trigger_error ( "Post::insert(): Attempt to insert an Post object that already has its ID property set (to $this->id).", E_USER_ERROR );
 
         // Insert the Post
-        $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
+        $connection = connect();
 #FROM_UNIXTIME() function converts the publication date from UNIX timestamp format back into MySQL format
-        $sql = "INSERT INTO Posts ( publicationDate, title, summary, content ) VALUES ( FROM_UNIXTIME(:publicationDate), :title, :summary, :content )";
-        $st = $conn->prepare ( $sql );
+        $sql = "INSERT INTO Post ( publicationDate, title, text, link, type, buttonText, photoLink ) VALUES ( FROM_UNIXTIME(:publicationDate), :title, :text, :link, :type, :buttonText, :photoLink )";
+        $st = $connection->prepare ( $sql );
         $st->bindValue( ":publicationDate", $this->publicationDate, PDO::PARAM_INT );
 #PDO::PARAM_STR binds string values to placeholders
         $st->bindValue( ":title", $this->title, PDO::PARAM_STR );
-        $st->bindValue( ":summary", $this->summary, PDO::PARAM_STR );
-        $st->bindValue( ":content", $this->content, PDO::PARAM_STR );
-        $st->execute();
+        $st->bindValue( ":text", $this->text, PDO::PARAM_STR );
+        $st->bindValue( ":link", $this->link, PDO::PARAM_STR );
+        $st->bindValue( ":type", $this->type, PDO::PARAM_STR );
+        $st->bindValue( ":buttonText", $this->buttonText, PDO::PARAM_STR );
+        $st->bindValue( ":photoLink", $this->photoLink, PDO::PARAM_STR );
+        if (!$st->execute()) {
+            $st->errorCode();
+            $st->errorInfo();
+            $st->debugDumpParams();
+        };
 #retrieves the new Post record’s ID using the PDO lastInsertId()
-        $this->id = $conn->lastInsertId();
-        $conn = null;
+        $this->id = $connection->lastInsertId();
+        $connection = null;
     }
 
 

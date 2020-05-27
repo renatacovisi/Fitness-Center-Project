@@ -81,6 +81,7 @@ nav {
 
 .buttonSize {
     min-width: 6em;
+    max-width: 6em;
 }
 
 .classesIconSize {
@@ -107,6 +108,18 @@ nav {
     position: relative;
     left: -50px;
     top: -30px;
+}
+
+.overlapButton {
+    position: relative;
+    z-index: 1;
+    top: 100px;
+
+}
+
+.overlappedCarousel {
+    position: relative;
+    top: -50px;
 }
 
 .hero-image {
@@ -254,4 +267,10 @@ nav {
 /* button in more then one line */
 .buttonMoreLines {
     white-space: normal;
+}
+
+/*Edit pages*/
+/* Confirmation error messages*/
+.widthMessage {
+    width: 150px !important;
 }
