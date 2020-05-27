@@ -22,13 +22,13 @@ CREATE TABLE user (
 DROP TABLE IF EXISTS post;
 CREATE TABLE post (
   id int unsigned NOT NULL auto_increment,
-  publicationData date NOT NULL,
+  publicationDate date NOT NULL,
   title varchar(255) NOT NULL,
   text varchar(255) NOT NULL,
   link varchar(255) NOT NULL,
   type varchar(20) NOT NULL,
   buttonText varchar(20) NOT NULL,
-  photoLink varchar(255) NOT NULL,
+  photoLink varchar(255) NOT NULL UNIQUE,
 
   PRIMARY KEY (id)
 )DEFAULT CHARSET=UTF8;
@@ -43,16 +43,16 @@ CREATE TABLE fee (
   PRIMARY KEY (id)
 )DEFAULT CHARSET=UTF8;
 
-INSERT INTO post (publicationData, title, text, link, type, buttonText, photoLink)
+INSERT INTO post (publicationDate, title, text, link, type, buttonText, photoLink)
     VALUES (2020-05-10, 'Online Classes', 'Be with us every morning on our online classes to meditate and work out with us in this difficult times', 'registration.php', 'news', 'Join Online', '../app/images/online-yoga.jpg');
 
-INSERT INTO post (publicationData, title, text, link, type, buttonText, photoLink)
+INSERT INTO post (publicationDate, title, text, link, type, buttonText, photoLink)
     VALUES (2020-05-10, 'Yoga in the Park', 'On 13th february we will have a class on St Stephens Green', '#', 'news', 'Join us', '../app/images/yoga-park.jpg');
 
-INSERT INTO post (publicationData, title, text, link, type, buttonText, photoLink)
+INSERT INTO post (publicationDate, title, text, link, type, buttonText, photoLink)
     VALUES (2020-05-10, 'Free Trial', 'Do your first class free!', 'contact_us.php', 'offers', 'Contact Us', '../app/images/free-trial.jpg');
 
-INSERT INTO post (publicationData, title, text, link, type, buttonText, photoLink)
+INSERT INTO post (publicationDate, title, text, link, type, buttonText, photoLink)
     VALUES (2020-05-10, 'First month free', 'Ten first registered members will have first month free',
     'registration.php', 'offers', 'Register now!', '../app/images/pilates.jpg');
 

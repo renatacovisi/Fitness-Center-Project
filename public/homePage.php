@@ -16,7 +16,8 @@ require('../app/views/header.php');
 
 <main>
     <?php
-    if ($results["confirmLogout"] == true) {
+    require('../public/admin/index_edit.php');
+    if (isset($results["confirmLogout"]) and $results["confirmLogout"] == true) {
     ?>
     <div class="modal fade" id="logoutConfirmation" tabindex="-1" role="dialog" aria-labelledby="logoutConfirmation" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -41,6 +42,13 @@ require('../app/views/header.php');
 
     <!-- Carousel -->
     <section id="carousel" class="carousel slide mb-4" data-ride="carousel">
+        <?php if ($user->type == 'admin') { ?>
+            <div class="d-inline-block container-fluid">
+            <a role="button" class="fColorIndigo btn btn-light m-1 ml-3 d-block buttonSize noShadow overlapButton float-right mr-5"
+               href="/Fitness-Center-Project/public/index.php?action=showEditCarousel">Edit</a>
+            </div>
+            <?php }?>
+
         <!-- slide icons -->
         <ul class="carousel-indicators">
             <li data-target="#carousel" data-slide-to="0" class="active"></li>
@@ -48,10 +56,13 @@ require('../app/views/header.php');
             <li data-target="#carousel" data-slide-to="2"></li>
         </ul>
         <!-- carousel images and captions -->
-        <div class="carousel-inner">
+        <div class="carousel-inner overlappedCarousel">
+
             <div class="carousel-item active">
+
                 <img class="d-block w-100 bluring" src="../app/images/carousel1_1000_660.jpg" alt="First slide">
                 <div class="carousel-caption d-none d-md-block">
+
                     <h2 class="shadow">Yoga for everyone</h2>
                     <p class="shadow">Start your practice now!</p>
                     <a role="button" class="fColorIndigo btn btn-light buttonSize" href="registration.php">Join Us</a>
@@ -120,6 +131,13 @@ require('../app/views/header.php');
                 </div>
             </div>
         </div>
+
+        <?php if ($user->type == 'admin') { ?>
+            <div class="d-inline-block container-fluid">
+                <a role="button" class="fColorIndigo btn btn-light m-1 ml-3 buttonSize float-right noShadow mr-5"
+                   href="/Fitness-Center-Project/public/index.php?action=showEditPosts">Edit</a>
+            </div>
+        <?php }?>
     </section>
 
     <!-- Features - News and Offers -->
