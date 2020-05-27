@@ -81,12 +81,17 @@ nav {
 
 .buttonSize {
     min-width: 6em;
-    max-width: 6em;
+
 }
 
 .classesIconSize {
     height: auto;
     width: 46%;
+}
+
+/*admin edit page*/
+.buttonSizeAdm {
+    width: 10em;
 }
 
 /* Transparency of header */
@@ -274,3 +279,4 @@ nav {
 .widthMessage {
     width: 150px !important;
 }
+
