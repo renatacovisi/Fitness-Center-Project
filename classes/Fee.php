@@ -3,11 +3,8 @@
 
 class Fee {
 
-//Properties
-# Each Post object that we create will store its Post data in these properties
-# the Post object property names mirror the field names in our Posts database table
     /**
-     * @var int The Post ID from the database
+     * @var int The Fee ID from the database
      */
     public $id = null;
 
@@ -37,9 +34,7 @@ class Fee {
      *
      * @param assoc The property values
      */
-#constructor
-#called automatically by the PHP engine whenever a new Post object is created
-#$data array containing the data to put into the new object’s properties
+
     public function __construct( $data=array() ) {
         #populate properties
         #$this->propertyName means: “The property of this object that has the name “$propertyName“.
@@ -74,7 +69,7 @@ class Fee {
 
     public static function getById( $id ) {
         $sql = "SELECT * FROM Fee WHERE id = :id";
-        $st = $connection->prepare( $sql );
+        $st = $connection->results( $sql );
         $st->bindValue( ":id", $id, PDO::PARAM_INT );
         $st->execute();
         $row = $st->fetch();
@@ -94,7 +89,7 @@ class Fee {
         $connection = connect();
         $sql = "SELECT SQL_CALC_FOUND_ROWS * FROM Fee ORDER BY price ASC LIMIT :numRows";
 
-        $st = $connection->prepare( $sql );
+        $st = $connection->results( $sql );
         $st->bindValue( ":numRows", $numRows, PDO::PARAM_INT );
         $st->execute();
         $list = array();
@@ -110,8 +105,6 @@ class Fee {
     /**
      * Inserts the current Fee object into the database, and sets its ID property.
      */
-#adding Posts
-#adds a new Post record to the Posts table, using the values stored in the current Post object
     public function insert() {
 
         // Does the Post object already have an ID?
@@ -119,9 +112,9 @@ class Fee {
 
         // Insert the Post
         $connection = connect();
-#FROM_UNIXTIME() function converts the publication date from UNIX timestamp format back into MySQL format
+
         $sql = "INSERT INTO Fee ( name, text, price, maxClasses) VALUES ( :name, :price, :maxClasses )";
-        $st = $connection->prepare ( $sql );
+        $st = $connection->results ( $sql );
         $st->bindValue( ":name", $this->name, PDO::PARAM_STR );
         $st->bindValue( ":text", $this->text,PDO::PARAM_STR );
         $st->bindValue( ":price", $this->price, PDO::PARAM_DOUBLE );
@@ -142,7 +135,7 @@ class Fee {
         // Update the Post
         $connection = connect();
         $sql = "UPDATE Fee SET name=:name, text=:text, price=:price, maxClasses=:maxClasses WHERE id = :id";
-        $st = $connection->prepare ( $sql );
+        $st = $connection->results ( $sql );
         $st->bindValue( ":name", $this->name, PDO::PARAM_STR );
         $st->bindValue( ":text", $this->text,PDO::PARAM_STR );
         $st->bindValue( ":price", $this->price, PDO::PARAM_DOUBLE );
@@ -162,7 +155,7 @@ class Fee {
 
         // Delete the Post
         $connection = connect();
-        $st = $connection->prepare ( "DELETE FROM Fee WHERE id = :id LIMIT 1" );
+        $st = $connection->results ( "DELETE FROM Fee WHERE id = :id LIMIT 1" );
         $st->bindValue( ":id", $this->id, PDO::PARAM_INT );
         $st->execute();
         $connection = null;

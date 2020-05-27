@@ -2,14 +2,21 @@
 $root = realpath($_SERVER["DOCUMENT_ROOT"]);
 #Include the config file - configuration settings are available to the script
 require_once("$root/Fitness-Center-project/public/config.php");
+require_once("../classes/Post.php");
 
 $action = isset($_GET['action']) ? $_GET['action'] : "";
 $results = array();
 $status = isset($_GET['status']) ? $_GET['status'] : "";
+$postId = isset($_GET['id']) ? $_GET['id'] : "";
+$results['postToEdit'] = Post::getById($postId);
+if ($results['postToEdit'] == null) {
+    $results['postToEdit'] = new Post();
+}
+
 
 $results['confirmLogout'] = $action == "confirmLogout";
 
-$results['showEditPosts'] = ($action == "showEditPosts" || $action == 'savePostResult');
+$results['showEditPosts'] = ($action == "showEditPosts" || $action == 'savePostResult' || $action == 'editPost' || $action == 'deletePost' );
 
 $results['showEditCarousel'] = ($action == "showEditCarousel" || $action == 'savePostResult');
 
@@ -25,12 +32,34 @@ if ($action == 'saveCarouselResult' and $status == 'uploadSuccess') {
     $results['message'] = "An error occurred, please try again.";
 }
 
+if ($action == 'editPost') {
+    if ($results['postToEdit']->id == null ) {
+        $results['message'] = 'Post Not Found';
+    }
+    else {
+    #stores the new values in the Article object
+        $results['postToEdit']->storeFormValues( $_POST );
+    #saves the changed object by calling update()
+        $results['postToEdit']->update();
+        $results['message'] = "Changes Saved!";
+    }
+}
+
+if ($action == 'deletePost') {
+    if ($postId == '' ) {
+        $results['message'] = 'Post Not Found';
+    }
+    else {
+        $postToDelete = Post::getById($postId);
+        $postToDelete->delete();
+        $results['message'] = "Post Deleted!";
+    }
+}
 
 homePage($results);
 
 function homePage($results)
 {
-    require_once("../classes/Post.php");
 
 #calls the getList() method of the Article class
     $data1 = Post::getList(2, "news");

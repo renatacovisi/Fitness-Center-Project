@@ -111,6 +111,7 @@ class Post
 #and stores it in a new Post object.
 #static enables our method to be called without needing an object
     public static function getById( $id ) {
+        $connection = connect();
         #Use PDO to connect to the database
         #PHP Data Objects — is an object-oriented library built into PHP
         #that makes it easy for PHP scripts to talk to databases.
@@ -121,8 +122,8 @@ class Post
         #retrieves the publicationDate field in UNIX timestamp format
         #USES :id placeholder later we will bind a PDO method to this placeholder
         #stores our SELECT statement in a string
-        $sql = "SELECT *, UNIX_TIMESTAMP(publicationDate) AS publicationDate FROM Posts WHERE id = :id";
-        #create a prepare statement by calling $conn->prepare()
+        $sql = "SELECT *, UNIX_TIMESTAMP(publicationDate) AS publicationDate FROM Post WHERE id = :id";
+        #create a results statement by calling $conn->results()
         #allow your database calls to be faster and more secure.
         $st = $connection->prepare( $sql );
         # bind the value of our $id variable —
@@ -137,7 +138,7 @@ class Post
         #corresponding field values, which we store in the $row variable
         $row = $st->fetch();
         #assign null to the $conn variable to close the connection
-        $conn = null;
+        $connection = null;
         #check if row contains data
         #if true - create a new Post object - stores the record returned from the database
         #return this object to the calling code
@@ -208,10 +209,13 @@ class Post
             $st->errorCode();
             $st->errorInfo();
             $st->debugDumpParams();
+            $connection = null;
+            return 'failed';
         };
 #retrieves the new Post record’s ID using the PDO lastInsertId()
         $this->id = $connection->lastInsertId();
         $connection = null;
+        return 'success';
     }
 
 
@@ -228,17 +232,27 @@ class Post
         if ( is_null( $this->id ) ) trigger_error ( "Post::update(): Attempt to update an Post object that does not have its ID property set.", E_USER_ERROR );
 
         // Update the Post
-        $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
+        $connection = connect();
 #id = :id - pass the object’s ID to the UPDATE statement so that it knows which record to update
-        $sql = "UPDATE Posts SET publicationDate=FROM_UNIXTIME(:publicationDate), title=:title, summary=:summary, content=:content WHERE id = :id";
-        $st = $conn->prepare ( $sql );
-        $st->bindValue( ":publicationDate", $this->publicationDate, PDO::PARAM_INT );
-        $st->bindValue( ":title", $this->title, PDO::PARAM_STR );
-        $st->bindValue( ":summary", $this->summary, PDO::PARAM_STR );
-        $st->bindValue( ":content", $this->content, PDO::PARAM_STR );
+        $sql = "UPDATE Post SET publicationDate=FROM_UNIXTIME(:publicationDate), title=:title, text=:text, link=:link, type=:type, buttonText=:buttonText, photoLink=:photoLink  WHERE id = :id";
+        $st = $connection->prepare ( $sql );
         $st->bindValue( ":id", $this->id, PDO::PARAM_INT );
-        $st->execute();
-        $conn = null;
+        $st->bindValue( ":publicationDate", $this->publicationDate, PDO::PARAM_INT );
+#PDO::PARAM_STR binds string values to placeholders
+        $st->bindValue( ":title", $this->title, PDO::PARAM_STR );
+        $st->bindValue( ":text", $this->text, PDO::PARAM_STR );
+        $st->bindValue( ":link", $this->link, PDO::PARAM_STR );
+        $st->bindValue( ":type", $this->type, PDO::PARAM_STR );
+        $st->bindValue( ":buttonText", $this->buttonText, PDO::PARAM_STR );
+        $st->bindValue( ":photoLink", $this->photoLink, PDO::PARAM_STR );
+        if (!$st->execute()) {
+            $st->errorCode();
+            $st->errorInfo();
+            $st->debugDumpParams();
+            $connection = null;
+            return 'failed';
+        };
+        $connection = null;
     }
 
 
@@ -247,18 +261,20 @@ class Post
      */
 
     public function delete() {
-
-        // Does the Post object have an ID?
-#use the object’s $id property to identify the record in the table
-#LIMIT 1 - make sure that only 1 Post record can be deleted at a time
         if ( is_null( $this->id ) ) trigger_error ( "Post::delete(): Attempt to delete an Post object that does not have its ID property set.", E_USER_ERROR );
 
         // Delete the Post
-        $conn = new PDO( DB_DSN, DB_USERNAME, DB_PASSWORD );
-        $st = $conn->prepare ( "DELETE FROM Posts WHERE id = :id LIMIT 1" );
+        $connection = connect();
+        $st = $connection->prepare ( "DELETE FROM Post WHERE id = :id LIMIT 1" );
         $st->bindValue( ":id", $this->id, PDO::PARAM_INT );
-        $st->execute();
-        $conn = null;
+        if (!$st->execute()) {
+            $st->errorCode();
+            $st->errorInfo();
+            $st->debugDumpParams();
+            $connection = null;
+            return 'failed';
+        };
+        $connection = null;
     }
 
 }
