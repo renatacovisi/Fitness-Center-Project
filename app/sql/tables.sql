@@ -194,11 +194,11 @@ CREATE TABLE testimonial (
     );
 
 INSERT INTO testimonial (title, text, name, stars, approval, className, creationDate)
-VALUES ('Excelent classes', 'In this fast paced and sometimes unsettling world we live in coming to the Yoga center allows me to bring my mind, body and soul back into balance', '@MikeJr ', 4,  'waiting', 'Hatha Yoga', 2020-05-10);
+VALUES ('Excelent classes', 'In this fast paced and sometimes unsettling world we live in coming to the Yoga center allows me to bring my mind, body and soul back into balance', '@MikeJr ', 4,  'pending', 'Hatha Yoga', 2020-05-10);
 
 
 INSERT INTO testimonial (title, text, name, stars, approval, className, creationDate)
-VALUES ('Perfect for injuries', 'I returned to Yoga primarily because of a knee injury and an inability to perform high impact exercise. My knee is much improved and so is my body as a whole', '@JessM', 4 , 'waiting', 'Hatha Yoga', 2020-05-10);
+VALUES ('Perfect for injuries', 'I returned to Yoga primarily because of a knee injury and an inability to perform high impact exercise. My knee is much improved and so is my body as a whole', '@JessM', 4 , 'pending', 'Hatha Yoga', 2020-05-10);
 
 
 INSERT INTO testimonial (title, text, name, stars, approval, className, creationDate)

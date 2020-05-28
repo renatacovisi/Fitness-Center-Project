@@ -15,6 +15,17 @@ body {
     background-color: #0e0e44;
 }
 
+/*Testimonial Approvals*/
+/*Icons approval modal*/
+.fColorRed {
+    color: red;
+}
+
+.fColorGreen {
+    color: green !important;
+}
+
+
 .fColorYellow {
     color: #fdd55b;
 }
@@ -31,6 +42,8 @@ body {
     color: #0e0e44;
 }
 
+
+
 .backgroundColorYellow {
     background-color: #fdd55b;
 }
@@ -46,6 +59,7 @@ body {
 .noShadow {
     text-shadow: none;
 }
+
 
 
 /* Header */

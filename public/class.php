@@ -26,7 +26,7 @@ if ($results['classToEdit'] == null) {
 }
 
 
-$results['showEditClassForm'] = ($action == "showCreateNewClass" || $action == 'saveClassResult' || $action == 'showEditClassForm' || $action == 'editClass');
+$results['showEditClassForm'] = ($action == "showCreateNewClass" || $action == 'saveClassResult' || $action == 'showEditClassForm' || $action == 'editClass' || $action == 'deleteClass' );
 
 //verify if the upload and saving are ok and display information to the user
 if ($action == 'saveClassResult' and $status == 'uploadSuccess') {
@@ -45,8 +45,6 @@ if ($action == 'saveClassResult' || $action == 'editClass') {
         $results['classToEdit']->storeFormValues( $_POST );
         $results['classToEdit']->update();
         $results['message'] = "Changes Saved!";
-//        header('Refresh:0');
-//        header('Location: /Fitness-Center-Project/public/class.php?action=showCreateNewClass');
     }
 }
 
@@ -59,7 +57,6 @@ if ($action == 'deleteClass') {
     else {
         $classToDelete = Class_::getById($classId);
         $classToDelete->delete();
-        header('Location: /Fitness-Center-Project/public/class.php');
     }
 }
 
@@ -135,7 +132,7 @@ require('../app/views/header.php');
                                 <a class="float-right mx-1" href="/Fitness-Center-project/public/class.php?action=showEditClassForm&id=<?php echo $class->id ?>">
                                     <i class="fas fa-edit fColorYellow"></i></a>
                                 <a class="float-right mx-1" href="/Fitness-Center-project/public/class.php?action=deleteClass&id=<?php echo $class->id ?>"
-                                   onclick="return confirm('Delete This Article?')">
+                                   onclick="return confirm('Delete This Class?')">
                                     <i class="fas fa-trash-alt fColorYellow"></i></a>
 
 
