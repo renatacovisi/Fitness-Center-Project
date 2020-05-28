@@ -90,7 +90,7 @@ class Testimonial {
      * @return Testimonial|false The Testimonial object, or false if the record was not found or there was a problem
      */
 
-    public function getById($id)
+    public static function getById($id)
     {
         $connection = connect();
         $sql = "SELECT *, UNIX_TIMESTAMP(creationDate) AS creationDate FROM Testimonial WHERE id = :id";
@@ -177,16 +177,17 @@ class Testimonial {
     public function update()
     {
 
-        if (is_null($this->id)) trigger_error("Post::update(): Attempt to update an Jumbotron object that does not have its ID property set.", E_USER_ERROR);
+        if (is_null($this->id)) trigger_error("Testimonial::update(): Attempt to update an Testimonial object that does not have its ID property set.", E_USER_ERROR);
 
-        $connection = new PDO(DB_DSN, DB_USERNAME, DB_PASSWORD);
-        $sql = "UPDATE Testimonial SET title=:title, text=:text, name=:name, stars=:stars, photoLink=:photoLink, approval=:approval, className=:className, creationDate=FROM_UNIXTIME(:creationDate) WHERE id = :id";
+        $connection = connect();
+        $sql = "UPDATE Testimonial SET title=:title, text=:text, name=:name, stars=:stars, approval=:approval,".
+            " className=:className, creationDate=FROM_UNIXTIME(:creationDate) WHERE id = :id";
         $st = $connection->prepare($sql);
+        $st->bindValue(":id", $this->id, PDO::PARAM_INT);
         $st->bindValue(":title", $this->title, PDO::PARAM_STR);
         $st->bindValue(":text", $this->text, PDO::PARAM_STR);
         $st->bindValue(":name", $this->name, PDO::PARAM_STR);
         $st->bindValue(":stars", $this->stars, PDO::PARAM_INT);
-        $st->bindValue(":photoLink", $this->photoLink, PDO::PARAM_STR);
         $st->bindValue(":approval", $this->approval, PDO::PARAM_STR);
         $st->bindValue(":className", $this->className, PDO::PARAM_STR);
         $st->bindValue(":creationDate", $this->creationDate, PDO::PARAM_STR);
@@ -197,7 +198,7 @@ class Testimonial {
             $connection = null;
             return 'failed';
         };
-
+        return 'success';
         $connection = null;
     }
 
