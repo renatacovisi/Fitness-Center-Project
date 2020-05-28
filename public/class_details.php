@@ -26,7 +26,7 @@ $classToShow = Class_::getById($id);
 
     <!-- common head -->
     <?php
-    require('../../app/views/common_head.php');
+    require('../app/views/common_head.php');
     ?>
 
 </head>
@@ -34,7 +34,7 @@ $classToShow = Class_::getById($id);
 <body class="backgroundColor">
 <!-- header -->
 <?php
-require('../../app/views/header.php');
+require('../app/views/header.php');
 ?>
 
 <main class="">
@@ -50,7 +50,7 @@ require('../../app/views/header.php');
     </section>
     <section>
         <div class="d-flex my-2">
-            <img src="../<?php echo $classToShow->image ?>" alt="class icon"
+            <img src="<?php echo $classToShow->image ?>" alt="class icon"
                  class="backgroundColorYellow rounded classIconSizeClasses">
             <div class="card fColorSilver border-warning backgroundColor classesCardsSize">
                 <div class="card-body">
@@ -69,7 +69,7 @@ require('../../app/views/header.php');
 </main>
 
 <?php
-require('../../app/views/footer.php');
+require('../app/views/footer.php');
 ?>
 
 </body>
