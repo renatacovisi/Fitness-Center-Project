@@ -180,36 +180,33 @@ VALUES ('Julie', 'Lyane', 'Julie originally qualified in Sports Therapy, Rehab a
 
 
 
--- DROP TABLE IF EXISTS testimonial;
--- CREATE TABLE testimonial
--- (
---     id        int unsigned NOT NULL auto_increment,
---     user_id   int          NOT NULL,
---     title     varchar(255) NOT NULL,
---     text      varchar(255) NOT NULL,
---     name      varchar(255) NOT NULL,
---     stars     int(1) NOT NULL,
---     photoLink varchar(255) NOT NULL
---         PRIMARY KEY (id)
---         FOREIGN KEY (user_id) REFERENCES user (id)
---         ON UPDATE CASCADE
---         ON DELETE CASCADE
--- );
---
--- INSERT INTO testimonial (title, text, name, stars, photoLink)
--- VALUES ('Excelent classes', 'In this fast paced and sometimes unsettling world we live in coming to the Yoga center allows me to bring my mind, body and soul back into balance', '@MikeJr ', 4,  './app/images/side_plank.svg');
---
---
--- INSERT INTO testimonial (title, text, name, stars, photoLink)
--- VALUES ('Perfect for injuries', 'I returned to Yoga primarily because of a knee injury and an inability to perform high impact exercise. My knee is much improved and so is my body as a whole', '@JessM', 4 , '../app/images/one_leg_up.svg');
---
---
--- INSERT INTO testimonial (title, text, name, stars, photoLink)
--- VALUES ('Good for health', 'After a hectic/stressful day, coming to Yoga is calming and restorative. Since I’ve been practicing I am much stronger have much greater range of motion', '@LukeY', 4 , '../app/images/cobra.svg');
---
---
--- INSERT INTO testimonial (title, text, name, stars, photoLink)
--- VALUES ('Love it', 'One of the most relaxing experiences I have ever felt while being able to melt into myself', '@JenS', 4 , '../app/images/seated_heart.svg');
+DROP TABLE IF EXISTS testimonial;
+CREATE TABLE testimonial (
+    id        int unsigned NOT NULL auto_increment,
+    title     varchar(255) NOT NULL,
+    text      varchar(255) NOT NULL,
+    name      varchar(255) NOT NULL,
+    stars     int(1) NOT NULL,
+    approval varchar(255) NOT NULL,
+    className varchar(255) NOT NULL,
+    creationDate varchar(255) NOT NULL,
+    PRIMARY KEY (id)
+    );
+
+INSERT INTO testimonial (title, text, name, stars, approval, className, creationDate)
+VALUES ('Excelent classes', 'In this fast paced and sometimes unsettling world we live in coming to the Yoga center allows me to bring my mind, body and soul back into balance', '@MikeJr ', 4,  'waiting', 'Hatha Yoga', 2020-05-10);
+
+
+INSERT INTO testimonial (title, text, name, stars, approval, className, creationDate)
+VALUES ('Perfect for injuries', 'I returned to Yoga primarily because of a knee injury and an inability to perform high impact exercise. My knee is much improved and so is my body as a whole', '@JessM', 4 , 'waiting', 'Hatha Yoga', 2020-05-10);
+
+
+INSERT INTO testimonial (title, text, name, stars, approval, className, creationDate)
+VALUES ('Good for health', 'After a hectic/stressful day, coming to Yoga is calming and restorative. Since I’ve been practicing I am much stronger have much greater range of motion', '@LukeY', 5 , 'approved', 'Hatha Yoga', 2020-05-10);
+
+
+INSERT INTO testimonial (title, text, name, stars, approval, className, creationDate)
+VALUES ('Love it', 'One of the most relaxing experiences I have ever felt while being able to melt into myself', '@JenS', 3 , 'approved', 'Hatha Yoga', 2020-05-10);
 
 
 
