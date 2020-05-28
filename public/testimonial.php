@@ -1,3 +1,35 @@
+<?php
+$root = realpath($_SERVER["DOCUMENT_ROOT"]);
+require_once("$root/Fitness-Center-project/classes/Testimonial.php");
+require_once("$root/Fitness-Center-project/public/config.php");
+
+$results = Array();
+
+$action = isset($_GET['action']) ? $_GET['action'] : '';
+
+$results['showTestimonialForm'] = $action == 'showAddNewTestimonial' || $action == 'addTestimonial';
+
+if ($action == 'addTestimonial') {
+    $testimonial = new Testimonial();
+
+    //store the values received in the post to the other variables
+    $testimonial->storeFormValues($_POST);
+
+    //insert the values in the database and assign if the data was successfully uploaded or not
+
+    if ($testimonial->insert() == 'success') {
+        $results['message'] = 'Testimonial created successfully';
+    }
+    else {
+        $results['message'] = 'Failed to save testimonial, please try again';
+    }
+
+}
+
+$results['testimonial'] = Testimonial::getList(50, "approved")['results'];;
+?>
+
+
 <!-- Specifying the use of html, opening the HTML document and setting the language to english -->
 <!DOCTYPE html>
 <html lang="en">
@@ -16,6 +48,9 @@ require('../app/views/header.php');
 ?>
 
 <main class="mr-3 ml-3">
+    <?php
+    require("$root/Fitness-Center-project/public/testimonial_add.php");
+    ?>
     <!-- jumbotron -->
     <section class="jumbotron jumbotron-fluid rounded testimonialImage text-white">
         <div class="container">
@@ -29,74 +64,36 @@ require('../app/views/header.php');
 
     <!-- Testimonials Cards -->
     <section>
+        <?php if ($user->type == 'member') { ?>
+            <div class="d-inline-block container-fluid">
+                <!--                the button redirects the admin user to the add testimonial modal -->
+                <a role="button" class="fColorIndigo btn btn-light m-1 ml-3 buttonSize float-right noShadow mr-5"
+                   href="/Fitness-Center-Project/public/testimonial.php?action=showAddNewTestimonial">Add Testimonial</a>
+            </div>
+        <?php } ?>
+
+
+        <?php foreach ($results['testimonial'] as $testimonial) { ?>
         <div class="d-flex my-2">
             <img src="../app/images/side_plank.svg" alt="class icon"
                  class="backgroundColorYellow rounded testimonialIconSizeClasses">
             <div class="card fColorSilver border-warning backgroundColor testimonialCardsSize">
                 <div class="card-body">
-                    <h5 class="card-title">Excelent classes</h5>
-                    <p class="card-text">In this fast paced and sometimes unsettling world we live in coming to the Yoga
-                        center allows me to bring my mind, body and soul back into balance. </p>
-                    <p>@MikeJr</p>
+                    <h5 class="card-title"><?php echo $testimonial->title ?></h5>
+                    <p class="card-text"><?php echo $testimonial->text ?> </p>
+                    <p class="card-text"><?php echo $testimonial->className ?> </p>
+                    <p class="card-text"><?php echo date("m-d-Y", $testimonial->creationDate) ?> </p>
+                    <p><?php echo $testimonial->name ?></p>
+                    <?php for ($i = 1; $i <= $testimonial->stars; $i++) { ?>
                     <span class="fa fa-star fa-lg checkedStar"></span>
-                    <span class="fa fa-star fa-lg checkedStar"></span>
-                    <span class="fa fa-star fa-lg checkedStar"></span>
-                    <span class="fa fa-star fa-lg checkedStar"></span>
+                    <?php } ?>
+                    <?php for ($i = $testimonial->stars+1; $i <= 5; $i++) { ?>
                     <span class="fa fa-star fa-lg"></span>
+                    <?php } ?>
                 </div>
             </div>
         </div>
-        <div class="d-flex my-2">
-            <img src="../app/images/one_leg_up.svg" alt="class icon"
-                 class="backgroundColorYellow rounded testimonialIconSizeClasses">
-            <div class="card fColorSilver border-warning backgroundColor testimonialCardsSize">
-                <div class="card-body">
-                    <h5 class="card-title">Perfect for injuries</h5>
-                    <p class="card-text">I returned to Yoga primarily because of a knee injury and an inability to
-                        perform high impact exercise. My knee is much improved and so is my body as a whole.</p>
-                    <p>@JessM</p>
-                    <span class="fa fa-star fa-lg checkedStar"></span>
-                    <span class="fa fa-star fa-lg checkedStar"></span>
-                    <span class="fa fa-star fa-lg checkedStar"></span>
-                    <span class="fa fa-star fa-lg checkedStar"></span>
-                    <span class="fa fa-star fa-lg"></span>
-                </div>
-            </div>
-        </div>
-        <div class="d-flex my-2">
-            <img src="../app/images/cobra.svg" alt="class icon"
-                 class="backgroundColorYellow rounded testimonialIconSizeClasses">
-            <div class="card fColorSilver border-warning backgroundColor testimonialCardsSize">
-                <div class="card-body">
-                    <h5 class="card-title">Good for health</h5>
-                    <p class="card-text">After a hectic/stressful day, coming to Yoga is calming and restorative. Since
-                        I’ve been practicing I am much stronger have much greater range of motion.</p>
-                    <p>@LukeY</p>
-                    <span class="fa fa-star fa-lg checkedStar"></span>
-                    <span class="fa fa-star fa-lg checkedStar"></span>
-                    <span class="fa fa-star fa-lg checkedStar"></span>
-                    <span class="fa fa-star fa-lg checkedStar"></span>
-                    <span class="fa fa-star fa-lg"></span>
-                </div>
-            </div>
-        </div>
-        <div class="d-flex my-2">
-            <img src="../app/images/seated_heart.svg" alt="class icon"
-                 class="backgroundColorYellow rounded testimonialIconSizeClasses">
-            <div class="card fColorSilver border-warning backgroundColor testimonialCardsSize">
-                <div class="card-body">
-                    <h5 class="card-title">Love it</h5>
-                    <p class="card-text">One of the most relaxing experiences I have ever felt while being able to melt
-                        into myself.</p>
-                    <p>@JenS</p>
-                    <span class="fa fa-star fa-lg checkedStar"></span>
-                    <span class="fa fa-star fa-lg checkedStar"></span>
-                    <span class="fa fa-star fa-lg checkedStar"></span>
-                    <span class="fa fa-star fa-lg checkedStar"></span>
-                    <span class="fa fa-star fa-lg"></span>
-                </div>
-            </div>
-        </div>
+        <?php } ?>
     </section>
 </main>
 <!--require footer-->
