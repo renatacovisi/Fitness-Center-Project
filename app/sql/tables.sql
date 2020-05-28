@@ -128,7 +128,7 @@ INSERT INTO class (name, shortDescription, longDescription, timetable, image, pl
     VALUES ('Zumba', 'Dance inspired exercise classes.',
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at tortor erat. Donec rutrum ac justo vel pharetra. Morbi eu felis at sem finibus pulvinar. Fusce aliquam, enim in ultricies faucibus, mauris sapien mollis velit, vel sagittis massa magna tincidunt risus. Curabitur blandit consectetur accumsan. Duis ac lacus metus. Suspendisse potenti. Ut imperdiet ipsum ligula, sed molestie mi congue sit amet. Ut efficitur magna et nisi elementum rhoncus. Pellentesque fringilla elit justo, at varius mauris ultricies non. Sed nec imperdiet tellus, quis euismod massa. Cras eget augue eros. Proin diam lectus, condimentum at odio a, mollis ullamcorper est. Donec tincidunt magna vel ligula bibendum, at consequat velit viverra. Praesent quis velit iaculis, mattis augue sed, accumsan nisi. Donec luctus ex sed felis elementum, ut rutrum justo mattis.',
     '19h45', '../app/images/hold_leg_up.svg', 'Butterfly', '#' );
-VALUES ('Butterfly', 'Unlimited plan where you can do all differente classes*', 129.90, 8 );
+
 
 
 
@@ -159,7 +159,7 @@ VALUES ('Audrey', 'OConnell', 'Audrey completed her 200hrs YTT in Hatha yoga and
 
 
 INSERT INTO teacher (name, surname, text, description, photoLink)
-VALUES ('Nance', 'McGowen', 'Nance has experience in many styles including Children'/'s yoga, Restorative, Ashtanga, Trauma Sensitive Yoga, and Yin yoga', 'Her classes are focused on flexibility ad relaxation', '../app/images/our_team_nance.jpg');
+VALUES ('Nance', 'McGowen', 'Nance has experience in many styles including Childrens yoga, Restorative, Ashtanga, Trauma Sensitive Yoga, and Yin yoga', 'Her classes are focused on flexibility ad relaxation', '../app/images/our_team_nance.jpg');
 
 
 INSERT INTO teacher (name, surname, text, description, photoLink)
@@ -180,35 +180,36 @@ VALUES ('Julie', 'Lyane', 'Julie originally qualified in Sports Therapy, Rehab a
 
 
 
-DROP TABLE IF EXISTS testimonial;
-CREATE TABLE testimonial
-(
-    id        int unsigned NOT NULL auto_increment,
-    user_id   int          NOT NULL,
-    title     varchar(255) NOT NULL,
-    text      varchar(255) NOT NULL,
-    name      varchar(255) NOT NULL,
-    stars     int(1) NOT NULL,
-    photoLink varchar(255) NOT NULL
-        PRIMARY KEY (id)
-        FOREIGN KEY (user_id) REFERENCES user (id)
-        ON UPDATE CASCADE ON DELETE,
-);
-
-INSERT INTO testimonial (title, text, name, stars, photoLink)
-VALUES ('Excelent classes', 'In this fast paced and sometimes unsettling world we live in coming to the Yoga center allows me to bring my mind, body and soul back into balance', '@MikeJr ', 4,  './app/images/side_plank.svg');
-
-
-INSERT INTO testimonial (title, text, name, stars, photoLink)
-VALUES ('Perfect for injuries', 'I returned to Yoga primarily because of a knee injury and an inability to perform high impact exercise. My knee is much improved and so is my body as a whole', '@JessM', 4 , '../app/images/one_leg_up.svg');
-
-
-INSERT INTO testimonial (title, text, name, stars, photoLink)
-VALUES ('Good for health', 'After a hectic/stressful day, coming to Yoga is calming and restorative. Since I’ve been practicing I am much stronger have much greater range of motion', '@LukeY', 4 , '../app/images/cobra.svg');
-
-
-INSERT INTO testimonial (title, text, name, stars, photoLink)
-VALUES ('Love it', 'One of the most relaxing experiences I have ever felt while being able to melt into myself', '@JenS', 4 , '../app/images/seated_heart.svg');
+-- DROP TABLE IF EXISTS testimonial;
+-- CREATE TABLE testimonial
+-- (
+--     id        int unsigned NOT NULL auto_increment,
+--     user_id   int          NOT NULL,
+--     title     varchar(255) NOT NULL,
+--     text      varchar(255) NOT NULL,
+--     name      varchar(255) NOT NULL,
+--     stars     int(1) NOT NULL,
+--     photoLink varchar(255) NOT NULL
+--         PRIMARY KEY (id)
+--         FOREIGN KEY (user_id) REFERENCES user (id)
+--         ON UPDATE CASCADE
+--         ON DELETE CASCADE
+-- );
+--
+-- INSERT INTO testimonial (title, text, name, stars, photoLink)
+-- VALUES ('Excelent classes', 'In this fast paced and sometimes unsettling world we live in coming to the Yoga center allows me to bring my mind, body and soul back into balance', '@MikeJr ', 4,  './app/images/side_plank.svg');
+--
+--
+-- INSERT INTO testimonial (title, text, name, stars, photoLink)
+-- VALUES ('Perfect for injuries', 'I returned to Yoga primarily because of a knee injury and an inability to perform high impact exercise. My knee is much improved and so is my body as a whole', '@JessM', 4 , '../app/images/one_leg_up.svg');
+--
+--
+-- INSERT INTO testimonial (title, text, name, stars, photoLink)
+-- VALUES ('Good for health', 'After a hectic/stressful day, coming to Yoga is calming and restorative. Since I’ve been practicing I am much stronger have much greater range of motion', '@LukeY', 4 , '../app/images/cobra.svg');
+--
+--
+-- INSERT INTO testimonial (title, text, name, stars, photoLink)
+-- VALUES ('Love it', 'One of the most relaxing experiences I have ever felt while being able to melt into myself', '@JenS', 4 , '../app/images/seated_heart.svg');
 
 
 
@@ -228,17 +229,17 @@ CREATE TABLE contactUs
 
 
 
-DROP TABLE IF EXISTS enrollement;
-CREATE TABLE enrollement
-(
-    user_id  int  NOT NULL,
-    class_id int  NOT NULL,
-    date     date NOT NULL,
-
-        FOREIGN KEY (user_id) REFERENCES user (id)
-        FOREIGN KEY (class_id) REFERENCES class(id)
-        ON UPDATE CASCADE ON DELETE,
-);
+-- DROP TABLE IF EXISTS enrollement;
+-- CREATE TABLE enrollement
+-- (
+--     user_id  int  NOT NULL,
+--     class_id int  NOT NULL,
+--     date     date NOT NULL,
+--
+--         FOREIGN KEY (user_id) REFERENCES user (id)
+--         FOREIGN KEY (class_id) REFERENCES class(id)
+--         ON UPDATE CASCADE ON DELETE,
+-- );
 
 DROP TABLE IF EXISTS page;
 CREATE TABLE page (
@@ -258,26 +259,26 @@ VALUES ('Alex', 'member' );
 INSERT INTO page (name, level)
 VALUES ('Cristina', 'public' );
 
-
-DROP TABLE IF EXISTS permission;
-CREATE TABLE permission
-(
-    user_id         int unsigned NOT NULL auto_increment,
-    permissionLevel varchar(255) NOT NULL,
-
-    FOREIGN KEY (user_id) REFERENCES user (id)
-    ON UPDATE CASCADE ON DELETE,
-
-);
-
-INSERT INTO permission (permissionLevel)
-VALUES ('admin' );
-
-INSERT INTO permission (permissionLevel)
-VALUES ('member' );
-
-INSERT INTO permission (permissionLevel)
-VALUES ('member' );
+--
+-- DROP TABLE IF EXISTS permission;
+-- CREATE TABLE permission
+-- (
+--     user_id         int unsigned NOT NULL auto_increment,
+--     permissionLevel varchar(255) NOT NULL,
+--
+--     FOREIGN KEY (user_id) REFERENCES user (id)
+--     ON UPDATE CASCADE ON DELETE,
+--
+-- );
+--
+-- INSERT INTO permission (permissionLevel)
+-- VALUES ('admin' );
+--
+-- INSERT INTO permission (permissionLevel)
+-- VALUES ('member' );
+--
+-- INSERT INTO permission (permissionLevel)
+-- VALUES ('member' );
 
 
 
@@ -301,17 +302,16 @@ INSERT INTO faq (question, answer, link)
 VALUES ('Which plans does Sunrise Fitness Centre offer and how can I join', 'Yes, of course. You can change it by contacting us', 'contact_us.php');
 
 INSERT INTO faq (question, answer, link )
-VALUES ('Can I transfer my plan to another person?', 'No, you can not. You can cancel your plan whenever you want, and the another person can register
-                themselv directly on our registration page, ' );
+VALUES ('Can I transfer my plan to another person?', 'No, you can not. You can cancel your plan whenever you want, and the another person can register themselvES directly on our registration page', 'contact_us.php');
 
 
 INSERT INTO faq (question, answer, link )
-VALUES ('Which plans does Sunrise Fitness Centre offer and how can I join', '' );
+VALUES ('Which plans does Sunrise Fitness Centre offer and how can I join', '', 'contact_us.php' );
 
 
 
 INSERT INTO faq (question, answer, link )
-VALUES ('Which plans does Sunrise Fitness Centre offer and how can I join', '' );
+VALUES ('Which plans does Sunrise Fitness Centre offer and how can I join', '', 'contact_us.php' );
 
 
 
