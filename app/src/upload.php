@@ -7,6 +7,8 @@ require_once("$root/Fitness-Center-project/public/config.php");
 //require Post file to be able to control the uploads of images by the admin
 require_once("$root/Fitness-Center-project/classes/Post.php");
 
+require_once("$root/Fitness-Center-project/classes/Class_.php");
+
 // Setting the action to be done by this controller
 $action = isset( $_GET['action'] ) ? $_GET['action'] : "";
 
@@ -75,19 +77,6 @@ if (isset($_POST['submitPost'])) {
 
     //insert the values in the database and assign if the data was successfully uploaded or not
     $results['postSaved'] = $post->insert() == 'success';
-}
-
-//if (isset($_POST['submitCarousel']) ) {
-//    $carousel = new Carousel;
-//
-//    $carousel->storeFormValues($_POST);
-//    $carousel->insert();
-//    $results['carouselSaved'] = true;
-//}
-
-
-//defines the next action to be done by the browser after finished the insertion
-if ($action == 'savePost'){
     if ($results['postSaved'] == 'success') {
         header('Location: /Fitness-Center-project/public/index?action=savePostResult&status=uploadSuccess');
     }
@@ -103,4 +92,26 @@ if ($action == 'savePost'){
 //        header('Location: /Fitness-Center-project/public/index?action=savePostResult&status=uploadFailed');
 //    }
 //}
+
+//receives the submission with the file and with t
+if (isset($_POST['submitClass'])) {
+    // create a new Post object
+    $class = new Class_;
+    //assign the link received to the post photo link
+    $class->image = '/Fitness-Center-Project/app/src/'. $target_file;
+
+    //store the values received in the post to the other variables
+    $class->storeFormValues($_POST);
+
+    //insert the values in the database and assign if the data was successfully uploaded or not
+    $results['classSaved'] = $class->insert() == 'success';
+    if ($results['classSaved'] == 'success') {
+        header('Location: /Fitness-Center-project/public/class.php?action=saveClassResult&status=uploadSuccess');
+    }
+//    else {
+//        header('Location: /Fitness-Center-project/public/class.php?action=saveClassResult&status=uploadFailed');
+//    }
+}
+
 ?>
+

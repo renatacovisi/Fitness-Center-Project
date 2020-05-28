@@ -11,7 +11,7 @@ require_once("$root/Fitness-Center-project/app/src/session.php");
     <nav class="navbar navbar-expand-lg fixed-top shadow">
 
         <!-- logo -->
-        <a class="navbar-brand" href="index.php"><img id="logo" src="/Fitness-Center-Project/app/images/logo_horizontal_larger_font_emb.svg" alt=""></a>
+        <a class="navbar-brand" href="/Fitness-Center-project/public/index.php"><img id="logo" src="/Fitness-Center-Project/app/images/logo_horizontal_larger_font_emb.svg" alt=""></a>
 
         <!-- hamburger button using font awsome icon to change color -->
         <div class="d-block float-right">

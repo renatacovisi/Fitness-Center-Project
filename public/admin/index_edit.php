@@ -6,8 +6,10 @@ $root = realpath($_SERVER["DOCUMENT_ROOT"]);
 require_once("$root/Fitness-Center-project/public/config.php");
 //require Post file to be able to control the uploads of images by the admin
 require_once("$root/Fitness-Center-project/classes/Post.php");
+require_once("$root/Fitness-Center-project/app/src/session.php");
 
-//inserts the values coming from the index_edit after creation of the post
+
+//inserts the values coming from the index_edit.php after creation of the post
 $postToEdit = $results['postToEdit'];
 
 //if the action is to show the edit posts modal
