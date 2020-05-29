@@ -12,6 +12,7 @@ $classToShow = Class_::getById($id);
 
 //sets the page title
 $results['pageTitle'] = $classToShow->name;
+$results['pageName'] = 'Class Details';
 require('../app/views/header.php');
 ?>
 

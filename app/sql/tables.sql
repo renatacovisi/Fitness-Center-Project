@@ -174,21 +174,44 @@ CREATE TABLE contactUs
 
 
 DROP TABLE IF EXISTS page;
-CREATE TABLE page (
-                      id int unsigned NOT NULL auto_increment,
-                      name varchar(255) NOT NULL,
-                      level varchar(255) NOT NULL,
+CREATE TABLE page
+(
+    id       int unsigned NOT NULL auto_increment,
+    name     varchar(255) NOT NULL,
+    minLevel varchar(255) NOT NULL,
+    link     varchar(255),
 
-                      PRIMARY KEY (id)
+    PRIMARY KEY (id)
 );
 
-INSERT INTO page (name, level)
-VALUES ('Renata', 'admin' );
+INSERT INTO page (name, minLevel, link)
+VALUES ('Home', 'public', 'index.php' );
 
-INSERT INTO page (name, level)
-VALUES ('Alex', 'member' );
+INSERT INTO page (name, minLevel, link)
+VALUES ('About Us', 'public', 'about_us.php' );
 
-INSERT INTO page (name, level)
-VALUES ('Cristina', 'public' );
+INSERT INTO page (name, minLevel, link)
+VALUES ('Classes', 'public', 'class.php' );
+
+INSERT INTO page (name, minLevel, link)
+VALUES ('Class Details', 'member', NULL );
+
+INSERT INTO page (name, minLevel, link)
+VALUES ('Testimonials', 'public', 'testimonial.php' );
+
+INSERT INTO page (name, minLevel, link)
+VALUES ('Contact Us', 'public', 'contact_us.php' );
+
+INSERT INTO page (name, minLevel, link)
+VALUES ('Our team', 'public', 'our_team.php' );
+
+INSERT INTO page (name, minLevel, link)
+VALUES ('FAQ', 'public', 'faq.php' );
+
+INSERT INTO page (name, minLevel, link)
+VALUES ('Registration', 'public', 'registration.php' );
+
+INSERT INTO page (name, minLevel, link)
+VALUES ('Login', 'public', NULL );
 
 

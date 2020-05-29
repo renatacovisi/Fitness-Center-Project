@@ -1,5 +1,6 @@
 <?php
 require_once(FIXED_PATH."/Fitness-Center-Project/app/src/session.php");
+require_once(FIXED_PATH."/Fitness-Center-Project/classes/Page.php");
 
 //verify if there is an allowed user set and if it is allowed to execute actions in the page, if not, redirects to index
 if (isset($results['allowedUserTypes']) && !in_array($user->type, $results['allowedUserTypes'], true)) {
@@ -8,8 +9,20 @@ if (isset($results['allowedUserTypes']) && !in_array($user->type, $results['allo
     exit;
 }
 
+$pageName = isset($results['pageName']) ? $results['pageName'] : $results['pageTitle'];
+$page = Page::getByName($pageName);
+
+if (($page->minLevel == 'member' && $user->type == 'public') ||
+    ($page->minLevel == 'admin' && $user->type != 'admin')) {
+    $location = WEB_URL_PREFIX . "/Fitness-Center-Project/public/index.php";
+    header( "Location: " . $location );
+    exit;
+}
+
 //sets the page title
 $pageTitle = isset($results['pageTitle']) ? $results['pageTitle'] . ' | Sunrise Fitness Center' : 'Sunrise Fitness Center';
+
+$siteMapPages = Page::getListByUserLevel($user->type)['results'];
 ?>
 
 <!-- Specifying the use of html, opening the HTML document and setting the language to english -->
@@ -79,13 +92,11 @@ $pageTitle = isset($results['pageTitle']) ? $results['pageTitle'] . ' | Sunrise 
                         Site map
                     </a>
                     <div class="dropdown-menu backgroundColor" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item fColorYellow" href="index.php">Home</a>
-                        <a class="dropdown-item fColorYellow" href="about_us.php">About us</a>
-                        <a class="dropdown-item fColorYellow" href="class.php">Classes</a>
-                        <a class="dropdown-item fColorYellow" href="faq.php">FAQ</a>
-                        <a class="dropdown-item fColorYellow" href="testimonial.php">Testimonials</a>
-                        <a class="dropdown-item fColorYellow" href="contact_us.php">Contact Us</a>
-                        <a class="dropdown-item fColorYellow" href="registration.php">Registration</a>
+                        <?php foreach ($siteMapPages as $page) {
+                            if ($page->link == null) continue;
+                            ?>
+                            <a class="dropdown-item fColorYellow" href="<?php echo $page->link ?>"><?php echo $page->name ?></a>
+                        <?php } ?>
                     </div>
                 </li>
                 <li class="nav-item">

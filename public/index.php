@@ -14,6 +14,8 @@ if ($action != '' && $action != 'confirmLogout') {
     $results['allowedUserTypes'] = ['admin'];
 }
 
+$results['pageTitle'] = 'Home';
+
 require('../app/views/header.php');
 
 
@@ -80,8 +82,6 @@ $data2 = Post::getList(2, "offers");
 //    assign the values of each variable for a postion in the results array
 $results['news'] = $data1['results'];
 $results['offers'] = $data2['results'];
-
-$results['pageTitle'] = 'Home';
 
 //starts the display of the home page
 require("homePage.php");
