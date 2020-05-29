@@ -1,5 +1,6 @@
 <?php
 require('config.php');
+//sets page title
 $results['pageTitle'] = 'FAQ';
 require('../app/views/header.php');
 ?>

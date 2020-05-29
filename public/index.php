@@ -9,6 +9,7 @@ $results = array();
 //sets the action that is being received from the browser for all interactions
 $action = isset($_GET['action']) ? $_GET['action'] : "";
 
+//sets the allowed user type to admin
 if ($action != '' && $action != 'confirmLogout') {
     $results['allowedUserTypes'] = ['admin'];
 }
@@ -44,11 +45,6 @@ if ($action == 'savePostResult' and $status == 'uploadSuccess') {
     $results['message'] = "An error occurred, please try again.";
 }
 
-//if ($action == 'saveCarouselResult' and $status == 'uploadSuccess') {
-//    $results['message'] = "Changes Saved!";
-//} elseif ($action == 'saveCarouselResult' and $status == 'uploadFailed') {
-//    $results['message'] = "An error occurred, please try again.";
-//}
 
 // verify if the action is edit post and there is no id and display a message
 if ($action == 'editPost') {
@@ -76,7 +72,6 @@ if ($action == 'deletePost') {
     }
 }
 
-// displays the homepage
 
 //    stores the posts of type news in a variable and the type offers in another
 $data1 = Post::getList(2, "news");

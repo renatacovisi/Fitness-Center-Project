@@ -1,15 +1,11 @@
 <?php
-//using real path to make easier to the scripts to find the other files
-//$root = realpath($_SERVER["DOCUMENT_ROOT"]);
 
-//require config file
-//require_once(FIXED_PATH.'/public/config.php');
-//require Post file to be able to control the uploads of images by the admin
+//require Contact us file to be able to control the uploads of images by the admin
 require_once(FIXED_PATH . '/Fitness-Center-Project/classes/ContactUs.php');
 require_once(FIXED_PATH . '/Fitness-Center-Project/app/src/session.php');
 
 
-//if the action is to show the edit posts modal
+//if the action is to show the see messages modal
 if ($results["showSeeMessagesForm"]) {
 ?>
 <div class="modal fade" id="approvalForm" tabindex="-1" role="dialog" aria-labelledby="approvalForm"
@@ -42,13 +38,16 @@ if ($results["showSeeMessagesForm"]) {
                     </thead>
                     <tbody>
 
+<!--                    shows all messages on the list-->
                     <?php foreach ($results['messagesList'] as $message) { ?>
                         <tr>
+<!--                            shows the details of the message-->
                             <th scope="row"><?php echo $message->id ?></th>
                             <td><?php echo $message->name ?></td>
                             <td><?php echo $message->email ?></td>
                             <td><?php echo $message->title ?></td>
                             <td>
+<!--                                allows the admin to see the complete message or delete ir-->
                                 <a class="float-right mx-1"
                                    href="<?php echo WEB_URL_PREFIX . "/Fitness-Center-Project/public/contact_us.php?action=deleteMessage&id=" . $message->id ?>"
                                    onclick="return confirm('Delete This Message?')">
@@ -73,7 +72,7 @@ if ($results["showSeeMessagesForm"]) {
 <?php } ?>
 <?php
 
-//<!--    if the action is to show the edit posts modal-->
+//<!--    if the action is to show the message view modal-->
 if ($results["showMessageView"]) { ?>
 <div class="modal fade" id="approvalForm" tabindex="-1" role="dialog" aria-labelledby="approvalForm"
      aria-hidden="true">
@@ -92,11 +91,13 @@ if ($results["showMessageView"]) { ?>
                     <p class="mt-5 mx-auto alert alert-primary"><?php echo $results['message'] ?></p>
                 <?php } ?>
 
+<!--                shows all information about the message-->
                 <p>Name: <?php echo $results['messageToSee']->name?></p>
                 <p>E-mail: <?php echo $results['messageToSee']->email?></p>
                 <p>Phone: <?php echo $results['messageToSee']->phone?></p>
                 <p>Message: <?php echo $results['messageToSee']->message?></p>
 
+<!--                goes back to the show messages modal-->
                 <a class="btn btn-secondary mt-2 buttonSizeAdm float-right"
                    href="<?php echo WEB_URL_PREFIX."/Fitness-Center-Project/public/contact_us.php?action=showSeeMessagesForm"?>"
                    role="button" >Go back</a>

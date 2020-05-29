@@ -8,7 +8,7 @@ class Testimonial {
     public $id = null;
 
     /**
-     * @var string Full title of the Testimonial
+     * @var string Title of the Testimonial
      */
     public $title = null;
 
@@ -28,17 +28,17 @@ class Testimonial {
     public $stars = null;
 
     /**
-     * @var string The link for a photo in the images folder
+     * @var string The status of approving
      */
     public $approval = null;
 
     /**
-     * @var string The name of the person who did the review
+     * @var string The name of the class the member is enrolled
      */
     public $className = null;
 
     /**
-     * @var date The name of the person who did the review
+     * @var date The date of creation of the review
      */
     public $creationDate = null;
 
@@ -63,9 +63,9 @@ class Testimonial {
 
 
     /**
-     * Sets the object's properties using the edit form post values in the supplied array
+     * Sets the object's properties using the values in the supplied array
      *
-     * @param assoc The form post values
+     * @param assoc The form values
      */
 
     public function storeFormValues($params) {
@@ -106,7 +106,7 @@ class Testimonial {
     }
 
     /**
-     * Returns all (or a range of) Testimonials objects in the DB
+     * Returns all (or a range of) Testimonials objects in the DB with the specified approval status
      *
      * @param int Optional The number of rows to return (default=all)
      * @return Array|false A two-element array : results => array, a list of Testimonial objects; totalRows => Total number of Testimonials
@@ -134,7 +134,7 @@ class Testimonial {
 
 
     /**
-     * Inserts the current Jumbotron object into the database, and sets its ID property.
+     * Inserts the current Testimonial object into the database, and sets its ID property.
      */
     public function insert()
     {
@@ -163,7 +163,7 @@ class Testimonial {
 
 
     /**
-     * Updates the current Jumbotron object in the database.
+     * Updates the current Testimonial object in the database.
      */
     public function update()
     {

@@ -1,5 +1,5 @@
 <?php
-#Include the config file - configuration settings are available to the script
+
 require_once("config.php");
 require("../classes/Class_.php");
 
@@ -7,6 +7,7 @@ require("../classes/Class_.php");
 //initializes the results variable with an array
 $results = array();
 
+//sets the action
 $action = isset($_GET['action']) ? $_GET['action'] : "";
 
 if ($action != '') {
@@ -32,7 +33,7 @@ if ($results['classToEdit'] == null) {
     $results['classToEdit'] = new Class_();
 }
 
-
+//if one of the actions is true, allows the edit class form modal to appear
 $results['showEditClassForm'] = ($action == "showCreateNewClass" || $action == 'saveClassResult' || $action == 'showEditClassForm' || $action == 'editClass' || $action == 'deleteClass' );
 
 //verify if the upload and saving are ok and display information to the user
@@ -67,6 +68,7 @@ if ($action == 'deleteClass') {
     }
 }
 
+//get the lists of all plans and puts them on one unique array
 $data1 = Class_::getList(8, 'Tree');
 $data2 = Class_::getList(8, 'Lotus');
 $data3 = Class_::getList(8, 'Butterfly');
@@ -108,10 +110,12 @@ $results['classes'] = array_merge($data1['results'], $data2['results'], $data3['
                 <div class="card fColorSilver border-warning backgroundColor classesCardsSize">
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $class->name ?>
+<!--                            if the user is admin or member shows the class details button-->
                             <?php if ($user->type == 'admin' || $user->type == 'member') { ?>
                             <a class="float-right mx-1" href="<?php echo WEB_URL_PREFIX."/Fitness-Center-Project/public/class_details.php?id=".$class->id ?>">
                                     <i class="fas fa-plus-circle fColorYellow"></i></a>
                             <?php }
+//                            if the user is admin, show edit class button
                             if ($user->type == 'admin') { ?>
                                 <a class="float-right mx-1" href="<?php echo WEB_URL_PREFIX."/Fitness-Center-Project/public/class.php?action=showEditClassForm&id=".$class->id ?>">
                                     <i class="fas fa-edit fColorYellow"></i></a>

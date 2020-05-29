@@ -28,12 +28,12 @@ class ContactUs {
 
 
     /**
-     * @var string The link of the Post
+     * @var string The title of the message
      */
     public $title = null;
 
     /**
-     * @var String The user photo
+     * @var String The message
      */
     public $message = null;
 
@@ -58,9 +58,9 @@ class ContactUs {
     }
 
     /**
-         * Sets the object's properties using the edit form post values in the supplied array
+         * Sets the object's properties
          *
-         * @param assoc The form post values
+         * @param assoc The form values
          */
 
         public function storeFormValues($params) {

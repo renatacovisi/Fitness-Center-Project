@@ -36,9 +36,7 @@ class Fee {
      */
 
     public function __construct( $data=array() ) {
-        #populate properties
-        #$this->propertyName means: “The property of this object that has the name “$propertyName“.
-        #cast to integers (int)
+
         if ( isset( $data['id'] ) ) $this->id = (int) $data['id'];
         if ( isset( $data['name'] ) ) $this->name = preg_replace("/[^\.\,\-\_\'\"\@\?\!\:\$ a-zA-Z0-9()]/", "", $data['name']);
         if ( isset( $data['text'] ) ) $this->text = (string) $data['text'];
@@ -47,9 +45,9 @@ class Fee {
     }
 
     /**
-     * Sets the object's properties using the edit form post values in the supplied array
+     * Sets the object's properties
      *
-     * @param assoc The form post values
+     * @param assoc The form fee values
      */
 
     public function storeFormValues ( $params ) {
@@ -61,10 +59,10 @@ class Fee {
 
 
     /**
-     * Returns an Post object matching the given Post ID
+     * Returns an Fee object matching the given Post ID
      *
-     * @param int The Post ID
-     * @return Post|false The Post object, or false if the record was not found or there was a problem
+     * @param int The Fee ID
+     * @return Post|false The Fee object, or false if the record was not found or there was a problem
      */
 
     public static function getById( $id ) {
@@ -83,7 +81,7 @@ class Fee {
      * Returns all (or a range of) Fee objects in the DB
      *
      * @param int Optional The number of rows to return (default=all)
-     * @return Array|false A two-element array : results => array, a list of Post objects; totalRows => Total number of Posts
+     * @return Array|false A two-element array : results => array, a list of Fee objects; totalRows => Total number of Fees
      */
 
     public static function getList( $numRows=1000000) {

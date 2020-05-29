@@ -45,46 +45,48 @@ if ($results['showTestimonialForm']){
                             <label class="font-weight-bold mt-1" for="name">name</label>
                             <input type="text" class="form-control" id="name" name="name">
 
-                            <h1>Stars</h1>
+                            <h5>Stars</h5>
                             <div class="input-group">
-                              <div class="input-group-prepend">
-                                  <div class="input-group-text">
-                                      <input type="radio" aria-label="Radio button for following text input" name="stars" value="1" id="1">
-                                  </div>
-                                  <label for="1" class="d-inline-block">1</label>
-                              </div>
-                              <div class="input-group-prepend">
-                                  <div class="input-group-text">
-                                      <input type="radio" aria-label="Radio button for following text input" name="stars" value="2">
-                                  </div>
-                                  <label for="2">2</label>
-                              </div>
-                              <div class="input-group-prepend">
-                                  <div class="input-group-text">
-                                      <input type="radio" aria-label="Radio button for following text input" name="stars" value="3">
-                                  </div>
-                                  <label for="3">3</label>
-                              </div>
-                              <div class="input-group-prepend">
-                                  <div class="input-group-text">
-                                      <input type="radio" aria-label="Radio button for following text input" name="stars" value="4">
-                                  </div>
-                                  <label for="4">4</label>
-                              </div>
-                              <div class="input-group-prepend">
-                                  <div class="input-group-text">
-                                      <input type="radio" aria-label="Radio button for following text input" name="stars" value="5">
-                                  </div>
-                                  <label for="5">5</label>
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <input type="radio" aria-label="Radio button for following text input" name="stars" value="1" id="1">
+                                        <i class="fas fa-star m-1"></i>
+                                    </div>
                                 </div>
-                              </div>
 
-                      </div>
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <input type="radio" aria-label="Radio button for following text input" name="stars" value="2">
+                                        <i class="fas fa-star m-1"></i><i class="fas fa-star m-1"></i>
+                                    </div>
+                                </div>
+
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <input type="radio" aria-label="Radio button for following text input" name="stars" value="3">
+                                        <i class="fas fa-star m-1"></i><i class="fas fa-star m-1"></i><i class="fas fa-star m-1"></i>
+                                    </div>
+                                </div>
+
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <input type="radio" aria-label="Radio button for following text input" name="stars" value="3">
+                                        <i class="fas fa-star m-1"></i><i class="fas fa-star m-1"></i><i class="fas fa-star m-1"></i><i class="fas fa-star m-1"></i>
+                                    </div>
+                                </div>
+
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <input type="radio" aria-label="Radio button for following text input" name="stars" value="3">
+                                        <i class="fas fa-star m-1"></i><i class="fas fa-star m-1"></i><i class="fas fa-star m-1"></i><i class="fas fa-star m-1"></i><i class="fas fa-star m-1"></i>
+                                    </div>
+                                </div>
+                            </div>
 
                         <label class="font-weight-bold mt-1" for="className">Class Name</label>
                         <input type="text" class="form-control" id="className" name="className">
                         <label class="font-weight-bold mt-3" for="creationDate">Creation Date</label>
-                        <input type="date" class="form-control" id="creationDate" name="creationDate"
+                        <input type="date" class="form-control" id="creationDate" name="creationDate">
                         <input type="submit" value="Save" name="submitPost" class="mt-5 btn btn-secondary buttonSizeAdm">
                     </form>
 

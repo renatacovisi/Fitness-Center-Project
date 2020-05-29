@@ -2,16 +2,20 @@
 require_once("config.php");
 require_once(FIXED_PATH."/Fitness-Center-Project/classes/Testimonial.php");
 
+//sets results to be an array
 $results = Array();
 
+//sets the action
 $action = isset($_GET['action']) ? $_GET['action'] : '';
 
+//sets the id
 $testimonialId = isset($_GET['id']) ? $_GET['id'] : '';
 
-
+//initialize the variables to be decided in the switch
 $results['showTestimonialForm'] = false;
 $results['showApproveTestimonialForm'] = false;
 
+//switch between the actions following the allowed user types
 switch ($action) {
     case 'showAddNewTestimonial':
     case 'addTestimonial':
@@ -27,7 +31,9 @@ switch ($action) {
     default:
         $testimonialId = '';
 }
+//sets the location to redirect the user if necessary
 $results['redirectionLocation'] = WEB_URL_PREFIX . "/Fitness-Center-Project/public/testimonial.php";
+//sets the page title
 $results['pageTitle'] = 'Testimonials';
 
 require('../app/views/header.php');
@@ -79,9 +85,10 @@ if ($action == 'deleteTestimonial') {
         $results['message'] = "Testimonial Deleted!";
     }
 }
-
+//get a list of all approved testimonials
 $approvedTestimonialsList = Testimonial::getList(50, "approved");
 $results['testimonial'] = isset($approvedTestimonialsList['results']) ? $approvedTestimonialsList['results'] : [];
+//get a list of all pending testimonials
 $pendingTestimonialsList = Testimonial::getList(50, "pending");
 $results['pendingTestimonials'] = isset($pendingTestimonialsList['results']) ? $pendingTestimonialsList['results'] : [];
 
@@ -107,19 +114,20 @@ $results['pendingTestimonials'] = isset($pendingTestimonialsList['results']) ? $
     <section>
         <?php if ($user->type == 'member') { ?>
             <div class="d-inline-block container-fluid">
-                <!--                the button redirects the admin user to the add testimonial modal -->
+                <!--                the button redirects the member user to the add testimonial modal -->
                 <a role="button" class="fColorIndigo btn btn-light m-1 ml-3 buttonSize float-right noShadow mr-5"
                    href="<?php echo WEB_URL_PREFIX."/Fitness-Center-Project/public/testimonial.php?action=showAddNewTestimonial" ?>">Add Testimonial</a>
             </div>
         <?php } ?>
         <?php if ($user->type == 'admin') { ?>
         <div class="d-inline-block container-fluid">
-            <!--                the button redirects the admin user to the add testimonial modal -->
+            <!--                the button redirects the admin user to the approve testimonial modal -->
             <a role="button" class="fColorIndigo btn btn-light m-1 ml-3 buttonSize float-right noShadow mr-5"
                href="<?php echo WEB_URL_PREFIX."/Fitness-Center-Project/public/testimonial.php?action=showApproveTestimonialForm" ?>">Approve Testimonials</a>
         </div>
         <?php } ?>
 
+<!--        shows all approved testimonials -->
         <?php foreach ($results['testimonial'] as $testimonial) { ?>
         <div class="d-flex my-2">
             <img src="../app/images/side_plank.svg" alt="class icon"
