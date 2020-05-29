@@ -10,17 +10,17 @@ require_once(FIXED_PATH."/Fitness-Center-Project/app/src/session.php");
 
 
 //inserts the values coming from the index_edit.php after creation of the post
-$postToEdit = $results['postToEdit'];
+$feePlanToEdit = $results['feePlanToEdit'];
 
 //if the action is to show the edit posts modal
-if ($results['showEditFeePlans']) {
+if ($results['showEditFeeForm']) {
     ?>
     <div class="modal fade" id="logoutConfirmation" tabindex="-1" role="dialog" aria-labelledby="logoutConfirmation"
          aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title fColorIndigo" id="exampleModalLabel">Edit news/offers area</h5>
+                    <h5 class="modal-title fColorIndigo" id="exampleModalLabel">Edit Fee Plans area</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -34,7 +34,7 @@ if ($results['showEditFeePlans']) {
 
                     <!-- sets the correct url to be called in the form depending on the existence of an id that means that is an edition or non existence that means an creation-->
                     <?php
-                    $url = isset($feePlanToEdit->id) ? '/Fitness-Center-Project/public/registration.php?action=editFeePlan&id=' . $feePlanToEdit->id : '/Fitness-Center-Project/public/registration.php?action=action=saveFeePlan'
+                    $url = isset($feePlanToEdit->id) ? '/Fitness-Center-Project/public/registration.php?action=editFeePlan&id=' . $feePlanToEdit->id : '/Fitness-Center-Project/public/registration.php?action=saveFeePlan'
                     ?>
                     <!-- inserts the url in the action of the form-->
                     <form action="<?php echo $url ?>" method="post">
@@ -44,7 +44,7 @@ if ($results['showEditFeePlans']) {
 
                             <!--  all inputs allow the admin to edit if a id is there-->
                             <label class="font-weight-bold mt-3" for="name">name</label>
-                            <input type="date" class="form-control" id="name" name="name"
+                            <input type="text" class="form-control" id="name" name="name"
                                    value="<?php echo isset($feePlanToEdit->id) ? $feePlanToEdit->name : '' ?>">
 
                             <label class="font-weight-bold mt-1" for="text">text</label>
@@ -57,10 +57,10 @@ if ($results['showEditFeePlans']) {
 
                             <label class="font-weight-bold mt-1" for="maxClasses">maxClasses</label>
                             <input type="text" class="form-control" id="type" name="type"
-                                   value="<?php echo isset($feePlanToEdit->id) ? $feePlanToEdit->type : '' ?>">
+                                   value="<?php echo isset($feePlanToEdit->id) ? $feePlanToEdit->maxClasses : '' ?>">
 
                         </div>
-                        <input type="submit" value="Save" name="submitPost"
+                        <input type="submit" value="Save" name="submitFeePlan"
                                class="m-2 btn btn-secondary buttonSizeAdm">
                     </form>
 
@@ -71,20 +71,20 @@ if ($results['showEditFeePlans']) {
                             <!--                        dropdown button populated with all posts already in the database to chose to edit or delete. When it is chosen it refreshes the page and shows all inputs populated-->
                             <button class="btn btn-secondary dropdown-toggle buttonSizeAdm" type="button" id="dropdownEdit"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Select Post
+                                Select Plan
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownEdit">
                                 <?php
-                                $data1 = Fee::getList(50, "news");
-                                foreach ($data1['results'] as $post) { ?>
+                                $data = Fee::getList(50);
+                                foreach ($data['results'] as $feePlan) { ?>
                                     <a role="button" class="dropdown-item"
-                                       href="<?php echo WEB_URL_PREFIX."/Fitness-Center-Project/public/registration.php?action=showEditFeePlans&id=" . $post->id?>"><?php echo $post->title ?></a>
+                                       href="<?php echo WEB_URL_PREFIX."/Fitness-Center-Project/public/registration.php?action=showEditFeeForm&id=" . $feePlan->id?>"><?php echo $feePlan->name ?></a>
                                 <?php } ?>
                             </div>
                         </div>
                         <!--                        delete button that triggers a confirmation dialog and deletes the selected post-->
                         <a class="btn btn-secondary mt-2 buttonSizeAdm"
-                           href="<?php echo WEB_URL_PREFIX."/Fitness-Center-Project/public/registration.php?action=deleteFeePlan&id=" . $postToEdit->id ?>"
+                           href="<?php echo WEB_URL_PREFIX."/Fitness-Center-Project/public/registration.php?action=deleteFeePlan&id=" . $feePlanToEdit->id ?>"
                            role="button" onclick="return confirm('Delete This Fee Plan?')">Delete</a>
                     </div>
 
