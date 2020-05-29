@@ -15,8 +15,8 @@ if ($action != '' && $action != 'storeFormValues') {
     $results['allowedUserTypes'] = ['admin'];
     $results['redirectionLocation'] = WEB_URL_PREFIX . "/Fitness-Center-Project/public/registration.php";
 }
-//sets page title
-$results['pageTitle'] = 'Sign up';
+
+$results['pageTitle'] = 'Registration';
 require('../app/views/header.php');
 
 //verify if one of the actions are true to allow showing edit fee form
