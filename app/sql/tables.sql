@@ -58,26 +58,26 @@ CREATE TABLE class (
 )DEFAULT CHARSET=UTF8;
 
 INSERT INTO post (publicationDate, title, text, link, type, buttonText, photoLink)
-    VALUES (2020-05-10, 'Online Classes', 'Be with us every morning on our online classes to meditate and work out with us in this difficult times', 'registration.php', 'news', 'Join Online', '../app/images/online-yoga.jpg');
+    VALUES ('2020-05-10', 'Online Classes', 'Be with us every morning on our online classes to meditate and work out with us in this difficult times', 'registration.php', 'news', 'Join Online', '../app/images/online-yoga.jpg');
 
 INSERT INTO post (publicationDate, title, text, link, type, buttonText, photoLink)
-    VALUES (2020-05-10, 'Yoga in the Park', 'On 13th february we will have a class on St Stephens Green', '#', 'news', 'Join us', '../app/images/yoga-park.jpg');
+    VALUES ('2020-05-10', 'Yoga in the Park', 'On 13th february we will have a class on St Stephens Green', '#', 'news', 'Join us', '../app/images/yoga-park.jpg');
 
 INSERT INTO post (publicationDate, title, text, link, type, buttonText, photoLink)
-    VALUES (2020-05-10, 'Free Trial', 'Do your first class free!', 'contact_us.php', 'offers', 'Contact Us', '../app/images/free-trial.jpg');
+    VALUES ('2020-05-10', 'Free Trial', 'Do your first class free!', 'contact_us.php', 'offers', 'Contact Us', '../app/images/free-trial.jpg');
 
 INSERT INTO post (publicationDate, title, text, link, type, buttonText, photoLink)
-    VALUES (2020-05-10, 'First month free', 'Ten first registered members will have first month free',
+    VALUES ('2020-05-10', 'First month free', 'Ten first registered members will have first month free',
     'registration.php', 'offers', 'Register now!', '../app/images/pilates.jpg');
 
 INSERT INTO user (name, surname, PPS, email, password, securityMessage, dateOfBirth, phone, card, nameOnCard, securityCode, expirationDate, plan, type)
-    VALUES ('Renata', 'Covisi', '111111', 'renata@hotmail.com', '12345678', 'hashtagmuito', 1991-11-18, '3333333', '2222222','Renata', '111', 2022-10-11, 'tree', 'admin');
+    VALUES ('Renata', 'Covisi', '111111', 'renata@hotmail.com', '12345678', 'hashtagmuito', '1991-11-18', '3333333', '2222222','Renata', '111', '2022-10-11', 'tree', 'admin');
 
 INSERT INTO user (name, surname, PPS, email, password, securityMessage, dateOfBirth, phone, card, nameOnCard, securityCode, expirationDate, plan, type)
-    VALUES ('Alex', 'B', '2222222', 'alex@hotmail.com', '87654321', 'hashtagmuito', 1990-06-21, '3333333', '4444444', 'Alex', '222', 2025-10-22, 'tree', 'member');
+    VALUES ('Alex', 'B', '2222222', 'alex@hotmail.com', '87654321', 'hashtagmuito', '1990-06-21', '3333333', '4444444', 'Alex', '222', '2025-10-22', 'tree', 'member');
 
 INSERT INTO user (name, surname, PPS, email, password, securityMessage, dateOfBirth, phone, card, nameOnCard, securityCode, expirationDate, plan, type)
-VALUES ('Cristina', 'Silva', '3333333', 'cristina@hotmail.com', '12345612', 'hashtagmuito', 1986-02-27, '5555555', '1111111','Cristina', '333', 2023-05-26, 'Lotus', 'admin');
+VALUES ('Cristina', 'Silva', '3333333', 'cristina@hotmail.com', '12345612', 'hashtagmuito', '1986-02-27', '5555555', '1111111','Cristina', '333', '2023-05-26', 'Lotus', 'admin');
 
 INSERT INTO fee (name, text, price, maxClasses)
     VALUES ('Tree', 'Basic plan where you can choose 4 differente classes*', 59.90, 4 );
@@ -194,19 +194,19 @@ CREATE TABLE testimonial (
     );
 
 INSERT INTO testimonial (title, text, name, stars, approval, className, creationDate)
-VALUES ('Excelent classes', 'In this fast paced and sometimes unsettling world we live in coming to the Yoga center allows me to bring my mind, body and soul back into balance', '@MikeJr ', 4,  'pending', 'Hatha Yoga', 2020-05-10);
+VALUES ('Excelent classes', 'In this fast paced and sometimes unsettling world we live in coming to the Yoga center allows me to bring my mind, body and soul back into balance', '@MikeJr ', 4,  'pending', 'Hatha Yoga', '2020-05-10');
 
 
 INSERT INTO testimonial (title, text, name, stars, approval, className, creationDate)
-VALUES ('Perfect for injuries', 'I returned to Yoga primarily because of a knee injury and an inability to perform high impact exercise. My knee is much improved and so is my body as a whole', '@JessM', 4 , 'pending', 'Hatha Yoga', 2020-05-10);
+VALUES ('Perfect for injuries', 'I returned to Yoga primarily because of a knee injury and an inability to perform high impact exercise. My knee is much improved and so is my body as a whole', '@JessM', 4 , 'pending', 'Hatha Yoga', '2020-05-10');
 
 
 INSERT INTO testimonial (title, text, name, stars, approval, className, creationDate)
-VALUES ('Good for health', 'After a hectic/stressful day, coming to Yoga is calming and restorative. Since I’ve been practicing I am much stronger have much greater range of motion', '@LukeY', 5 , 'approved', 'Hatha Yoga', 2020-05-10);
+VALUES ('Good for health', 'After a hectic/stressful day, coming to Yoga is calming and restorative. Since I’ve been practicing I am much stronger have much greater range of motion', '@LukeY', 5 , 'approved', 'Hatha Yoga', '2020-05-10');
 
 
 INSERT INTO testimonial (title, text, name, stars, approval, className, creationDate)
-VALUES ('Love it', 'One of the most relaxing experiences I have ever felt while being able to melt into myself', '@JenS', 3 , 'approved', 'Hatha Yoga', 2020-05-10);
+VALUES ('Love it', 'One of the most relaxing experiences I have ever felt while being able to melt into myself', '@JenS', 3 , 'approved', 'Hatha Yoga', '2020-05-10');
 
 
 
