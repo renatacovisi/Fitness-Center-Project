@@ -1,5 +1,5 @@
 <?php
-$root = realpath($_SERVER["DOCUMENT_ROOT"]);
+require('../../public/config.php');
 
 require_once(FIXED_PATH."/Fitness-Center-Project/app/src/session.php");
 

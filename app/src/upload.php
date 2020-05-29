@@ -1,9 +1,6 @@
 <?php
-//using real path to make easier to the scripts to find the other files
-$root = realpath($_SERVER["DOCUMENT_ROOT"]);
-
 //require config file
-require_once(FIXED_PATH."/Fitness-Center-Project/public/config.php");
+require('../../public/config.php');
 //require Post file to be able to control the uploads of images by the admin
 require_once(FIXED_PATH."/Fitness-Center-Project/classes/Post.php");
 

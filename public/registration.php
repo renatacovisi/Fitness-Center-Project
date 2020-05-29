@@ -1,7 +1,6 @@
 <?php
-$root = realpath($_SERVER["DOCUMENT_ROOT"]);
 #Include the config file - configuration settings are available to the script
-require_once(FIXED_PATH."/Fitness-Center-Project/public/config.php");
+require_once("config.php");
 require("../classes/Fee.php");
 
 require_once(FIXED_PATH."/Fitness-Center-Project/classes/User.php");

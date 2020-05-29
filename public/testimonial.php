@@ -1,7 +1,6 @@
 <?php
-$root = realpath($_SERVER["DOCUMENT_ROOT"]);
+require_once("config.php");
 require_once(FIXED_PATH."/Fitness-Center-Project/classes/Testimonial.php");
-require_once(FIXED_PATH."/Fitness-Center-Project/public/config.php");
 
 $results = Array();
 
