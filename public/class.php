@@ -108,9 +108,9 @@ require('../app/views/header.php');
                                     <i class="fas fa-plus-circle fColorYellow"></i></a>
                             <?php }
                             if ($user->type == 'admin') { ?>
-                                <a class="float-right mx-1" href="<?php echo WEB_URL_PREFIX."/Fitness-Center-Project/public/class.php?action=showEditClassForm&id=<?php echo $class->id ?>" ?>">
+                                <a class="float-right mx-1" href="<?php echo WEB_URL_PREFIX."/Fitness-Center-Project/public/class.php?action=showEditClassForm&id=".$class->id ?>">
                                     <i class="fas fa-edit fColorYellow"></i></a>
-                                <a class="float-right mx-1" href="<?php echo WEB_URL_PREFIX."/Fitness-Center-Project/public/class.php?action=deleteClass&id=<?php echo $class->id ?>" ?>"
+                                <a class="float-right mx-1" href="<?php echo WEB_URL_PREFIX."/Fitness-Center-Project/public/class.php?action=deleteClass&id=".$class->id ?>"
                                    onclick="return confirm('Delete This Class?')">
                                     <i class="fas fa-trash-alt fColorYellow"></i></a>
 
