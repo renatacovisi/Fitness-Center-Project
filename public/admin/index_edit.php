@@ -69,6 +69,9 @@ if ($results['showEditPosts']) {
                         <input type="submit" value="Save" name="submitPost"
                                class="m-2 btn btn-secondary buttonSizeAdm">
                     </form>
+
+
+
                     <div class="d-block mt-3 ml-1">
                     <div class="dropdown mt-5">
 <!--                        dropdown button populated with all posts already in the database to chose to edit or delete. When it is chosen it refreshes the page and shows all inputs populated-->

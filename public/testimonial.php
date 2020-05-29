@@ -59,8 +59,12 @@ if ($action == 'deleteTestimonial') {
     }
 }
 
-$results['testimonial'] = Testimonial::getList(50, "approved")['results'];
-$results['pendingTestimonials'] = Testimonial::getList(50, "pending")['results'];;
+$approvedTestimonialsList = Testimonial::getList(50, "approved");
+$results['testimonial'] = isset($approvedTestimonialsList['results']) ? $approvedTestimonialsList['results'] : [];
+$pendingTestimonialsList = Testimonial::getList(50, "pending");
+$results['pendingTestimonials'] = isset($pendingTestimonialsList['results']) ? $pendingTestimonialsList['results'] : [];
+
+
 ?>
 
 

@@ -40,7 +40,7 @@ if ($action == 'deleteMessage') {
     else {
         $messageToDelete = ContactUs::getById($messageId);
         $messageToDelete->delete();
-        $results['message'] = "Testimonial Deleted!";
+        $results['message'] = "Message Deleted!";
     }
 }
 
@@ -55,7 +55,8 @@ if ($action == 'seeMessage') {
     }
 }
 
-$results['messagesList'] = ContactUs::getList(50)['results'];
+$messages = ContactUs::getList(50);
+$results['messagesList'] = isset($messages['results']) ? $messages['results'] : [];
 
 ?>
 
@@ -97,7 +98,7 @@ $results['messagesList'] = ContactUs::getList(50)['results'];
         </div>
     <?php } ?>
 
-    <?php if (isset($results['message'])) { ?>
+    <?php if (isset($results['message']) and ($user->type == 'member' || $action == 'sendMessage') ) { ?>
         <p class="mt-5 mx-auto alert alert-primary"><?php echo $results['message'] ?></p>
     <?php } ?>
     <!--form-->
