@@ -1,4 +1,3 @@
-
 <?php
 //using real path to make easier to the scripts to find the other files
 $root = realpath($_SERVER["DOCUMENT_ROOT"]);
@@ -10,7 +9,6 @@ require_once(FIXED_PATH.'/Fitness-Center-Project/classes/Testimonial.php');
 require_once(FIXED_PATH."/Fitness-Center-Project/app/src/session.php");
 
 
-
 //if the action is to show the edit posts modal
 if ($results['showTestimonialForm']){
     ?>
@@ -18,12 +16,14 @@ if ($results['showTestimonialForm']){
          aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
+              
                 <div class="modal-header">
                     <h5 class="modal-title fColorIndigo" id="exampleModalLabel">Add Testimonial</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
+
                 <div class="modal-body fColorIndigo">
 
                     <!-- error or confirmation message after try to add or edit a record-->
@@ -47,55 +47,53 @@ if ($results['showTestimonialForm']){
 
                             <h1>Stars</h1>
                             <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">
-                                        <input type="radio" aria-label="Radio button for following text input" name="stars" value="1" id="1">
-                                    </div>
-                                    <label for="1" class="d-inline-block">1</label>
+                              <div class="input-group-prepend">
+                                  <div class="input-group-text">
+                                      <input type="radio" aria-label="Radio button for following text input" name="stars" value="1" id="1">
+                                  </div>
+                                  <label for="1" class="d-inline-block">1</label>
+                              </div>
+                              <div class="input-group-prepend">
+                                  <div class="input-group-text">
+                                      <input type="radio" aria-label="Radio button for following text input" name="stars" value="2">
+                                  </div>
+                                  <label for="2">2</label>
+                              </div>
+                              <div class="input-group-prepend">
+                                  <div class="input-group-text">
+                                      <input type="radio" aria-label="Radio button for following text input" name="stars" value="3">
+                                  </div>
+                                  <label for="3">3</label>
+                              </div>
+                              <div class="input-group-prepend">
+                                  <div class="input-group-text">
+                                      <input type="radio" aria-label="Radio button for following text input" name="stars" value="4">
+                                  </div>
+                                  <label for="4">4</label>
+                              </div>
+                              <div class="input-group-prepend">
+                                  <div class="input-group-text">
+                                      <input type="radio" aria-label="Radio button for following text input" name="stars" value="5">
+                                  </div>
+                                  <label for="5">5</label>
                                 </div>
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">
-                                        <input type="radio" aria-label="Radio button for following text input" name="stars" value="2">
-                                    </div>
-                                    <label for="2">2</label>
-                                </div>
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">
-                                        <input type="radio" aria-label="Radio button for following text input" name="stars" value="3">
-                                    </div>
-                                    <label for="3">3</label>
-                                </div>
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">
-                                        <input type="radio" aria-label="Radio button for following text input" name="stars" value="4">
-                                    </div>
-                                    <label for="4">4</label>
-                                </div>
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">
-                                        <input type="radio" aria-label="Radio button for following text input" name="stars" value="5">
-                                    </div>
-                                    <label for="5">5</label>
-                                </div>
+                              </div>
 
-                                </div>
-                            </div>
+                      </div>
+
                         <label class="font-weight-bold mt-1" for="className">Class Name</label>
                         <input type="text" class="form-control" id="className" name="className">
-
                         <label class="font-weight-bold mt-3" for="creationDate">Creation Date</label>
                         <input type="date" class="form-control" id="creationDate" name="creationDate"
-
-
-                </div>
-                        <input type="submit" value="Save" name="submitPost"
-                               class="mt-5 btn btn-secondary buttonSizeAdm">
+                        <input type="submit" value="Save" name="submitPost" class="mt-5 btn btn-secondary buttonSizeAdm">
                     </form>
-                </div>
-            </div>
 
-        </div>
-    </div>
-    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
     <script>$('#logoutConfirmation').modal('show')</script>
+
 <?php } ?>
