@@ -29,6 +29,13 @@ require('config.php');
         </div>
     </section>
 
+    <?php if ($user->type == 'admin') { ?>
+        <div class="d-inline-block container-fluid">
+            <!--                the button redirects the admin user to the add testimonial modal -->
+            <a role="button" class="fColorIndigo btn btn-light m-1 ml-3 buttonSize float-right noShadow mr-5"
+               href="<?php echo WEB_URL_PREFIX."/Fitness-Center-Project/public/admin/contact_us.php?action=showSeeMessagesForm" ?>">See messages</a>
+        </div>
+    <?php } ?>
     <!--form-->
     <form action="contact_us.php" method="post">
         <div class="col-md-6 mx-auto">

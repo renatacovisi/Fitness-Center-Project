@@ -218,9 +218,6 @@ CREATE TABLE contactUs
     email      varchar(100) NOT NULL UNIQUE,
     phone      varchar(255) NOT NULL,
     message    mediumtext,
-    link       varchar(255) NOT NULL,
-    buttonText varchar(20)  NOT NULL,
-
     PRIMARY KEY (id)
 );
 
