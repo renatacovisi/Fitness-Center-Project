@@ -68,6 +68,14 @@ require('../app/views/header.php');
         </div>
     </section>
 
+    <?php if ($user->type == 'admin') { ?>
+        <div class="d-inline-block container-fluid">
+            <!--                the button redirects the admin user to the add testimonial modal -->
+            <a role="button" class="fColorIndigo btn btn-light m-1 ml-3 buttonSize float-right noShadow mr-5"
+               href="<?php echo WEB_URL_PREFIX."/Fitness-Center-Project/public/registration.php?action=showEditFeeForm" ?>">Edit Fee Plans</a>
+        </div>
+    <?php } ?>
+
     <form action="registration.php?action=storeFormValues" method="post">
 
         <h3 class="mt-5">Plans</h3>
