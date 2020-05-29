@@ -4,6 +4,7 @@ require_once("config.php");
 require("../classes/Fee.php");
 
 require_once(FIXED_PATH."/Fitness-Center-Project/classes/User.php");
+$results = array();
 $data = Fee::getList(3);
 $results['plan'] = $data['results'];
 $action = isset( $_GET['action'] ) ? $_GET['action'] : "";
@@ -17,6 +18,64 @@ if (isset($_POST['saveUser']) and $results['formAction'] == 'storeFormValues') {
     $user->insert();
     $results['userSaved'] = true;
 }
+
+//initializes the id of a post that is being received from the browser for all interactions
+$postId = isset($_GET['id']) ? $_GET['id'] : "";
+
+// Gets a pot by the id and assign it to a position on the results variable
+$results['feePlanToEdit'] = Post::getById($postId);
+
+// if the post does not have an id it creates an empty post to help to handle it in the creation and edition
+if ($results['postToEdit'] == null) {
+    $results['postToEdit'] = new Post();
+}
+
+// indicates if the actions bellow are true or false to allow the modals to be open
+$results['confirmLogout'] = $action == "confirmLogout";
+
+$results['showEditPosts'] = ($action == "showEditPosts" || $action == 'savePostResult' || $action == 'editPost' || $action == 'deletePost' );
+
+//$results['showEditCarousel'] = ($action == "showEditCarousel" || $action == 'savePostResult');
+
+//verify if the upload and saving are ok and display information to the user
+if ($action == 'savePostResult' and $status == 'uploadSuccess') {
+    $results['message'] = "Changes Saved!";
+} elseif ($action == 'savePostResult' and $status == 'uploadFailed') {
+    $results['message'] = "An error occurred, please try again.";
+}
+
+//if ($action == 'saveCarouselResult' and $status == 'uploadSuccess') {
+//    $results['message'] = "Changes Saved!";
+//} elseif ($action == 'saveCarouselResult' and $status == 'uploadFailed') {
+//    $results['message'] = "An error occurred, please try again.";
+//}
+
+// verify if the action is edit post and there is no id and display a message
+if ($action == 'editPost') {
+    if ($results['postToEdit']->id == null ) {
+        $results['message'] = 'Post Not Found';
+    }
+//    if the there is an id stores the new values in the post object and update it
+    else {
+        $results['postToEdit']->storeFormValues( $_POST );
+        $results['postToEdit']->update();
+        $results['message'] = "Changes Saved!";
+    }
+}
+
+// if the action is delete post and there is no id display a message,
+if ($action == 'deletePost') {
+    if ($postId == '' ) {
+        $results['message'] = 'Post Not Found';
+    }
+//    if there is an id retrieves it from the database, delete it and display a message
+    else {
+        $postToDelete = Post::getById($postId);
+        $postToDelete->delete();
+        $results['message'] = "Post Deleted!";
+    }
+}
+
 
 $results['pageTitle'] = 'Sign up';
 require('../app/views/header.php');
