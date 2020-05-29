@@ -1,6 +1,6 @@
 <?php
 //using real path to make easier to the scripts to find the other files
-$root = realpath($_SERVER["DOCUMENT_ROOT"]);
+//$root = realpath($_SERVER["DOCUMENT_ROOT"]);
 
 //require config file
 //require_once(FIXED_PATH.'/public/config.php');
