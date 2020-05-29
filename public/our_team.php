@@ -6,10 +6,15 @@
 <head>
     <title>Our Team</title>
 
+    <?php
+    require('../app/views/common_head.php');
+    ?>
 </head>
 
 <body class="backgroundColor">
-
+<?php
+require('../app/views/header.php');
+?>
 
 <main>
     <!-- jumbotron -->

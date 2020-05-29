@@ -1,7 +1,7 @@
 <?php
 $root = realpath($_SERVER["DOCUMENT_ROOT"]);
-require_once(FIXED_PATH."/Fitness-Center-project/classes/Testimonial.php");
-require_once(FIXED_PATH."/Fitness-Center-project/public/config.php");
+require_once(FIXED_PATH."/Fitness-Center-Project/classes/Testimonial.php");
+require_once(FIXED_PATH."/Fitness-Center-Project/public/config.php");
 
 $results = Array();
 
@@ -84,8 +84,8 @@ require('../app/views/header.php');
 
 <main class="mr-3 ml-3">
     <?php
-    require(FIXED_PATH."/Fitness-Center-project/public/testimonial_add.php");
-    require(FIXED_PATH."/Fitness-Center-project/public/admin/testimonial_manage.php");
+    require(FIXED_PATH."/Fitness-Center-Project/public/testimonial_add.php");
+    require(FIXED_PATH."/Fitness-Center-Project/public/admin/testimonial_manage.php");
     ?>
     <!-- jumbotron -->
     <section class="jumbotron jumbotron-fluid rounded testimonialImage text-white">

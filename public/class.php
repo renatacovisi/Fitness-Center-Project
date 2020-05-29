@@ -1,7 +1,7 @@
 <?php
 $root = realpath($_SERVER["DOCUMENT_ROOT"]);
 #Include the config file - configuration settings are available to the script
-require_once(FIXED_PATH."/Fitness-Center-project/public/config.php");
+require_once(FIXED_PATH."/Fitness-Center-Project/public/config.php");
 require("../classes/Class_.php");
 
 
@@ -92,7 +92,7 @@ require('../app/views/header.php');
 
 <main class="">
     <?php
-    require(FIXED_PATH."/Fitness-Center-project/public/admin/class_details_edit.php")
+    require(FIXED_PATH."/Fitness-Center-Project/public/admin/class_details_edit.php")
     ?>
     <!-- jumbotron -->
     <section class="jumbotron jumbotron-fluid rounded classesImage text-white">
