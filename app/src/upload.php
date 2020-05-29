@@ -75,18 +75,18 @@ if (isset($_POST['submitPost'])) {
     //insert the values in the database and assign if the data was successfully uploaded or not
     $results['postSaved'] = $post->insert() == 'success';
     if ($results['postSaved'] == 'success') {
-        header('Location: /Fitness-Center-Project/public/index?action=savePostResult&status=uploadSuccess');
+        header('Location: ' . WEB_URL_PREFIX . '/Fitness-Center-Project/public/index?action=savePostResult&status=uploadSuccess');
     }
     else {
-        header('Location: /Fitness-Center-Project/public/index?action=savePostResult&status=uploadFailed');
+        header('Location: ' . WEB_URL_PREFIX . '/Fitness-Center-Project/public/index?action=savePostResult&status=uploadFailed');
     }
 }
 
 //if ($action == 'saveCarousel') {
 //    if ($results['carouselSaved'] == 'success') {
-//        header('Location: /Fitness-Center-Project/public/index?action=saveCarouselResult&status=uploadSuccess');
+//        header('Location: ' . WEB_URL_PREFIX . '/Fitness-Center-Project/public/index?action=saveCarouselResult&status=uploadSuccess');
 //    } else {
-//        header('Location: /Fitness-Center-Project/public/index?action=savePostResult&status=uploadFailed');
+//        header('Location: ' . WEB_URL_PREFIX . '/Fitness-Center-Project/public/index?action=savePostResult&status=uploadFailed');
 //    }
 //}
 
@@ -103,10 +103,10 @@ if (isset($_POST['submitClass'])) {
     //insert the values in the database and assign if the data was successfully uploaded or not
     $results['classSaved'] = $class->insert() == 'success';
     if ($results['classSaved'] == 'success') {
-        header('Location: /Fitness-Center-Project/public/class.php?action=saveClassResult&status=uploadSuccess');
+        header('Location: ' . WEB_URL_PREFIX . '/Fitness-Center-Project/public/class.php?action=saveClassResult&status=uploadSuccess');
     }
 //    else {
-//        header('Location: /Fitness-Center-Project/public/class.php?action=saveClassResult&status=uploadFailed');
+//        header('Location: ' . WEB_URL_PREFIX . '/Fitness-Center-Project/public/class.php?action=saveClassResult&status=uploadFailed');
 //    }
 }
 

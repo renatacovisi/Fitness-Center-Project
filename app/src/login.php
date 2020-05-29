@@ -7,7 +7,7 @@ require_once(FIXED_PATH."/Fitness-Center-Project/app/src/session.php");
 
 
 if (isLoggedIn($user)) {
-    header( "Location: index.php" );
+    header( "Location: " . WEB_URL_PREFIX . "/Fitness-Center-Project/public/index.php" );
     exit;
 }
 
@@ -26,7 +26,7 @@ function login(&$results) {
     $user = User::getByEmail($email, connect());
     if (isset($user) and $user->password == $password) {
         $_SESSION['userEmail'] = $email;
-        header( "Location: /Fitness-Center-Project/public/index.php" );
+        header( "Location: " . WEB_URL_PREFIX . "/Fitness-Center-Project/public/index.php" );
     }
     else {
         // Login failed: display an error message to the user
