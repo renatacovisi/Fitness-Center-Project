@@ -11,33 +11,11 @@ $id= isset($_GET['id']) ? $_GET['id'] : "";
 //get the Class_ object with getById method
 $classToShow = Class_::getById($id);
 
-
-?>
-
-
-
-
-<!-- Specifying the use of html, opening the HTML document and setting the language to english -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <!--title to be showed in the tab of the window-->
-    <title><?php echo $classToShow->name?></title>
-
-    <!-- common head -->
-    <?php
-    require('../app/views/common_head.php');
-    ?>
-
-</head>
-
-<body class="backgroundColor">
-<!-- header -->
-<?php
+$results['pageTitle'] = $classToShow->name;
 require('../app/views/header.php');
 ?>
 
-<main class="">
+<main>
     <!-- jumbotron -->
     <section class="jumbotron jumbotron-fluid rounded classesImage text-white">
         <div class="container">

@@ -38,30 +38,14 @@ function login(&$results) {
 function isLoggedIn($user) {
     return $user->type == "admin" || $user->type == "member";
 }
-?>
-<!-- Specifying the use of html, opening the HTML document and setting the language to english -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <!--title to be showed in the tab of the window-->
-    <title>Login</title>
-    <?php
-    require(FIXED_PATH."/Fitness-Center-Project/app/views/common_head.php");
-    ?>
-</head>
 
-<body class="backgroundColor">
-<!-- header -->
-<?php
+
+$results['pageTitle'] = 'Login';
 require(FIXED_PATH."/Fitness-Center-Project/app/views/header.php");
 ?>
 
-
-
-
 <!--login form-->
-
-<main class="mx-3">
+<main>
     <!-- jumbotron -->
     <section class="jumbotron jumbotron-fluid rounded faqImage text-white">
         <div class="container">

@@ -1,16 +1,3 @@
-<!-- Specifying the use of html, opening the HTML document and setting the language to english -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <!--title to be showed in the tab of the window-->
-    <title>Home</title>
-    <?php
-    require('../app/views/common_head.php');
-    ?>
-</head>
-
-<body class="backgroundColor">
-<!-- header-->
 <?php
 require('../app/views/header.php');
 ?>

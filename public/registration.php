@@ -17,21 +17,8 @@ if (isset($_POST['saveUser']) and $results['formAction'] == 'storeFormValues') {
     $user->insert();
     $results['userSaved'] = true;
 }
-?>
 
-
-<!-- Specifying the use of html, opening the HTML document and setting the language to english -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Our Team</title>
-    <?php
-    require('../app/views/common_head.php');
-    ?>
-</head>
-
-<body class="backgroundColor">
-<?php
+$results['pageTitle'] = 'Sign up';
 require('../app/views/header.php');
 ?>
 

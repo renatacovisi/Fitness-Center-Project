@@ -58,22 +58,9 @@ if ($action == 'seeMessage') {
 $messages = ContactUs::getList(50);
 $results['messagesList'] = isset($messages['results']) ? $messages['results'] : [];
 
+$results['pageTitle'] = 'Contact us';
+require('../app/views/header.php');
 ?>
-
-<!-- Specifying the use of html, opening the HTML document and setting the language to english -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Contact us</title>
-    <?php
-    require('../app/views/common_head.php');
-    ?>
-</head>
-
-<body class="backgroundColor">
-    <?php
-    require('../app/views/header.php');
-    ?>
 
 <main>
     <?php

@@ -11,8 +11,10 @@
     </div>
     <div class="px-3 d-none d-lg-block">
       <h5 class="title font-weight-bold">Any questions?</h5>
-      <p><a class="fColorIndigo" href="#">See our FAQ</a></p>
-      <p><a class="fColorIndigo" href="#">Send us a message</a></p>
+      <p><a class="fColorIndigo"
+            href="<?php echo WEB_URL_PREFIX."/Fitness-Center-Project/public/faq.php" ?>">See our FAQ</a></p>
+      <p><a class="fColorIndigo"
+            href="<?php echo WEB_URL_PREFIX."/Fitness-Center-Project/public/contact_us.php" ?>">Send us a message</a></p>
     </div>
     <div class="m-2 my-auto">
           <i class="fab fa-instagram fa-2x m-2"></i>

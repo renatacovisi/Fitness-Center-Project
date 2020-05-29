@@ -65,32 +65,11 @@ $data2 = Class_::getList(8, 'Lotus');
 $data3 = Class_::getList(8, 'Butterfly');
 $results['classes'] = array_merge($data1['results'], $data2['results'], $data3['results']);
 
-
-?>
-
-
-
-<!-- Specifying the use of html, opening the HTML document and setting the language to english -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <!--title to be showed in the tab of the window-->
-    <title>Classes</title>
-
-    <!-- common head -->
-    <?php
-    require('../app/views/common_head.php');
-    ?>
-
-</head>
-
-<body class="backgroundColor">
-<!-- header -->
-<?php
+$results['pageTitle'] = 'Classes';
 require('../app/views/header.php');
 ?>
 
-<main class="">
+<main>
     <?php
     require(FIXED_PATH."/Fitness-Center-Project/public/admin/class_details_edit.php")
     ?>
@@ -153,5 +132,4 @@ require('../app/views/footer.php');
 ?>
 
 </body>
-
 </html>
