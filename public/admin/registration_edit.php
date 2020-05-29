@@ -4,7 +4,6 @@ $root = realpath($_SERVER["DOCUMENT_ROOT"]);
 
 //require config file
 //require_once(FIXED_PATH."/Fitness-Center-Project/public/config.php");
-//require Post file to be able to control the uploads of images by the admin
 require_once(FIXED_PATH."/Fitness-Center-Project/classes/Post.php");
 require_once(FIXED_PATH."/Fitness-Center-Project/app/src/session.php");
 

@@ -61,10 +61,10 @@ class Post
 
         if ( isset( $data['id'] ) ) $this->id = (int) $data['id'];
         if ( isset( $data['publicationDate'] ) ) $this->publicationDate = (int) $data['publicationDate'];
-        if ( isset( $data['title'] ) ) $this->title = $data['title'];
+        if ( isset( $data['title'] ) ) $this->title = preg_replace("/[^\.\,\-\_\'\"\@\?\!\:\$ a-zA-Z0-9()]/", "", $data['title']);
         if ( isset( $data['text'] ) ) $this->text = $data['text'];
         if ( isset( $data['link'] ) ) $this->link = $data['link'];
-        if ( isset( $data['type'] ) ) $this->type = $data['type'];
+        if ( isset( $data['type'] ) ) $this->type = preg_replace("/[^\.\,\-\_\'\"\@\?\!\:\$ a-zA-Z0-9()]/", "", $data['type']);
         if ( isset( $data['buttonText'] ) ) $this->buttonText = $data['buttonText'];
         if ( isset( $data['photoLink'] ) ) $this->photoLink = $data['photoLink'];
     }
@@ -106,9 +106,6 @@ class Post
         $st->bindValue( ":id", $id, PDO::PARAM_INT );
 //        verify if the execution in the database is ok, and if not close the connection and return failed
         if (!$st->execute()) {
-            $st->errorCode();
-            $st->errorInfo();
-            $st->debugDumpParams();
             $connection = null;
             return 'failed';
         };
@@ -134,9 +131,6 @@ class Post
         $st->bindValue( ":numRows", $numRows, PDO::PARAM_INT );
         $st->bindValue( ":type", $type, PDO::PARAM_STR );
         if (!$st->execute()) {
-            $st->errorCode();
-            $st->errorInfo();
-            $st->debugDumpParams();
             $connection = null;
             return 'failed';
         };
@@ -169,9 +163,6 @@ class Post
         $st->bindValue( ":buttonText", $this->buttonText, PDO::PARAM_STR );
         $st->bindValue( ":photoLink", $this->photoLink, PDO::PARAM_STR );
         if (!$st->execute()) {
-            $st->errorCode();
-            $st->errorInfo();
-            $st->debugDumpParams();
             $connection = null;
             return 'failed';
         };
@@ -201,9 +192,6 @@ class Post
         $st->bindValue( ":buttonText", $this->buttonText, PDO::PARAM_STR );
         $st->bindValue( ":photoLink", $this->photoLink, PDO::PARAM_STR );
         if (!$st->execute()) {
-            $st->errorCode();
-            $st->errorInfo();
-            $st->debugDumpParams();
             $connection = null;
             return 'failed';
         };
@@ -223,9 +211,6 @@ class Post
         $st = $connection->prepare ( "DELETE FROM post WHERE id = :id LIMIT 1" );
         $st->bindValue( ":id", $this->id, PDO::PARAM_INT );
         if (!$st->execute()) {
-            $st->errorCode();
-            $st->errorInfo();
-            $st->debugDumpParams();
             $connection = null;
             return 'failed';
         };

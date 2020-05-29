@@ -130,8 +130,6 @@ INSERT INTO class (name, shortDescription, longDescription, timetable, image, pl
     '19h45', '../app/images/hold_leg_up.svg', 'Butterfly', '#' );
 
 
-
-
 /*
  *
  *

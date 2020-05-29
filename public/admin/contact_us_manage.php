@@ -32,7 +32,7 @@ if ($results["showSeeMessagesForm"]) {
 
                 <table class="table">
                     <thead>
-                    <tr>
+                        <tr>
                         <th scope="col">id</th>
                         <th scope="col">Name</th>
                         <th scope="col">E-mail</th>

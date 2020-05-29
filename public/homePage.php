@@ -33,14 +33,6 @@ require('../app/views/header.php');
 
     <!-- Carousel -->
     <section id="carousel" class="carousel slide mb-4" data-ride="carousel">
-        <!--        show the buttons to edit if the user is the admin-->
-        <?php if ($user->type == 'admin') { ?>
-            <div class="d-inline-block container-fluid">
-                <a role="button"
-                   class="fColorIndigo btn btn-light m-1 ml-3 d-block buttonSize noShadow overlapButton float-right mr-5"
-                   href="<?php echo WEB_URL_PREFIX."/Fitness-Center-Project/public/index.php?action=showEditCarousel" ?>">Edit</a>
-            </div>
-        <?php } ?>
 
         <!-- slide icons -->
         <ul class="carousel-indicators">

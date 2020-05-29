@@ -56,12 +56,12 @@ class Class_
 
 
         if (isset($data['id'])) $this->id = (int)$data['id'];
-        if (isset($data['name'])) $this->name = $data['name'];
+        if (isset($data['name'])) $this->name = preg_replace("/[^\.\,\-\_\'\"\@\?\!\:\$ a-zA-Z0-9()]/", "", $data['name']);
         if (isset($data['shortDescription'])) $this->shortDescription = $data['shortDescription'];
         if (isset($data['longDescription'])) $this->longDescription = $data['longDescription'];
         if (isset($data['timetable'])) $this->timetable = $data['timetable'];
         if (isset($data['image'])) $this->image = $data['image'];
-        if (isset($data['plan'])) $this->plan = $data['plan'];
+        if (isset($data['plan'])) $this->plan = preg_replace("/[^\.\,\-\_\'\"\@\?\!\:\$ a-zA-Z0-9()]/", "", $data['plan']);
         if (isset($data['externalLink'])) $this->externalLink = $data['externalLink'];
     }
 
@@ -93,9 +93,6 @@ class Class_
         $st->bindValue(":id", $id, PDO::PARAM_INT);
 //        verify if the execution in the database is ok, and if not close the connection and return failed
         if (!$st->execute()) {
-            $st->errorCode();
-            $st->errorInfo();
-            $st->debugDumpParams();
             $connection = null;
             return 'failed';
         };
@@ -121,9 +118,6 @@ class Class_
         $st->bindValue(":numRows", $numRows, PDO::PARAM_INT);
         $st->bindValue(":plan", $plan, PDO::PARAM_STR);
         if (!$st->execute()) {
-            $st->errorCode();
-            $st->errorInfo();
-            $st->debugDumpParams();
             $connection = null;
             return 'failed';
         };
@@ -156,9 +150,6 @@ class Class_
         $st->bindValue(":externalLink", $this->externalLink, PDO::PARAM_STR);
         $st->bindValue(":image", $this->image, PDO::PARAM_STR);
         if (!$st->execute()) {
-            $st->errorCode();
-            $st->errorInfo();
-            $st->debugDumpParams();
             $connection = null;
             return 'failed';
         };
@@ -189,9 +180,6 @@ class Class_
         $st->bindValue(":image", $this->image, PDO::PARAM_STR);
 
         if (!$st->execute()) {
-            $st->errorCode();
-            $st->errorInfo();
-            $st->debugDumpParams();
             $connection = null;
             return 'failed';
         };
@@ -207,9 +195,6 @@ class Class_
         $st = $connection->prepare ( "DELETE FROM class WHERE id = :id LIMIT 1" );
         $st->bindValue( ":id", $this->id, PDO::PARAM_INT );
         if (!$st->execute()) {
-            $st->errorCode();
-            $st->errorInfo();
-            $st->debugDumpParams();
             $connection = null;
             return 'failed';
         };
