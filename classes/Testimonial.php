@@ -52,12 +52,12 @@ class Testimonial {
     {
 
         if (isset($data['id'])) $this->id = (int)$data['id'];
-        if (isset($data['title'])) $this->title = $data['title'];
-        if (isset($data['text'])) $this->text = $data['text'];
-        if (isset($data['name'])) $this->name = $data['name'];
+        if (isset($data['title'])) $this->title = preg_replace("/[^\.\,\-\_\'\"\@\?\!\:\$ a-zA-Z0-9()]/", "", $data['title']);
+        if (isset($data['text'])) $this->text = preg_replace("/[^\.\,\-\_\'\"\@\?\!\:\$ a-zA-Z0-9()]/", "", $data['text']);
+        if (isset($data['name'])) $this->name = preg_replace("/[^\.\,\-\_\'\"\@\?\!\:\$ a-zA-Z0-9()]/", "", $data['name']);
         if (isset($data['stars'])) $this->stars = $data['stars'];
         if (isset($data['approval'])) $this->approval = $data['approval'];
-        if (isset($data['className'])) $this->className = $data['className'];
+        if (isset($data['className'])) $this->className = preg_replace("/[^\.\,\-\_\'\"\@\?\!\:\$ a-zA-Z0-9()]/", "", $data['className']);
         if (isset($data['creationDate'])) $this->creationDate = $data['creationDate'];
     }
 
@@ -97,9 +97,6 @@ class Testimonial {
         $st = $connection->prepare($sql);
         $st->bindValue(":id", $id, PDO::PARAM_INT);
         if (!$st->execute()) {
-            $st->errorCode();
-            $st->errorInfo();
-            $st->debugDumpParams();
             $connection = null;
             return 'failed';
         };
@@ -123,9 +120,6 @@ class Testimonial {
         $st->bindValue(":numRows", $numRows, PDO::PARAM_INT);
         $st->bindValue( ":approval", $approval, PDO::PARAM_STR );
         if (!$st->execute()) {
-            $st->errorCode();
-            $st->errorInfo();
-            $st->debugDumpParams();
             $connection = null;
             return 'failed';
         };
@@ -157,11 +151,8 @@ class Testimonial {
         $st->bindValue(":stars", $this->stars, PDO::PARAM_INT);
         $st->bindValue(":approval", $this->approval, PDO::PARAM_STR);
         $st->bindValue(":className", $this->className, PDO::PARAM_STR);
-        $st->bindValue(":creationDate", $this->creationDate, PDO::PARAM_STR);
+        $st->bindValue(":creationDate", $this->creationDate, PDO::PARAM_INT);
         if (!$st->execute()) {
-            $st->errorCode();
-            $st->errorInfo();
-            $st->debugDumpParams();
             $connection = null;
             return 'failed';
         };
@@ -192,9 +183,6 @@ class Testimonial {
         $st->bindValue(":className", $this->className, PDO::PARAM_STR);
         $st->bindValue(":creationDate", $this->creationDate, PDO::PARAM_STR);
         if (!$st->execute()) {
-            $st->errorCode();
-            $st->errorInfo();
-            $st->debugDumpParams();
             $connection = null;
             return 'failed';
         };
@@ -217,9 +205,6 @@ class Testimonial {
         $st = $connection->prepare("DELETE FROM testimonial WHERE id = :id LIMIT 1");
         $st->bindValue(":id", $this->id, PDO::PARAM_INT);
         if (!$st->execute()) {
-            $st->errorCode();
-            $st->errorInfo();
-            $st->debugDumpParams();
             $connection = null;
             return 'failed';
         };

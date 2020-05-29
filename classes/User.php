@@ -168,14 +168,14 @@ class User extends PDOException {
         $st->bindValue(":plan", $this->plan, PDO::PARAM_STR);
         $st->bindValue(":type", $this->type, PDO::PARAM_STR);
         if (!$st->execute()) {
-            $st->errorCode();
-            $st->errorInfo();
-            $st->debugDumpParams();
+            $connection = null;
+            return false;
         };
 
 
         $this->id = $connection->lastInsertId();
         $connection = null;
+        return true;
     }
 
     public static function getByEmail($email) {

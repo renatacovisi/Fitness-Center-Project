@@ -264,6 +264,8 @@ nav {
     font-size: 13px;
 }
 
+
+/*testimonial*/
 .testimonialIconSizeClasses {
     width: 20%;
 }
@@ -271,6 +273,7 @@ nav {
 .testimonialCardsSize {
     width: 80%;
 }
+
 
 /* FAQ Page */
 /* image tint to make text clearer and apply image background */

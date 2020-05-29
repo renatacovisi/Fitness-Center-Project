@@ -54,7 +54,7 @@ if ($results["showApproveTestimonialForm"]) {
                         <td><?php echo $testimonial->name ?></td>
                         <td><?php echo $testimonial->stars ?></td>
                         <td><?php echo $testimonial->className ?></td>
-                        <td><?php echo $testimonial->creationDate ?></td>
+                        <td><?php echo date("m-d", $testimonial->creationDate) ?></td>
                         <td>
                             <a class="float-right mx-1"
                                href="<?php echo WEB_URL_PREFIX."/Fitness-Center-Project/public/testimonial.php?action=approveTestimonial&id=".$testimonial->id ?>"

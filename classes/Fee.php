@@ -40,7 +40,7 @@ class Fee {
         #$this->propertyName means: “The property of this object that has the name “$propertyName“.
         #cast to integers (int)
         if ( isset( $data['id'] ) ) $this->id = (int) $data['id'];
-        if ( isset( $data['name'] ) ) $this->name = (string) $data['name'];
+        if ( isset( $data['name'] ) ) $this->name = preg_replace("/[^\.\,\-\_\'\"\@\?\!\:\$ a-zA-Z0-9()]/", "", $data['name']);
         if ( isset( $data['text'] ) ) $this->text = (string) $data['text'];
         if ( isset( $data['price'] ) ) $this->price = (double) $data['price'];
         if ( isset( $data['maxClasses'] ) ) $this->maxClasses = (int) $data['maxClasses'];
@@ -93,9 +93,6 @@ class Fee {
         $st = $connection->prepare( $sql );
         $st->bindValue( ":numRows", $numRows, PDO::PARAM_INT );
         if (!$st->execute()) {
-            $st->errorCode();
-            $st->errorInfo();
-            $st->debugDumpParams();
             $connection = null;
             return 'failed';
         };
@@ -127,9 +124,6 @@ class Fee {
         $st->bindValue( ":price", $this->price, PDO::PARAM_DOUBLE );
         $st->bindValue( ":maxClasses", $this->maxClasses, PDO::PARAM_INT );
         if (!$st->execute()) {
-            $st->errorCode();
-            $st->errorInfo();
-            $st->debugDumpParams();
             $connection = null;
             return 'failed';
         };
@@ -156,9 +150,6 @@ class Fee {
         $st->bindValue( ":price", $this->price, PDO::PARAM_STR );
         $st->bindValue( ":maxClasses", $this->maxClasses, PDO::PARAM_INT );
         if (!$st->execute()) {
-            $st->errorCode();
-            $st->errorInfo();
-            $st->debugDumpParams();
             $connection = null;
             return 'failed';
         };
@@ -180,9 +171,6 @@ class Fee {
         $st = $connection->prepare ( "DELETE FROM fee WHERE id = :id LIMIT 1" );
         $st->bindValue( ":id", $this->id, PDO::PARAM_INT );
         if (!$st->execute()) {
-            $st->errorCode();
-            $st->errorInfo();
-            $st->debugDumpParams();
             $connection = null;
             return 'failed';
         };

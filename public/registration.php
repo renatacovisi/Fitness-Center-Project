@@ -15,8 +15,7 @@ if (isset($_POST['saveUser']) and $results['formAction'] == 'storeFormValues') {
     $user = new User;
 
     $user->storeFormValues($_POST);
-    $user->insert();
-    $results['userSaved'] = true;
+    $results['userSaved'] = $user->insert();
 }
 
 //initializes the id of a post that is being received from the browser for all interactions
@@ -55,7 +54,7 @@ require('../app/views/header.php');
 
     <?php
     require(FIXED_PATH."/Fitness-Center-Project/public/admin/registration_edit.php");
-    if (isset($results["userSaved"]) == true) {
+    if (isset($results["userSaved"])) {
         ?>
         <div class="modal fade" id="savingUserConfirmation" tabindex="-1" role="dialog"
              aria-labelledby="savingUserConfirmation" aria-hidden="true">
@@ -67,9 +66,16 @@ require('../app/views/header.php');
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
+                    <?php if ($results["userSaved"]) { ?>
                     <p class="modal-body fColorIndigo">
-                        Your registration was done successfully!
+                         'Your registration was done successfully!'
                     </p>
+                    <?php }
+                    else {?>
+                    <p class="modal-body fColorIndigo">
+                    An error occurred! Please Try Again!
+                    </p>
+                    <?php }?>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
                     </div>
@@ -107,39 +113,98 @@ require('../app/views/header.php');
                                 <label class="inline font-weight-bold typeOfPlan"
                                        for="<?php echo $plan->name ?>"><?php echo $plan->name ?></label>
                                 <p class="card-text"><?php echo $plan->text ?></p>
-                                <h5 class="card-text font-weight-bold"><?php echo $plan->price ?></h5>
+                                <h5 class="card-text font-weight-bold">€<?php echo $plan->price ?></h5>
                                 <p class="card-text pricePeriod">monthly</p>
-                                <table class="table table-borderless fColorIndigo">
-                                    <thead>
-                                    <tr>
-                                        <th>Classes*</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>Slow Vinyasa</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Power Vinyasa</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Yin</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Hatha</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
+
                             </div>
                         </div>
                     </div>
                 <?php } ?>
             </div>
         </div>
+
+        <section class="col-3 mt-5 mx-auto">
+                <h3>Classes*</h3>
+                <h4>Select your classes</h4>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <div class="input-group-text">
+                    <input type="checkbox" value="Slow Vinyasa" name="class" id="SlowVinyasa">
+                </div>
+            </div>
+            <label type="text" class="form-control" for="SlowVinyasa">Slow Vinyasa</label>
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <div class="input-group-text">
+                    <input type="checkbox" value="Power Vinyasa" name="class" id="PowerVinyasa">
+                </div>
+            </div>
+            <label type="text" class="form-control" for="PowerVinyasa">Power Vinyasa</label>
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <div class="input-group-text">
+                    <input type="checkbox" value="Yin" name="class" id="Yin" >
+                </div>
+            </div>
+            <label type="text" class="form-control" for="Yin">Yin</label>
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <div class="input-group-text">
+                    <input type="checkbox" value="Hatha Yoga" name="class" id="HathaYoga">
+                </div>
+            </div>
+            <label type="text" class="form-control" for="HathaYoga">Hatha Yoga</label>
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <div class="input-group-text">
+                    <input type="checkbox" value="Pilates" name="class" id="Pilates">
+                </div>
+            </div>
+            <label type="text" class="form-control" for="Pilates">Pilates</label>
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <div class="input-group-text">
+                    <input type="checkbox" value="Meditation" name="class" id="Meditation">
+                </div>
+            </div>
+            <label type="text" class="form-control" for="Meditation">Meditation</label>
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <div class="input-group-text">
+                    <input type="checkbox" value="Pregnancy Yoga" name="class" id="PregnancyYoga">
+                </div>
+            </div>
+            <label type="text" class="form-control" for="PregnancyYoga">Pregnancy Yoga</label>
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <div class="input-group-text">
+                    <input type="checkbox" value="Zumba" name="class" id="Zumba">
+                </div>
+            </div>
+            <label type="text" class="form-control" for="Zumba">Zumba</label>
+        </div>
+        </section>
+
+
         <h3 class="mt-5">Your details</h3>
         <div class="col-md-9">
             <label class="font-weight-bold mt-1" for="name">Name</label>
-            <input type="text" class="form-control" id="name", name="name">
+            <input type="text" class="form-control" id="name" name="name">
             <label class="font-weight-bold mt-3" for="surname">Surname</label>
             <input type="text" class="form-control" id="surname" name="surname">
             <label class="font-weight-bold mt-3" for="PPS">PPS Number</label>
@@ -152,70 +217,11 @@ require('../app/views/header.php');
             <input type="tel" class="form-control" id="email" name="email">
         </div>
 
-        <!--        <h3 class="text-center mt-5">Chose your classes</h3>-->
-        <!--        <div class="container m-2 col-md-8 mx-auto">-->
-        <!--            <table class="table table-bordered backgroundColorYellow fColorIndigo">-->
-        <!--                <thead>-->
-        <!--                <tr>-->
-        <!--                    <th>Option</th>-->
-        <!--                    <th>Class</th>-->
-        <!--                    <th>Time</th>-->
-        <!--                    <th>Teacher</th>-->
-        <!--                </tr>-->
-        <!--                </thead>-->
-        <!--                <tbody>-->
-        <!--                <tr>-->
-        <!--                    <td><input id="typeOne" type="radio" value="SlowVinyasaClass" name="Plan" checked="Checked"></td>-->
-        <!--                    <td>Slow Vinyasa</td>-->
-        <!--                    <td>7h45</td>-->
-        <!--                    <td>Nance</td>-->
-        <!--                </tr>-->
-        <!--                <tr>-->
-        <!--                    <td><input id="typeTwo" type="radio" value="YinClass" name="Plan" checked="Checked"></td>-->
-        <!--                    <td>Yin</td>-->
-        <!--                    <td>10h30</td>-->
-        <!--                    <td>Audrey</td>-->
-        <!--                </tr>-->
-        <!--                <tr>-->
-        <!--                    <td><input id="typeThree" type="radio" value="PowerVinyasaClass" name="Plan" checked="Checked"></td>-->
-        <!--                    <td>Power Vinyasa</td>-->
-        <!--                    <td>8h00</td>-->
-        <!--                    <td>Zoe</td>-->
-        <!--                </tr>-->
-        <!--                <tr>-->
-        <!--                    <td><input id="typeFour" type="radio" value="HathaClass" name="Plan" checked="Checked"></td>-->
-        <!--                    <td>Hatha</td>-->
-        <!--                    <td>9h30</td>-->
-        <!--                    <td>Audrey</td>-->
-        <!--                </tr>-->
-        <!--                </tbody>-->
-        <!--            </table>-->
-        <!--        </div>-->
-        <!---->
-        <!--        <h3 class="text-center mt-5">Upload an image for your profile</h3>-->
-        <!--        <div class="m-2 col-md-6 mx-auto">-->
-        <!--            <div class="profile text-center">-->
-        <!--                <div class="photo">-->
-        <!--                    <input type="file" accept="image/*">-->
-        <!--                    <div class="photo__helper">-->
-        <!--                        <div class="photo__frame">-->
-        <!--                            <canvas class="photo__canvas backgroundColorYellow m-2"></canvas>-->
-        <!--                            <div class="message">-->
-        <!--                                <p class="message--mobile m-1">Tap here to select your picture.</p>-->
-        <!--                                <button type="button" class="fColorIndigo btn btn-light buttonSize">Upload</button>-->
-        <!--                            </div>-->
-        <!--                        </div>-->
-        <!--                    </div>-->
-        <!--                </div>-->
-        <!--            </div>-->
-        <!--        </div>-->
 
         <h3 class="mt-5">Create your password</h3>
         <div class="col-md-8">
             <label class="font-weight-bold mt-1" for="password">New password</label>
             <input type="password" class="form-control" id="password" name="password">
-<!--            <label class="font-weight-bold mt-2" for="repPwd">Confirm password</label>-->
-<!--            <input type="password" class="form-control" id="repPwd" name="pwd">-->
             <label class="font-weight-bold mt-2" for="securityMessage">Security message</label>
             <input type="text" class="form-control" id="securityMessage" name="securityMessage"><br>
         </div>

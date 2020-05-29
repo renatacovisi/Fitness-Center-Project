@@ -76,9 +76,6 @@ class ContactUs {
             $st = $connection->prepare($sql);
             $st->bindValue(":id", $id, PDO::PARAM_STR);
             if (!$st->execute()) {
-                $st->errorCode();
-                $st->errorInfo();
-                $st->debugDumpParams();
                 $connection = null;
                 return 'failed';
             };
@@ -95,9 +92,6 @@ class ContactUs {
         $st = $connection->prepare($sql);
         $st->bindValue(":numRows", $numRows, PDO::PARAM_INT);
         if (!$st->execute()) {
-            $st->errorCode();
-            $st->errorInfo();
-            $st->debugDumpParams();
             $connection = null;
             return 'failed';
         };
@@ -124,9 +118,6 @@ class ContactUs {
         $st->bindValue(":title", $this->title, PDO::PARAM_STR);
         $st->bindValue(":message", $this->message, PDO::PARAM_STR);
         if (!$st->execute()) {
-            $st->errorCode();
-            $st->errorInfo();
-            $st->debugDumpParams();
             $connection = null;
             return 'failed';
         };
@@ -149,9 +140,6 @@ class ContactUs {
         $st = $connection->prepare("DELETE FROM contactUs WHERE id = :id LIMIT 1");
         $st->bindValue(":id", $this->id, PDO::PARAM_INT);
         if (!$st->execute()) {
-            $st->errorCode();
-            $st->errorInfo();
-            $st->debugDumpParams();
             $connection = null;
             return 'failed';
         };
