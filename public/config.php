@@ -20,7 +20,7 @@ else {
     define("FIXED_PATH", "/home/s3021651/public_html");
     define("WEB_URL_PREFIX", "/~s3021651");
 }
-//require_once(FIXED_PATH."/Fitness-Center-project/app/src/connection.php");
+//require_once(FIXED_PATH."/Fitness-Center-Project/app/src/connection.php");
 
 
 

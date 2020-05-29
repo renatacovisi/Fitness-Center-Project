@@ -3,11 +3,11 @@
 $root = realpath($_SERVER["DOCUMENT_ROOT"]);
 
 //require config file
-require_once(FIXED_PATH."/Fitness-Center-project/public/config.php");
+require_once(FIXED_PATH."/Fitness-Center-Project/public/config.php");
 //require Post file to be able to control the uploads of images by the admin
-require_once(FIXED_PATH."/Fitness-Center-project/classes/Post.php");
+require_once(FIXED_PATH."/Fitness-Center-Project/classes/Post.php");
 
-require_once(FIXED_PATH."/Fitness-Center-project/classes/Class_.php");
+require_once(FIXED_PATH."/Fitness-Center-Project/classes/Class_.php");
 
 // Setting the action to be done by this controller
 $action = isset( $_GET['action'] ) ? $_GET['action'] : "";
@@ -78,18 +78,18 @@ if (isset($_POST['submitPost'])) {
     //insert the values in the database and assign if the data was successfully uploaded or not
     $results['postSaved'] = $post->insert() == 'success';
     if ($results['postSaved'] == 'success') {
-        header('Location: /Fitness-Center-project/public/index?action=savePostResult&status=uploadSuccess');
+        header('Location: /Fitness-Center-Project/public/index?action=savePostResult&status=uploadSuccess');
     }
     else {
-        header('Location: /Fitness-Center-project/public/index?action=savePostResult&status=uploadFailed');
+        header('Location: /Fitness-Center-Project/public/index?action=savePostResult&status=uploadFailed');
     }
 }
 
 //if ($action == 'saveCarousel') {
 //    if ($results['carouselSaved'] == 'success') {
-//        header('Location: /Fitness-Center-project/public/index?action=saveCarouselResult&status=uploadSuccess');
+//        header('Location: /Fitness-Center-Project/public/index?action=saveCarouselResult&status=uploadSuccess');
 //    } else {
-//        header('Location: /Fitness-Center-project/public/index?action=savePostResult&status=uploadFailed');
+//        header('Location: /Fitness-Center-Project/public/index?action=savePostResult&status=uploadFailed');
 //    }
 //}
 
@@ -106,10 +106,10 @@ if (isset($_POST['submitClass'])) {
     //insert the values in the database and assign if the data was successfully uploaded or not
     $results['classSaved'] = $class->insert() == 'success';
     if ($results['classSaved'] == 'success') {
-        header('Location: /Fitness-Center-project/public/class.php?action=saveClassResult&status=uploadSuccess');
+        header('Location: /Fitness-Center-Project/public/class.php?action=saveClassResult&status=uploadSuccess');
     }
 //    else {
-//        header('Location: /Fitness-Center-project/public/class.php?action=saveClassResult&status=uploadFailed');
+//        header('Location: /Fitness-Center-Project/public/class.php?action=saveClassResult&status=uploadFailed');
 //    }
 }
 
