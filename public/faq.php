@@ -1,26 +1,10 @@
 <?php
 require('config.php');
-?>
-
-<!-- Specifying the use of html, opening the HTML document and setting the language to english -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <!--title to be showed in the tab of the window-->
-    <title>FAQ</title>
-    <?php
-    require('../app/views/common_head.php');
-    ?>
-
-</head>
-
-<body class="backgroundColor">
-<!-- header -->
-<?php
+$results['pageTitle'] = 'FAQ';
 require('../app/views/header.php');
 ?>
 
-<main class="mr-3 ml-3">
+<main>
     <!-- jumbotron -->
     <section class="jumbotron jumbotron-fluid rounded faqImage text-white">
         <div class="container">
@@ -96,5 +80,9 @@ require('../app/views/header.php');
         </div>
     </section>
 </main>
+<!-- requires footer-->
+<?php
+require(FIXED_PATH."/Fitness-Center-Project/app/views/footer.php");
+?>
 </body>
 </html>

@@ -1,18 +1,6 @@
-<?php require('config.php');?>
-
-<!-- Specifying the use of html, opening the HTML document and setting the language to english -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Our Team</title>
-
-    <?php
-    require('../app/views/common_head.php');
-    ?>
-</head>
-
-<body class="backgroundColor">
 <?php
+require('config.php');
+$results['pageTitle'] = 'Our Team';
 require('../app/views/header.php');
 ?>
 

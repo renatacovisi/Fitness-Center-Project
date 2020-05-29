@@ -64,28 +64,11 @@ $results['testimonial'] = isset($approvedTestimonialsList['results']) ? $approve
 $pendingTestimonialsList = Testimonial::getList(50, "pending");
 $results['pendingTestimonials'] = isset($pendingTestimonialsList['results']) ? $pendingTestimonialsList['results'] : [];
 
-
-?>
-
-
-<!-- Specifying the use of html, opening the HTML document and setting the language to english -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <!--title to be showed in the tab of the window-->
-    <title>Testimonials</title>
-    <?php
-    require('../app/views/common_head.php');
-    ?>
-</head>
-
-<body class="backgroundColor">
-<!-- header -->
-<?php
+$results['pageTitle'] = 'Testimonials';
 require('../app/views/header.php');
 ?>
 
-<main class="mr-3 ml-3">
+<main>
     <?php
     require(FIXED_PATH."/Fitness-Center-Project/public/testimonial_add.php");
     require(FIXED_PATH."/Fitness-Center-Project/public/admin/testimonial_manage.php");

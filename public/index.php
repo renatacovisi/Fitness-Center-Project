@@ -81,6 +81,8 @@ function homePage($results) {
     $results['news'] = $data1['results'];
     $results['offers'] = $data2['results'];
 
+    $results['pageTitle'] = 'Home';
+
     //starts the display of the home page
     require("homePage.php");
 }
