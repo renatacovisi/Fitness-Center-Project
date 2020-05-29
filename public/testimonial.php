@@ -8,9 +8,30 @@ $action = isset($_GET['action']) ? $_GET['action'] : '';
 
 $testimonialId = isset($_GET['id']) ? $_GET['id'] : '';
 
-$results['showTestimonialForm'] = $action == 'showAddNewTestimonial' || $action == 'addTestimonial';
 
-$results['showApproveTestimonialForm'] = $action == 'showApproveTestimonialForm' || $action == 'approveTestimonial' || $action == 'deleteTestimonial' ;
+$results['showTestimonialForm'] = false;
+$results['showApproveTestimonialForm'] = false;
+
+switch ($action) {
+    case 'showAddNewTestimonial':
+    case 'addTestimonial':
+        $results['showTestimonialForm'] = true;
+        $results['allowedUserTypes'] = ['member', 'admin'];
+        break;
+    case 'showApproveTestimonialForm':
+    case 'approveTestimonial':
+    case 'deleteTestimonial':
+        $results['showApproveTestimonialForm'] = true;
+        $results['allowedUserTypes'] = ['admin'];
+        break;
+    default:
+        $testimonialId = '';
+}
+$results['redirectionLocation'] = WEB_URL_PREFIX . "/Fitness-Center-Project/public/testimonial.php";
+$results['pageTitle'] = 'Testimonials';
+
+require('../app/views/header.php');
+
 
 if ($action == 'addTestimonial') {
     $testimonial = new Testimonial();
@@ -64,8 +85,6 @@ $results['testimonial'] = isset($approvedTestimonialsList['results']) ? $approve
 $pendingTestimonialsList = Testimonial::getList(50, "pending");
 $results['pendingTestimonials'] = isset($pendingTestimonialsList['results']) ? $pendingTestimonialsList['results'] : [];
 
-$results['pageTitle'] = 'Testimonials';
-require('../app/views/header.php');
 ?>
 
 <main>

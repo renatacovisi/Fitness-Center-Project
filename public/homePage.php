@@ -1,7 +1,3 @@
-<?php
-require('../app/views/header.php');
-?>
-
 <main>
     <!--  requires the index_edit file to be used later  -->
     <?php

@@ -3,10 +3,19 @@ require_once("config.php");
 //require post class to allow control posts transactions
 require_once("../classes/Post.php");
 
-//sets the action that is being received from the browser for all interactions
-$action = isset($_GET['action']) ? $_GET['action'] : "";
 //initializes the results variable with an array
 $results = array();
+
+//sets the action that is being received from the browser for all interactions
+$action = isset($_GET['action']) ? $_GET['action'] : "";
+
+if ($action != '' && $action != 'confirmLogout') {
+    $results['allowedUserTypes'] = ['admin'];
+}
+
+require('../app/views/header.php');
+
+
 //initializes the status message that is being received from the browser for all interactions
 $status = isset($_GET['status']) ? $_GET['status'] : "";
 
@@ -68,23 +77,17 @@ if ($action == 'deletePost') {
 }
 
 // displays the homepage
-homePage($results);
-
-// function to create the home page with the posts information
-function homePage($results) {
 
 //    stores the posts of type news in a variable and the type offers in another
-    $data1 = Post::getList(2, "news");
-    $data2 = Post::getList(2, "offers");
+$data1 = Post::getList(2, "news");
+$data2 = Post::getList(2, "offers");
 
 //    assign the values of each variable for a postion in the results array
-    $results['news'] = $data1['results'];
-    $results['offers'] = $data2['results'];
+$results['news'] = $data1['results'];
+$results['offers'] = $data2['results'];
 
-    $results['pageTitle'] = 'Home';
+$results['pageTitle'] = 'Home';
 
-    //starts the display of the home page
-    require("homePage.php");
-}
-
+//starts the display of the home page
+require("homePage.php");
 ?>

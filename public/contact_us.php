@@ -1,4 +1,6 @@
 <?php
+
+// every user type is allowed to send messages
 require_once("config.php");
 require_once(FIXED_PATH."/Fitness-Center-Project/classes/ContactUs.php");
 
@@ -8,9 +10,25 @@ $action = isset($_GET['action']) ? $_GET['action'] : '';
 
 $messageId = isset($_GET['id']) ? $_GET['id'] : '';
 
-$results['showSeeMessagesForm'] = $action == 'showSeeMessagesForm' || $action == 'deleteMessage' ;
+$results['showSeeMessagesForm'] = false;
+$results['showMessageView'] = false;
 
-$results['showMessageView'] = $action == 'seeMessage';
+switch ($action) {
+    case 'showSeeMessagesForm':
+    case 'deleteMessage':
+        $results['showSeeMessagesForm'] = true;
+        $results['allowedUserTypes'] = ['admin'];
+        break;
+    case 'seeMessage':
+        $results['showMessageView'] = true;
+        $results['allowedUserTypes'] = ['admin'];
+        break;
+    default:
+        $messageId = '';
+}
+$results['redirectionLocation'] = WEB_URL_PREFIX . "/Fitness-Center-Project/public/contact_us.php";
+$results['pageTitle'] = 'Contact us';
+require('../app/views/header.php');
 
 
 if ($action == 'sendMessage') {
@@ -58,8 +76,6 @@ if ($action == 'seeMessage') {
 $messages = ContactUs::getList(50);
 $results['messagesList'] = isset($messages['results']) ? $messages['results'] : [];
 
-$results['pageTitle'] = 'Contact us';
-require('../app/views/header.php');
 ?>
 
 <main>

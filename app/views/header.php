@@ -1,5 +1,12 @@
 <?php
 require_once(FIXED_PATH."/Fitness-Center-Project/app/src/session.php");
+
+if (isset($results['allowedUserTypes']) && !in_array($user->type, $results['allowedUserTypes'], true)) {
+    $location = isset($results['redirectionLocation']) ? $results['redirectionLocation'] : WEB_URL_PREFIX . "/Fitness-Center-Project/public/index.php";
+    header( "Location: " . $location );
+    exit;
+}
+
 $pageTitle = isset($results['pageTitle']) ? $results['pageTitle'] . ' | Sunrise Fitness Center' : 'Sunrise Fitness Center';
 ?>
 
