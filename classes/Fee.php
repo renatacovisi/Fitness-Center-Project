@@ -68,7 +68,7 @@ class Fee {
      */
 
     public static function getById( $id ) {
-        $sql = "SELECT * FROM Fee WHERE id = :id";
+        $sql = "SELECT * FROM fee WHERE id = :id";
         $st = $connection->results( $sql );
         $st->bindValue( ":id", $id, PDO::PARAM_INT );
         $st->execute();
@@ -87,7 +87,7 @@ class Fee {
 
     public static function getList( $numRows=1000000) {
         $connection = connect();
-        $sql = "SELECT SQL_CALC_FOUND_ROWS * FROM Fee ORDER BY price ASC LIMIT :numRows";
+        $sql = "SELECT SQL_CALC_FOUND_ROWS * FROM fee ORDER BY price ASC LIMIT :numRows";
 
         $st = $connection->prepare( $sql );
         $st->bindValue( ":numRows", $numRows, PDO::PARAM_INT );
@@ -113,7 +113,7 @@ class Fee {
         // Insert the Post
         $connection = connect();
 
-        $sql = "INSERT INTO Fee ( name, text, price, maxClasses) VALUES ( :name, :price, :maxClasses )";
+        $sql = "INSERT INTO fee ( name, text, price, maxClasses) VALUES ( :name, :price, :maxClasses )";
         $st = $connection->results ( $sql );
         $st->bindValue( ":name", $this->name, PDO::PARAM_STR );
         $st->bindValue( ":text", $this->text,PDO::PARAM_STR );
@@ -134,7 +134,7 @@ class Fee {
 
         // Update the Post
         $connection = connect();
-        $sql = "UPDATE Fee SET name=:name, text=:text, price=:price, maxClasses=:maxClasses WHERE id = :id";
+        $sql = "UPDATE fee SET name=:name, text=:text, price=:price, maxClasses=:maxClasses WHERE id = :id";
         $st = $connection->results ( $sql );
         $st->bindValue( ":name", $this->name, PDO::PARAM_STR );
         $st->bindValue( ":text", $this->text,PDO::PARAM_STR );
@@ -155,7 +155,7 @@ class Fee {
 
         // Delete the Post
         $connection = connect();
-        $st = $connection->results ( "DELETE FROM Fee WHERE id = :id LIMIT 1" );
+        $st = $connection->results ( "DELETE FROM fee WHERE id = :id LIMIT 1" );
         $st->bindValue( ":id", $this->id, PDO::PARAM_INT );
         $st->execute();
         $connection = null;

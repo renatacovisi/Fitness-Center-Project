@@ -101,7 +101,7 @@ class Post
     public static function getById( $id ) {
 //        uses the connection function from the connection file
         $connection = connect();
-        $sql = "SELECT *, UNIX_TIMESTAMP(publicationDate) AS publicationDate FROM Post WHERE id = :id";
+        $sql = "SELECT *, UNIX_TIMESTAMP(publicationDate) AS publicationDate FROM post WHERE id = :id";
         $st = $connection->prepare( $sql );
         $st->bindValue( ":id", $id, PDO::PARAM_INT );
 //        verify if the execution in the database is ok, and if not close the connection and return failed
@@ -127,7 +127,7 @@ class Post
 
     public static function getList( $numRows=1000000, $type="news" ) {
         $connection = connect();
-        $sql = "SELECT SQL_CALC_FOUND_ROWS *, UNIX_TIMESTAMP(publicationDate) AS publicationDate FROM Post
+        $sql = "SELECT SQL_CALC_FOUND_ROWS *, UNIX_TIMESTAMP(publicationDate) AS publicationDate FROM post
             WHERE type = :type ORDER BY publicationDate DESC LIMIT :numRows";
 
         $st = $connection->prepare( $sql );
@@ -159,7 +159,7 @@ class Post
 
         $connection = connect();
 
-        $sql = "INSERT INTO Post ( publicationDate, title, text, link, type, buttonText, photoLink ) VALUES ( FROM_UNIXTIME(:publicationDate), :title, :text, :link, :type, :buttonText, :photoLink )";
+        $sql = "INSERT INTO post ( publicationDate, title, text, link, type, buttonText, photoLink ) VALUES ( FROM_UNIXTIME(:publicationDate), :title, :text, :link, :type, :buttonText, :photoLink )";
         $st = $connection->prepare ( $sql );
         $st->bindValue( ":publicationDate", $this->publicationDate, PDO::PARAM_INT );
         $st->bindValue( ":title", $this->title, PDO::PARAM_STR );
@@ -190,7 +190,7 @@ class Post
 
         // Update the Post
         $connection = connect();
-        $sql = "UPDATE Post SET publicationDate=FROM_UNIXTIME(:publicationDate), title=:title, text=:text, link=:link, type=:type, buttonText=:buttonText, photoLink=:photoLink  WHERE id = :id";
+        $sql = "UPDATE post SET publicationDate=FROM_UNIXTIME(:publicationDate), title=:title, text=:text, link=:link, type=:type, buttonText=:buttonText, photoLink=:photoLink  WHERE id = :id";
         $st = $connection->prepare ( $sql );
         $st->bindValue( ":id", $this->id, PDO::PARAM_INT );
         $st->bindValue( ":publicationDate", $this->publicationDate, PDO::PARAM_INT );
@@ -220,7 +220,7 @@ class Post
 
         // Delete the Post
         $connection = connect();
-        $st = $connection->prepare ( "DELETE FROM Post WHERE id = :id LIMIT 1" );
+        $st = $connection->prepare ( "DELETE FROM post WHERE id = :id LIMIT 1" );
         $st->bindValue( ":id", $this->id, PDO::PARAM_INT );
         if (!$st->execute()) {
             $st->errorCode();
