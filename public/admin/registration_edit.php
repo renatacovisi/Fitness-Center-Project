@@ -43,20 +43,20 @@ if ($results['showEditFeeForm']) {
                             <?php if(isset($feePlanToEdit->id)) {?> <input type="hidden" id="id" name="id" value="<?php echo $feePlanToEdit->id?>"> <?php } ?>
 
                             <!--  all inputs allow the admin to edit if a id is there-->
-                            <label class="font-weight-bold mt-3" for="name">name</label>
+                            <label class="font-weight-bold mt-3" for="name">Name</label>
                             <input type="text" class="form-control" id="name" name="name"
                                    value="<?php echo isset($feePlanToEdit->id) ? $feePlanToEdit->name : '' ?>">
 
-                            <label class="font-weight-bold mt-1" for="text">text</label>
+                            <label class="font-weight-bold mt-1" for="text">Text</label>
                             <input type="text" class="form-control" id="text" name="text"
                                    value="<?php echo isset($feePlanToEdit->id) ? $feePlanToEdit->text : '' ?>">
 
-                            <label class="font-weight-bold mt-1" for="price">price</label>
+                            <label class="font-weight-bold mt-1" for="price">Price</label>
                             <input type="text" class="form-control" id="price" name="price"
                                    value="<?php echo isset($feePlanToEdit->id) ? $feePlanToEdit->price : '' ?>">
 
-                            <label class="font-weight-bold mt-1" for="maxClasses">maxClasses</label>
-                            <input type="text" class="form-control" id="type" name="type"
+                            <label class="font-weight-bold mt-1" for="maxClasses">Max Classes</label>
+                            <input type="text" class="form-control" id="type" name="maxClasses"
                                    value="<?php echo isset($feePlanToEdit->id) ? $feePlanToEdit->maxClasses : '' ?>">
 
                         </div>
@@ -82,10 +82,6 @@ if ($results['showEditFeeForm']) {
                                 <?php } ?>
                             </div>
                         </div>
-                        <!--                        delete button that triggers a confirmation dialog and deletes the selected post-->
-                        <a class="btn btn-secondary mt-2 buttonSizeAdm"
-                           href="<?php echo WEB_URL_PREFIX."/Fitness-Center-Project/public/registration.php?action=deleteFeePlan&id=" . $feePlanToEdit->id ?>"
-                           role="button" onclick="return confirm('Delete This Fee Plan?')">Delete</a>
                     </div>
 
                 </div>
