@@ -44,7 +44,7 @@ $pageTitle = isset($results['pageTitle']) ? $results['pageTitle'] . ' | Sunrise 
         </div>
 
         <!-- rest of the navbar -->
-        <div class="collapse navbar-collapse sticky-top text-right mr-2 ml-5" id="navbarNavDropdown">
+        <div class="collapse navbar-collapse sticky-top text-right mr-1 ml-3" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link fColorYellow"
@@ -83,7 +83,7 @@ $pageTitle = isset($results['pageTitle']) ? $results['pageTitle'] . ' | Sunrise 
                     <a class="nav-link fColorYellow" href="<?php echo WEB_URL_PREFIX."/Fitness-Center-Project/public/contact_us.php" ?>">Contact us</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link fColorYellow" href="<?php echo WEB_URL_PREFIX."/Fitness-Center-Project/public/gallery.php" ?>">Gallery</a>
+                    <a class="nav-link fColorYellow" href="<?php echo WEB_URL_PREFIX."/Fitness-Center-Project/public/our_team.php" ?>">Our Team</a>
                 </li>
             </ul>
             <!-- buttons -->

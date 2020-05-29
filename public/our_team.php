@@ -10,7 +10,7 @@ require('../app/views/header.php');
         <div class="container">
             <h1 class="display-4 mt-5 pt-5">Our Team</h1>
             <p class="lead">We are more than a team, we are family! Know our teachers.</p>
-            <button type="button" class="fColorIndigo btn btn-light buttonSize">Join us</button>
+            <a button type="button" class="fColorIndigo btn btn-light buttonSize" href="registration.php">Join us</a>
         </div>
     </section>
 

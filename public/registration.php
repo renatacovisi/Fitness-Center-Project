@@ -227,7 +227,7 @@ require('../app/views/header.php');
             <label class="font-weight-bold mt-3" for="nameOnCard">Name </label>
             <input type="text" class="form-control" id="nameOnCard" name="nameOnCard">
             <label class="font-weight-bold mt-3" for="securityCode">Security code</label>
-            <input type="text" class="form-control" id="securityCode" name="securityCode">
+            <input type="password" class="form-control" id="securityCode" name="securityCode">
             <label class="font-weight-bold mt-3" for="expirationDate">Expiration date</label>
             <input type="date" class="form-control" id="expirationDate" name="expirationDate">
             <input type="submit" class="btn btn-dark mt-3" name="saveUser" value="Save User">
