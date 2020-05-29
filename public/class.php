@@ -1,7 +1,7 @@
 <?php
 $root = realpath($_SERVER["DOCUMENT_ROOT"]);
 #Include the config file - configuration settings are available to the script
-require_once(FIXED_PATH."/Fitness-Center-Project/public/config.php");
+require_once("config.php");
 require("../classes/Class_.php");
 
 
@@ -125,7 +125,7 @@ require('../app/views/header.php');
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $class->name ?>
                             <?php if ($user->type == 'admin' || $user->type == 'member') { ?>
-                            <a class="float-right mx-1" href="<?php echo WEB_URL_PREFIX."/Fitness-Center-Project/public/class_details.php?id=<?php echo $class->id ?>" ?>">
+                            <a class="float-right mx-1" href="<?php echo WEB_URL_PREFIX."/Fitness-Center-Project/public/class_details.php?id=".$class->id ?>">
                                     <i class="fas fa-plus-circle fColorYellow"></i></a>
                             <?php }
                             if ($user->type == 'admin') { ?>

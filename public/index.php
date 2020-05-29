@@ -1,8 +1,5 @@
 <?php
-//using real path to make easier to the scripts to find the other files
-$root = realpath($_SERVER["DOCUMENT_ROOT"]);
-//require config file
-require_once(FIXED_PATH."/Fitness-Center-Project/public/config.php");
+require_once("config.php");
 //require post class to allow control posts transactions
 require_once("../classes/Post.php");
 

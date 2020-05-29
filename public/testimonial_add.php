@@ -4,7 +4,7 @@
 $root = realpath($_SERVER["DOCUMENT_ROOT"]);
 
 //require config file
-require_once(FIXED_PATH.'/Fitness-Center-Project/public/config.php');
+//require_once(FIXED_PATH.'/Fitness-Center-Project/public/config.php');
 //require Testimonial file to be able to control the uploads of images by the admin
 require_once(FIXED_PATH.'/Fitness-Center-Project/classes/Testimonial.php');
 require_once(FIXED_PATH."/Fitness-Center-Project/app/src/session.php");

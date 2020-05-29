@@ -1,3 +1,7 @@
+<?php
+require('config.php');
+?>
+
 <!-- Specifying the use of html, opening the HTML document and setting the language to english -->
 <!DOCTYPE html>
 <html lang="en">
