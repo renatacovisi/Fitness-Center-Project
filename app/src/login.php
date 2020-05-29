@@ -1,7 +1,7 @@
 <?php
 $root = realpath($_SERVER["DOCUMENT_ROOT"]);
 
-require_once("$root/Fitness-Center-project/app/src/session.php");
+require_once(FIXED_PATH."/Fitness-Center-project/app/src/session.php");
 #Include the config file - configuration settings are available to the script
 
 
@@ -45,14 +45,14 @@ function isLoggedIn($user) {
     <!--title to be showed in the tab of the window-->
     <title>Login</title>
     <?php
-    require("$root/Fitness-Center-project/app/views/common_head.php");
+    require(FIXED_PATH."/Fitness-Center-project/app/views/common_head.php");
     ?>
 </head>
 
 <body class="backgroundColor">
 <!-- header -->
 <?php
-require("$root/Fitness-Center-project/app/views/header.php");
+require(FIXED_PATH."/Fitness-Center-project/app/views/header.php");
 ?>
 
 
@@ -97,7 +97,7 @@ require("$root/Fitness-Center-project/app/views/header.php");
 </main>
 <!-- requires footer-->
 <?php
-require("$root/Fitness-Center-project/app/views/footer.php");
+require(FIXED_PATH."/Fitness-Center-project/app/views/footer.php");
 ?>
 </body>
 </html>

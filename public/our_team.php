@@ -1,17 +1,15 @@
+<?php require('config.php');?>
+
 <!-- Specifying the use of html, opening the HTML document and setting the language to english -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Our Team</title>
-    <?php
-    require('../app/views/common_head.php');
-    ?>
+
 </head>
 
 <body class="backgroundColor">
-<?php
-require('../app/views/header.php');
-?>
+
 
 <main>
     <!-- jumbotron -->
@@ -98,7 +96,7 @@ require('../app/views/header.php');
 
 <!--require footer-->
 <?php
-require('../app/views/footer.php');
+require(FIXED_PATH.'/Fitness-Center-Project/app/views/footer.php');
 ?>
 
 </body>

@@ -89,7 +89,7 @@ class Fee {
         $connection = connect();
         $sql = "SELECT SQL_CALC_FOUND_ROWS * FROM Fee ORDER BY price ASC LIMIT :numRows";
 
-        $st = $connection->results( $sql );
+        $st = $connection->prepare( $sql );
         $st->bindValue( ":numRows", $numRows, PDO::PARAM_INT );
         $st->execute();
         $list = array();

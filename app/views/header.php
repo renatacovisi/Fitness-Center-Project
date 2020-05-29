@@ -1,7 +1,7 @@
 <?php
 $root = realpath($_SERVER["DOCUMENT_ROOT"]);
 
-require_once("$root/Fitness-Center-project/app/src/session.php");
+require_once(FIXED_PATH."/Fitness-Center-project/app/src/session.php");
 
 ?>
 
@@ -11,7 +11,7 @@ require_once("$root/Fitness-Center-project/app/src/session.php");
     <nav class="navbar navbar-expand-lg fixed-top shadow">
 
         <!-- logo -->
-        <a class="navbar-brand" href="/Fitness-Center-project/public/index.php"><img id="logo" src="/Fitness-Center-Project/app/images/logo_horizontal_larger_font_emb.svg" alt=""></a>
+        <a class="navbar-brand" href="<?php echo WEB_URL_PREFIX."/Fitness-Center-Project/public/index.php" ?>"><img id="logo" src="<?php echo WEB_URL_PREFIX."/Fitness-Center-Project/app/images/logo_horizontal_larger_font_emb.svg" ?>" alt=""></a>
 
         <!-- hamburger button using font awsome icon to change color -->
         <div class="d-block float-right">
@@ -63,11 +63,11 @@ require_once("$root/Fitness-Center-project/app/src/session.php");
             <div class="d-block float-right">
                 <?php if ($user->type == "public") {?>
                 <a role="button" class="fColorIndigo btn btn-light m-1 ml-3 d-block buttonSize noShadow" href="registration.php">Sign Up</a>
-                <a role="button" class="fColorIndigo btn btn-light m-1 ml-3 d-block buttonSize noShadow" href="/Fitness-Center-Project/app/src/login.php">Sign In</a>
+                <a role="button" class="fColorIndigo btn btn-light m-1 ml-3 d-block buttonSize noShadow" href="<?php echo WEB_URL_PREFIX."/Fitness-Center-Project/app/src/login.php" ?>">Sign In</a>
                 <?php }
                 else {?>
                 <a role="button" class="fColorIndigo btn btn-light m-1 ml-3 d-block buttonSize noShadow"
-                    href="/Fitness-Center-Project/app/src/logout.php">Log out</a>
+                    href="<?php echo WEB_URL_PREFIX."/Fitness-Center-Project/app/src/logout.php" ?>">Log out</a>
 
 
                 <?php }?>

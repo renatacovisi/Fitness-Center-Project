@@ -3,11 +3,11 @@
 $root = realpath($_SERVER["DOCUMENT_ROOT"]);
 
 //require config file
-require_once("$root/Fitness-Center-project/public/config.php");
+require_once(FIXED_PATH."/Fitness-Center-project/public/config.php");
 //require Post file to be able to control the uploads of images by the admin
-require_once("$root/Fitness-Center-project/classes/Post.php");
+require_once(FIXED_PATH."/Fitness-Center-project/classes/Post.php");
 
-require_once("$root/Fitness-Center-project/classes/Class_.php");
+require_once(FIXED_PATH."/Fitness-Center-project/classes/Class_.php");
 
 // Setting the action to be done by this controller
 $action = isset( $_GET['action'] ) ? $_GET['action'] : "";

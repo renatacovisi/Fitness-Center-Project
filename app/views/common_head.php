@@ -13,4 +13,4 @@
         <script src="https://kit.fontawesome.com/6756b41fc1.js" crossorigin="anonymous"></script>
         <!-- Google fonts -->
         <!--Use the styling css created in another file-->
-        <link rel="stylesheet" href="/Fitness-Center-Project/app/css/style.css" type="text/css" />
+        <link rel="stylesheet" href="<?php echo WEB_URL_PREFIX."/Fitness-Center-Project/app/css/style.css" ?>" type="text/css" />

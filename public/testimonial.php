@@ -1,7 +1,7 @@
 <?php
 $root = realpath($_SERVER["DOCUMENT_ROOT"]);
-require_once("$root/Fitness-Center-project/classes/Testimonial.php");
-require_once("$root/Fitness-Center-project/public/config.php");
+require_once(FIXED_PATH."/Fitness-Center-project/classes/Testimonial.php");
+require_once(FIXED_PATH."/Fitness-Center-project/public/config.php");
 
 $results = Array();
 
@@ -84,8 +84,8 @@ require('../app/views/header.php');
 
 <main class="mr-3 ml-3">
     <?php
-    require("$root/Fitness-Center-project/public/testimonial_add.php");
-    require("$root/Fitness-Center-project/public/admin/testimonial_manage.php");
+    require(FIXED_PATH."/Fitness-Center-project/public/testimonial_add.php");
+    require(FIXED_PATH."/Fitness-Center-project/public/admin/testimonial_manage.php");
     ?>
     <!-- jumbotron -->
     <section class="jumbotron jumbotron-fluid rounded testimonialImage text-white">
@@ -104,14 +104,14 @@ require('../app/views/header.php');
             <div class="d-inline-block container-fluid">
                 <!--                the button redirects the admin user to the add testimonial modal -->
                 <a role="button" class="fColorIndigo btn btn-light m-1 ml-3 buttonSize float-right noShadow mr-5"
-                   href="/Fitness-Center-Project/public/testimonial.php?action=showAddNewTestimonial">Add Testimonial</a>
+                   href="<?php echo WEB_URL_PREFIX."/Fitness-Center-Project/public/testimonial.php?action=showAddNewTestimonial" ?>">Add Testimonial</a>
             </div>
         <?php } ?>
         <?php if ($user->type == 'admin') { ?>
         <div class="d-inline-block container-fluid">
             <!--                the button redirects the admin user to the add testimonial modal -->
             <a role="button" class="fColorIndigo btn btn-light m-1 ml-3 buttonSize float-right noShadow mr-5"
-               href="/Fitness-Center-Project/public/testimonial.php?action=showApproveTestimonialForm">Approve Testimonials</a>
+               href="<?php echo WEB_URL_PREFIX."/Fitness-Center-Project/public/testimonial.php?action=showApproveTestimonialForm" ?>">Approve Testimonials</a>
         </div>
         <?php } ?>
 

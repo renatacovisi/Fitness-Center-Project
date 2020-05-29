@@ -10,8 +10,17 @@ define( "TEMPLATE_PATH", "templates" );
 define( "ADMIN_USERNAME", "admin" );
 define( "ADMIN_PASSWORD", "mypass" );
 define( "CLASSES_PER_PAGE", 8);
+define( "LOCAL", true);
 $root = realpath($_SERVER["DOCUMENT_ROOT"]);
-require_once("$root/Fitness-Center-project/app/src/connection.php");
+if (LOCAL) {
+    define("FIXED_PATH", $root);
+    define("WEB_URL_PREFIX", "");
+}
+else {
+    define("FIXED_PATH", "/home/s3021651/public_html");
+    define("WEB_URL_PREFIX", "/~s3021651");
+}
+//require_once(FIXED_PATH."/Fitness-Center-project/app/src/connection.php");
 
 
 

@@ -4,10 +4,10 @@
 $root = realpath($_SERVER["DOCUMENT_ROOT"]);
 
 //require config file
-require_once("$root/Fitness-Center-project/public/config.php");
+require_once(FIXED_PATH.'/Fitness-Center-project/public/config.php');
 //require Testimonial file to be able to control the uploads of images by the admin
-require_once("$root/Fitness-Center-project/classes/Testimonial.php");
-require_once("$root/Fitness-Center-project/app/src/session.php");
+require_once(FIXED_PATH.'/Fitness-Center-project/classes/Testimonial.php');
+require_once(FIXED_PATH."/Fitness-Center-project/app/src/session.php");
 
 
 
@@ -32,7 +32,7 @@ if ($results['showTestimonialForm']){
                     <?php } ?>
 
                     <!-- inserts the url in the action of the form-->
-                    <form action="/Fitness-Center-Project/public/testimonial.php?action=addTestimonial" method="post" enctype="multipart/form-data">
+                    <form action="<?php echo WEB_URL_PREFIX."/Fitness-Center-Project/public/testimonial.php?action=addTestimonial" ?>" method="post" enctype="multipart/form-data">
                         <div class="form-group">
                             <input type="hidden" id="approval" name="approval" value="pending">
 
