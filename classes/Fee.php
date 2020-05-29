@@ -68,6 +68,7 @@ class Fee {
      */
 
     public static function getById( $id ) {
+        $connection = connect();
         $sql = "SELECT * FROM fee WHERE id = :id";
         $st = $connection->results( $sql );
         $st->bindValue( ":id", $id, PDO::PARAM_INT );
@@ -114,7 +115,7 @@ class Fee {
         $connection = connect();
 
         $sql = "INSERT INTO fee ( name, text, price, maxClasses) VALUES ( :name, :price, :maxClasses )";
-        $st = $connection->results ( $sql );
+        $st = $connection->prepare ( $sql );
         $st->bindValue( ":name", $this->name, PDO::PARAM_STR );
         $st->bindValue( ":text", $this->text,PDO::PARAM_STR );
         $st->bindValue( ":price", $this->price, PDO::PARAM_DOUBLE );
@@ -135,7 +136,7 @@ class Fee {
         // Update the Post
         $connection = connect();
         $sql = "UPDATE fee SET name=:name, text=:text, price=:price, maxClasses=:maxClasses WHERE id = :id";
-        $st = $connection->results ( $sql );
+        $st = $connection->prepare ( $sql );
         $st->bindValue( ":name", $this->name, PDO::PARAM_STR );
         $st->bindValue( ":text", $this->text,PDO::PARAM_STR );
         $st->bindValue( ":price", $this->price, PDO::PARAM_DOUBLE );
@@ -155,7 +156,7 @@ class Fee {
 
         // Delete the Post
         $connection = connect();
-        $st = $connection->results ( "DELETE FROM fee WHERE id = :id LIMIT 1" );
+        $st = $connection->prepare ( "DELETE FROM fee WHERE id = :id LIMIT 1" );
         $st->bindValue( ":id", $this->id, PDO::PARAM_INT );
         $st->execute();
         $connection = null;
