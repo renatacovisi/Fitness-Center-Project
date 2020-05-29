@@ -70,7 +70,7 @@ class Fee {
     public static function getById( $id ) {
         $connection = connect();
         $sql = "SELECT * FROM fee WHERE id = :id";
-        $st = $connection->results( $sql );
+        $st = $connection->prepare( $sql );
         $st->bindValue( ":id", $id, PDO::PARAM_INT );
         $st->execute();
         $row = $st->fetch();
@@ -92,7 +92,13 @@ class Fee {
 
         $st = $connection->prepare( $sql );
         $st->bindValue( ":numRows", $numRows, PDO::PARAM_INT );
-        $st->execute();
+        if (!$st->execute()) {
+            $st->errorCode();
+            $st->errorInfo();
+            $st->debugDumpParams();
+            $connection = null;
+            return 'failed';
+        };
         $list = array();
         while ( $row = $st->fetch() ) {
             $fee = new Fee( $row );
@@ -114,15 +120,22 @@ class Fee {
         // Insert the Post
         $connection = connect();
 
-        $sql = "INSERT INTO fee ( name, text, price, maxClasses) VALUES ( :name, :price, :maxClasses )";
+        $sql = "INSERT INTO fee ( name, text, price, maxClasses) VALUES ( :name, :text, :price, :maxClasses )";
         $st = $connection->prepare ( $sql );
         $st->bindValue( ":name", $this->name, PDO::PARAM_STR );
         $st->bindValue( ":text", $this->text,PDO::PARAM_STR );
         $st->bindValue( ":price", $this->price, PDO::PARAM_DOUBLE );
         $st->bindValue( ":maxClasses", $this->maxClasses, PDO::PARAM_INT );
-        $st->execute();
+        if (!$st->execute()) {
+            $st->errorCode();
+            $st->errorInfo();
+            $st->debugDumpParams();
+            $connection = null;
+            return 'failed';
+        };
         $this->id = $connection->lastInsertId();
         $conn = null;
+        return 'success';
     }
 
 
@@ -137,12 +150,20 @@ class Fee {
         $connection = connect();
         $sql = "UPDATE fee SET name=:name, text=:text, price=:price, maxClasses=:maxClasses WHERE id = :id";
         $st = $connection->prepare ( $sql );
+        $st->bindValue( ":id", $this->id, PDO::PARAM_INT );
         $st->bindValue( ":name", $this->name, PDO::PARAM_STR );
         $st->bindValue( ":text", $this->text,PDO::PARAM_STR );
-        $st->bindValue( ":price", $this->price, PDO::PARAM_DOUBLE );
+        $st->bindValue( ":price", $this->price, PDO::PARAM_STR );
         $st->bindValue( ":maxClasses", $this->maxClasses, PDO::PARAM_INT );
-        $st->execute();
+        if (!$st->execute()) {
+            $st->errorCode();
+            $st->errorInfo();
+            $st->debugDumpParams();
+            $connection = null;
+            return 'failed';
+        };
         $connection = null;
+        return 'success';
     }
 
 
@@ -158,8 +179,15 @@ class Fee {
         $connection = connect();
         $st = $connection->prepare ( "DELETE FROM fee WHERE id = :id LIMIT 1" );
         $st->bindValue( ":id", $this->id, PDO::PARAM_INT );
-        $st->execute();
+        if (!$st->execute()) {
+            $st->errorCode();
+            $st->errorInfo();
+            $st->debugDumpParams();
+            $connection = null;
+            return 'failed';
+        };
         $connection = null;
+        return 'success';
     }
 
 }

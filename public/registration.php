@@ -20,59 +20,29 @@ if (isset($_POST['saveUser']) and $results['formAction'] == 'storeFormValues') {
 }
 
 //initializes the id of a post that is being received from the browser for all interactions
-$postId = isset($_GET['id']) ? $_GET['id'] : "";
+$feeId = isset($_GET['id']) ? $_GET['id'] : "";
 
 // Gets a pot by the id and assign it to a position on the results variable
-$results['feePlanToEdit'] = Post::getById($postId);
+$results['feePlanToEdit'] = Fee::getById($feeId);
 
 // if the post does not have an id it creates an empty post to help to handle it in the creation and edition
-if ($results['postToEdit'] == null) {
-    $results['postToEdit'] = new Post();
+if ($results['feePlanToEdit'] == null) {
+    $results['feePlanToEdit'] = new Fee();
 }
 
-// indicates if the actions bellow are true or false to allow the modals to be open
-$results['confirmLogout'] = $action == "confirmLogout";
+$results['showEditFeeForm'] = ($action == "showEditFeeForm" || $action == 'editFeePlan');
 
-$results['showEditPosts'] = ($action == "showEditPosts" || $action == 'savePostResult' || $action == 'editPost' || $action == 'deletePost' );
-
-//$results['showEditCarousel'] = ($action == "showEditCarousel" || $action == 'savePostResult');
-
-//verify if the upload and saving are ok and display information to the user
-if ($action == 'savePostResult' and $status == 'uploadSuccess') {
-    $results['message'] = "Changes Saved!";
-} elseif ($action == 'savePostResult' and $status == 'uploadFailed') {
-    $results['message'] = "An error occurred, please try again.";
-}
-
-//if ($action == 'saveCarouselResult' and $status == 'uploadSuccess') {
-//    $results['message'] = "Changes Saved!";
-//} elseif ($action == 'saveCarouselResult' and $status == 'uploadFailed') {
-//    $results['message'] = "An error occurred, please try again.";
-//}
 
 // verify if the action is edit post and there is no id and display a message
-if ($action == 'editPost') {
-    if ($results['postToEdit']->id == null ) {
-        $results['message'] = 'Post Not Found';
+if ($action == 'editFeePlan') {
+    if ($results['feePlanToEdit']->id == null ) {
+        $results['message'] = 'Fee Plan Not Found';
     }
 //    if the there is an id stores the new values in the post object and update it
     else {
-        $results['postToEdit']->storeFormValues( $_POST );
-        $results['postToEdit']->update();
+        $results['feePlanToEdit']->storeFormValues( $_POST );
+        $results['feePlanToEdit']->update();
         $results['message'] = "Changes Saved!";
-    }
-}
-
-// if the action is delete post and there is no id display a message,
-if ($action == 'deletePost') {
-    if ($postId == '' ) {
-        $results['message'] = 'Post Not Found';
-    }
-//    if there is an id retrieves it from the database, delete it and display a message
-    else {
-        $postToDelete = Post::getById($postId);
-        $postToDelete->delete();
-        $results['message'] = "Post Deleted!";
     }
 }
 
@@ -84,6 +54,7 @@ require('../app/views/header.php');
 <main>
 
     <?php
+    require(FIXED_PATH."/Fitness-Center-Project/public/admin/registration_edit.php");
     if (isset($results["userSaved"]) == true) {
         ?>
         <div class="modal fade" id="savingUserConfirmation" tabindex="-1" role="dialog"
