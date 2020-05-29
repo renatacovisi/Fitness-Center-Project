@@ -93,7 +93,7 @@ class Testimonial {
     public static function getById($id)
     {
         $connection = connect();
-        $sql = "SELECT *, UNIX_TIMESTAMP(creationDate) AS creationDate FROM Testimonial WHERE id = :id";
+        $sql = "SELECT *, UNIX_TIMESTAMP(creationDate) AS creationDate FROM testimonial WHERE id = :id";
         $st = $connection->prepare($sql);
         $st->bindValue(":id", $id, PDO::PARAM_INT);
         if (!$st->execute()) {
@@ -118,7 +118,7 @@ class Testimonial {
     public static function getList($numRows = 1000000, $approval="approved")
     {
         $connection = connect();
-        $sql = "SELECT SQL_CALC_FOUND_ROWS *, UNIX_TIMESTAMP(creationDate) AS creationDate FROM Testimonial WHERE approval = :approval ORDER BY stars DESC LIMIT :numRows";
+        $sql = "SELECT SQL_CALC_FOUND_ROWS *, UNIX_TIMESTAMP(creationDate) AS creationDate FROM testimonial WHERE approval = :approval ORDER BY stars DESC LIMIT :numRows";
         $st = $connection->prepare($sql);
         $st->bindValue(":numRows", $numRows, PDO::PARAM_INT);
         $st->bindValue( ":approval", $approval, PDO::PARAM_STR );
@@ -148,7 +148,7 @@ class Testimonial {
 
         if (!is_null($this->id)) trigger_error("Testimonial::insert(): Attempt to insert an Post object that already has its ID property set (to $this->id).", E_USER_ERROR);
 
-        $sql = 'INSERT INTO Testimonial ( title, text, name, stars, approval, className, creationDate  ) '.
+        $sql = 'INSERT INTO testimonial ( title, text, name, stars, approval, className, creationDate  ) '.
         'VALUES ( :title, :text, :name, :stars, :approval, :className, FROM_UNIXTIME(:creationDate) )';
         $st = $connection->prepare($sql);
         $st->bindValue(":title", $this->title, PDO::PARAM_STR);
@@ -180,7 +180,7 @@ class Testimonial {
         if (is_null($this->id)) trigger_error("Testimonial::update(): Attempt to update an Testimonial object that does not have its ID property set.", E_USER_ERROR);
 
         $connection = connect();
-        $sql = "UPDATE Testimonial SET title=:title, text=:text, name=:name, stars=:stars, approval=:approval,".
+        $sql = "UPDATE testimonial SET title=:title, text=:text, name=:name, stars=:stars, approval=:approval,".
             " className=:className, creationDate=FROM_UNIXTIME(:creationDate) WHERE id = :id";
         $st = $connection->prepare($sql);
         $st->bindValue(":id", $this->id, PDO::PARAM_INT);
@@ -214,7 +214,7 @@ class Testimonial {
         if (is_null($this->id)) trigger_error("Testimonial::delete(): Attempt to delete a Testimonial object that does not have its ID property set.", E_USER_ERROR);
 
         $connection = new PDO(DB_DSN, DB_USERNAME, DB_PASSWORD);
-        $st = $connection->prepare("DELETE FROM Testimonial WHERE id = :id LIMIT 1");
+        $st = $connection->prepare("DELETE FROM testimonial WHERE id = :id LIMIT 1");
         $st->bindValue(":id", $this->id, PDO::PARAM_INT);
         if (!$st->execute()) {
             $st->errorCode();

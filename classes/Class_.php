@@ -88,7 +88,7 @@ class Class_
     {
 //        uses the connection function from the connection file
         $connection = connect();
-        $sql = "SELECT * FROM Class WHERE id = :id";
+        $sql = "SELECT * FROM class WHERE id = :id";
         $st = $connection->prepare($sql);
         $st->bindValue(":id", $id, PDO::PARAM_INT);
 //        verify if the execution in the database is ok, and if not close the connection and return failed
@@ -114,7 +114,7 @@ class Class_
     public static function getList($numRows = 1000000, $plan = 'Tree')
     {
         $connection = connect();
-        $sql = "SELECT SQL_CALC_FOUND_ROWS * FROM Class
+        $sql = "SELECT SQL_CALC_FOUND_ROWS * FROM class
             WHERE plan = :plan ORDER BY id DESC LIMIT :numRows";
 
         $st = $connection->prepare($sql);
@@ -146,7 +146,7 @@ class Class_
 
         $connection = connect();
 
-        $sql = "INSERT INTO Class ( name, shortDescription, longDescription, timetable, image, plan, externalLink ) VALUES (:name, :shortDescription, :longDescription, :timetable, :image, :plan, :externalLink)";
+        $sql = "INSERT INTO class ( name, shortDescription, longDescription, timetable, image, plan, externalLink ) VALUES (:name, :shortDescription, :longDescription, :timetable, :image, :plan, :externalLink)";
         $st = $connection->prepare($sql);
         $st->bindValue(":name", $this->name, PDO::PARAM_STR);
         $st->bindValue(":shortDescription", $this->shortDescription, PDO::PARAM_STR);
@@ -204,7 +204,7 @@ class Class_
 
         // Delete the Class
         $connection = connect();
-        $st = $connection->prepare ( "DELETE FROM Class WHERE id = :id LIMIT 1" );
+        $st = $connection->prepare ( "DELETE FROM class WHERE id = :id LIMIT 1" );
         $st->bindValue( ":id", $this->id, PDO::PARAM_INT );
         if (!$st->execute()) {
             $st->errorCode();
