@@ -5,4 +5,8 @@ require_once(FIXED_PATH."/Fitness-Center-Project/classes/User.php");
 session_start();
 $user = isset( $_SESSION['userEmail'] ) ? User::getByEmail($_SESSION['userEmail'], connect()) : User::generatePublicUser();
 
+function isLoggedIn($user) {
+    return $user->type == "admin" || $user->type == "member";
+}
+
 ?>

@@ -1,9 +1,12 @@
 <?php
 
+#Include the config file - configuration settings are available to the script
 require('../../public/config.php');
 
+#Specifically for login, logout and upload, the session file is required directly, instead of via header.php since
+#it is necessary to be able to redirect the user before sending actual html code (done by header.php) if the user
+# does not have permissions or is already logged in or out.
 require_once(FIXED_PATH."/Fitness-Center-Project/app/src/session.php");
-#Include the config file - configuration settings are available to the script
 
 
 if (isLoggedIn($user)) {
@@ -34,11 +37,6 @@ function login(&$results) {
 
     }
 }
-
-function isLoggedIn($user) {
-    return $user->type == "admin" || $user->type == "member";
-}
-
 
 $results['pageTitle'] = 'Login';
 require(FIXED_PATH."/Fitness-Center-Project/app/views/header.php");

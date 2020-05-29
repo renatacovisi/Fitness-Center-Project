@@ -4,32 +4,39 @@ require_once("config.php");
 require("../classes/Fee.php");
 
 require_once(FIXED_PATH."/Fitness-Center-Project/classes/User.php");
+
 $results = array();
-$data = Fee::getList(3);
-$results['plan'] = $data['results'];
+
 $action = isset( $_GET['action'] ) ? $_GET['action'] : "";
-$results['formAction'] = $action;
 
+if ($action != '' && $action != 'storeFormValues') {
+    $results['allowedUserTypes'] = ['admin'];
+    $results['redirectionLocation'] = WEB_URL_PREFIX . "/Fitness-Center-Project/public/registration.php";
+}
 
-if (isset($_POST['saveUser']) and $results['formAction'] == 'storeFormValues') {
+$results['pageTitle'] = 'Sign up';
+require('../app/views/header.php');
+
+$results['showEditFeeForm'] = ($action == "showEditFeeForm" || $action == 'editFeePlan');
+
+if (isset($_POST['saveUser']) and $action == 'storeFormValues') {
     $user = new User;
 
     $user->storeFormValues($_POST);
     $results['userSaved'] = $user->insert();
 }
 
+
 //initializes the id of a post that is being received from the browser for all interactions
 $feeId = isset($_GET['id']) ? $_GET['id'] : "";
 
-// Gets a pot by the id and assign it to a position on the results variable
+// Gets a fee by the id and assign it to a position on the results variable
 $results['feePlanToEdit'] = Fee::getById($feeId);
 
-// if the post does not have an id it creates an empty post to help to handle it in the creation and edition
+// if the fee does not have an id it creates an empty object to help to handle it in the creation and edition
 if ($results['feePlanToEdit'] == null) {
     $results['feePlanToEdit'] = new Fee();
 }
-
-$results['showEditFeeForm'] = ($action == "showEditFeeForm" || $action == 'editFeePlan');
 
 
 // verify if the action is edit post and there is no id and display a message
@@ -45,9 +52,9 @@ if ($action == 'editFeePlan') {
     }
 }
 
+$data = Fee::getList(3);
+$results['plan'] = $data['results'];
 
-$results['pageTitle'] = 'Sign up';
-require('../app/views/header.php');
 ?>
 
 <main>
@@ -56,8 +63,8 @@ require('../app/views/header.php');
     require(FIXED_PATH."/Fitness-Center-Project/public/admin/registration_edit.php");
     if (isset($results["userSaved"])) {
         ?>
-        <div class="modal fade" id="savingUserConfirmation" tabindex="-1" role="dialog"
-             aria-labelledby="savingUserConfirmation" aria-hidden="true">
+        <div class="modal fade" id="savingFeeConfirmation" tabindex="-1" role="dialog"
+             aria-labelledby="savingFeeConfirmation" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -82,7 +89,7 @@ require('../app/views/header.php');
                 </div>
             </div>
         </div>
-        <script>$('#savingUserConfirmation').modal('show')</script>
+        <script>$('#savingFeeConfirmation').modal('show')</script>
     <?php } ?>
     <section class="jumbotron jumbotron-fluid rounded registration text-white">
         <div class="container">

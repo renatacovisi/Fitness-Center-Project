@@ -1,6 +1,14 @@
 <?php
 //require config file
 require('../../public/config.php');
+require_once(FIXED_PATH."/Fitness-Center-Project/app/src/session.php");
+
+#So far only admins can upload images to the server for posts and classes
+if($user->type != 'admin') {
+    header( "Location: " . WEB_URL_PREFIX . "/Fitness-Center-Project/public/index.php" );
+    exit;
+}
+
 //require Post file to be able to control the uploads of images by the admin
 require_once(FIXED_PATH."/Fitness-Center-Project/classes/Post.php");
 
@@ -82,14 +90,6 @@ if (isset($_POST['submitPost'])) {
     }
 }
 
-//if ($action == 'saveCarousel') {
-//    if ($results['carouselSaved'] == 'success') {
-//        header('Location: ' . WEB_URL_PREFIX . '/Fitness-Center-Project/public/index?action=saveCarouselResult&status=uploadSuccess');
-//    } else {
-//        header('Location: ' . WEB_URL_PREFIX . '/Fitness-Center-Project/public/index?action=savePostResult&status=uploadFailed');
-//    }
-//}
-
 //receives the submission with the file and with t
 if (isset($_POST['submitClass'])) {
     // create a new Post object
@@ -105,9 +105,9 @@ if (isset($_POST['submitClass'])) {
     if ($results['classSaved'] == 'success') {
         header('Location: ' . WEB_URL_PREFIX . '/Fitness-Center-Project/public/class.php?action=saveClassResult&status=uploadSuccess');
     }
-//    else {
-//        header('Location: ' . WEB_URL_PREFIX . '/Fitness-Center-Project/public/class.php?action=saveClassResult&status=uploadFailed');
-//    }
+    else {
+        header('Location: ' . WEB_URL_PREFIX . '/Fitness-Center-Project/public/class.php?action=saveClassResult&status=uploadFailed');
+    }
 }
 
 ?>

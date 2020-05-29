@@ -25,7 +25,7 @@ require_once(FIXED_PATH."/Fitness-Center-Project/app/src/connection.php");
 
 
 function handleException( $exception ) {
-    echo "Sorry, a problem occurred. Please try later.";
+    echo "Sorry, a problem occurred. Please try again later.";
     echo $exception;
 }
 

@@ -1,15 +1,22 @@
 <?php
-$root = realpath($_SERVER["DOCUMENT_ROOT"]);
 #Include the config file - configuration settings are available to the script
 require_once("config.php");
 require("../classes/Class_.php");
 
 
+//initializes the results variable with an array
 $results = array();
 
-
 $action = isset($_GET['action']) ? $_GET['action'] : "";
-//initializes the results variable with an array
+
+if ($action != '') {
+    $results['allowedUserTypes'] = ['admin'];
+    $results['redirectionLocation'] = WEB_URL_PREFIX . "/Fitness-Center-Project/public/class.php";
+}
+
+$results['pageTitle'] = 'Classes';
+require('../app/views/header.php');
+
 
 //initializes the status message that is being received from the browser for all interactions
 $status = isset($_GET['status']) ? $_GET['status'] : "";
@@ -36,7 +43,7 @@ if ($action == 'saveClassResult' and $status == 'uploadSuccess') {
 }
 
 // verify if the action is edit post and there is no id and display a message
-if ($action == 'saveClassResult' || $action == 'editClass') {
+if ($action == 'editClass') {
     if ($results['classToEdit']->id == null ) {
         $results['message'] = 'Class Not Found';
     }
@@ -65,8 +72,6 @@ $data2 = Class_::getList(8, 'Lotus');
 $data3 = Class_::getList(8, 'Butterfly');
 $results['classes'] = array_merge($data1['results'], $data2['results'], $data3['results']);
 
-$results['pageTitle'] = 'Classes';
-require('../app/views/header.php');
 ?>
 
 <main>
