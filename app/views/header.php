@@ -95,7 +95,7 @@ $siteMapPages = Page::getListByUserLevel($user->type)['results'];
                         <?php foreach ($siteMapPages as $page) {
                             if ($page->link == null) continue;
                             ?>
-                            <a class="dropdown-item fColorYellow" href="<?php echo $page->link ?>"><?php echo $page->name ?></a>
+                            <a class="dropdown-item fColorYellow" href="<?php echo WEB_URL_PREFIX."/Fitness-Center-Project/public/".$page->link ?>"><?php echo $page->name ?></a>
                         <?php } ?>
                     </div>
                 </li>

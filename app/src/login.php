@@ -48,11 +48,6 @@ function login(&$results) {
     }
 }
 
-//function to verify if the user is logged
-function isLoggedIn($user) {
-    return $user->type == "admin" || $user->type == "member";
-}
-
 //sets the page title
 $results['pageTitle'] = 'Login';
 require(FIXED_PATH."/Fitness-Center-Project/app/views/header.php");
