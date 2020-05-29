@@ -73,7 +73,7 @@ class User extends PDOException {
 
 
     /**
-     * @var date The user name on card
+     * @var date The expiration date of the card
      */
     public $expirationDate = null;
 
@@ -83,7 +83,7 @@ class User extends PDOException {
     public $plan = null;
 
     /**
-     * @var String The user photo
+     * @var String The type
      */
     public $type = null;
 
@@ -114,9 +114,9 @@ class User extends PDOException {
 
 
     /**
-     * Sets the object's properties using the edit form post values in the supplied array
+     * Sets the object's properties
      *
-     * @param assoc The form post values
+     * @param assoc The form values
      */
 
     public function storeFormValues($params) {

@@ -1,6 +1,4 @@
 <?php
-//using real path to make easier to the scripts to find the other files
-$root = realpath($_SERVER["DOCUMENT_ROOT"]);
 
 //require Post file to be able to control the uploads of images by the admin
 require_once(FIXED_PATH."/Fitness-Center-Project/classes/Class_.php");
@@ -68,30 +66,6 @@ if ($results["showEditClassForm"]) {
                         <input type="submit" value="Save" name="submitClass"
                                class="m-2 btn btn-secondary buttonSizeAdm">
                     </form>
-<!--                    <div class="d-block mt-3 ml-1">-->
-<!--                        <div class="dropdown mt-5">-->
-                            <!--                        dropdown button populated with all posts already in the database to chose to edit or delete. When it is chosen it refreshes the page and shows all inputs populated-->
-<!--                            <button class="btn btn-secondary dropdown-toggle buttonSizeAdm" type="button" id="dropdownEdit"-->
-<!--                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-<!--                                Select Post-->
-<!--                            </button>-->
-<!--                            <div class="dropdown-menu" aria-labelledby="dropdownEdit">-->
-<!--                                --><?php
-//                                $data1 = Class_::getList(50, "tree");
-//                                $data2 = Class_::getList(50, "butterfly");
-//                                $data3 = Class_::getList(50, "Lotus");
-//                                $data['results'] = array_merge($data1['results'], $data2['results'], $data3['results']);
-//                                foreach ($data['results'] as $class) { ?>
-<!--                                    <a role="button" class="dropdown-item"-->
-<!--                                       href="<?php echo WEB_URL_PREFIX."/Fitness-Center-Project/public/index.php?action=showEditClass&id=--><?php //echo $class->id ?><!--" ?>">--><?php //echo $class->name ?><!--</a>-->
-<!--                                --><?php //} ?>
-<!--                            </div>-->
-<!--                        </div>-->
-                        <!--                        delete button that triggers a confirmation dialog and deletes the selected post-->
-<!--                        <a class="btn btn-secondary mt-2 buttonSizeAdm"-->
-<!--                           href="<?php echo WEB_URL_PREFIX."/Fitness-Center-Project/public/index.php?action=deleteClass&id=--><?php //echo $classToEdit->id ?><!--" ?>"-->
-<!--                           role="button" onclick="return confirm('Delete This Article?')">Delete</a>-->
-<!--                    </div>-->
 
                 </div>
             </div>

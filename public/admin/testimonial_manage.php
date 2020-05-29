@@ -1,10 +1,4 @@
 <?php
-//using real path to make easier to the scripts to find the other files
-//$root = realpath($_SERVER["DOCUMENT_ROOT"]);
-
-//require config file
-//require_once(FIXED_PATH.'/public/config.php');
-//require Post file to be able to control the uploads of images by the admin
 require_once(FIXED_PATH.'/Fitness-Center-Project/classes/Testimonial.php');
 require_once(FIXED_PATH.'/Fitness-Center-Project/app/src/session.php');
 
@@ -46,6 +40,7 @@ if ($results["showApproveTestimonialForm"]) {
                     </thead>
                     <tbody>
 
+<!--                    shows all pending testimonials-->
                     <?php foreach ($results['pendingTestimonials'] as $testimonial) { ?>
                     <tr>
                         <th scope="row"><?php echo $testimonial->id ?></th>
@@ -56,10 +51,12 @@ if ($results["showApproveTestimonialForm"]) {
                         <td><?php echo $testimonial->className ?></td>
                         <td><?php echo date("m-d", $testimonial->creationDate) ?></td>
                         <td>
+<!--                            allows the admin to approve a testimonial-->
                             <a class="float-right mx-1"
                                href="<?php echo WEB_URL_PREFIX."/Fitness-Center-Project/public/testimonial.php?action=approveTestimonial&id=".$testimonial->id ?>"
                                onclick="return confirm('Approve This Testimonial?')">
                             <i class="fas fa-check-circle"></i></a>
+<!--                            allows the admin to delete a testimonial-->
                             <a class="float-right mx-1"
                                href="<?php echo WEB_URL_PREFIX."/Fitness-Center-Project/public/testimonial.php?action=deleteTestimonial&id=".$testimonial->id ?>"
                                onclick="return confirm('Delete This Testimonial?')">

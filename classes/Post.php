@@ -214,6 +214,7 @@ class Post
             $connection = null;
             return 'failed';
         };
+        return 'success';
         $connection = null;
     }
 

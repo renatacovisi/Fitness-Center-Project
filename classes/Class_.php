@@ -5,12 +5,12 @@ class Class_
 {
     // Properties
     /**
-     * @var int The Class_ ID from the database
+     * @var int The Class ID from the database
      */
     public $id = null;
 
     /**
-     * @var string name of the Class_
+     * @var string name of the Class
      */
     public $name = null;
 
@@ -25,22 +25,22 @@ class Class_
     public $longDescription = null;
 
     /**
-     * @var string The timetable of the Class_
+     * @var string The timetable of the Class
      */
     public $timetable = null;
 
     /**
-     * @var string The image link of the Class_
+     * @var string The image link of the Class
      */
     public $image = null;
 
     /**
-     * @var string The fee plan of the Class_
+     * @var string The fee plan of the Class
      */
     public $plan = null;
 
     /**
-     * @var string The fee plan of the Class_
+     * @var string The fee plan of the Class
      */
     public $externalLink = null;
 
@@ -66,9 +66,9 @@ class Class_
     }
 
     /**
-     * Sets the object's properties using the edit form post values in the supplied array
+     * Sets the object's properties using the edit form class values in the supplied array
      *
-     * @param assoc The form post values
+     * @param assoc The form class values
      */
     public function storeFormValues($params)
     {
@@ -79,10 +79,10 @@ class Class_
     }
 
     /**
-     * Returns an Post object matching the given Post ID
+     * Returns an Class object matching the given Class ID
      *
-     * @param int The Post ID
-     * @return Post|false The Post object, or false if the record was not found or there was a problem
+     * @param int The Class ID
+     * @return Post|false The Class object, or false if the record was not found or there was a problem
      */
     public static function getById($id)
     {
@@ -102,10 +102,11 @@ class Class_
     }
 
     /**
-     * Returns all (or a range of) Post objects in the DB
+     * Returns all (or a range of) Class objects in the DB
      *
-     * @param int Optional The number of rows to return (default=all)
-     * @return Array|false A two-element array : results => array, a list of Post objects; totalRows => Total number of Posts
+     * @numRows int Optional The number of rows to return (default=all)
+     * @plan string to chose a plan type to retrieve
+     * @return Array|false A two-element array : results => array, a list of Class objects; totalRows => Total number of Classes
      */
 
     public static function getList($numRows = 1000000, $plan = 'Tree')
@@ -131,7 +132,7 @@ class Class_
     }
 
     /**
-     * Inserts the current Post object into the database, and sets its ID property.
+     * Inserts the current Class object into the database, and sets its ID property.
      */
     public function insert()
     {
@@ -159,12 +160,12 @@ class Class_
     }
 
     /**
-     * Updates the current Post object in the database.
+     * Updates the current Class object in the database.
      */
     public function update()
     {
 
-        if (is_null($this->id)) trigger_error("Post::update(): Attempt to update an Post object that does not have its ID property set.", E_USER_ERROR);
+        if (is_null($this->id)) trigger_error("Class::update(): Attempt to update an Post object that does not have its ID property set.", E_USER_ERROR);
 
         // Update the Post
         $connection = connect();
@@ -187,6 +188,9 @@ class Class_
         $connection = null;
     }
 
+    /**
+     * Deletes the current Class object in the database.
+     */
     public function delete() {
         if ( is_null( $this->id ) ) trigger_error ( "Class::delete(): Attempt to delete an Post object that does not have its ID property set.", E_USER_ERROR );
 

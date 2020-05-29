@@ -1,24 +1,28 @@
 <?php
-#Include the config file - configuration settings are available to the script
+
 require_once("config.php");
 require("../classes/Fee.php");
 
 require_once(FIXED_PATH."/Fitness-Center-Project/classes/User.php");
-
+//sets the results to be an array
 $results = array();
 
+//sets the action
 $action = isset( $_GET['action'] ) ? $_GET['action'] : "";
 
+//verify the allowed user and redirect location
 if ($action != '' && $action != 'storeFormValues') {
     $results['allowedUserTypes'] = ['admin'];
     $results['redirectionLocation'] = WEB_URL_PREFIX . "/Fitness-Center-Project/public/registration.php";
 }
-
+//sets page title
 $results['pageTitle'] = 'Sign up';
 require('../app/views/header.php');
 
+//verify if one of the actions are true to allow showing edit fee form
 $results['showEditFeeForm'] = ($action == "showEditFeeForm" || $action == 'editFeePlan');
 
+//insert a new user in the database
 if (isset($_POST['saveUser']) and $action == 'storeFormValues') {
     $user = new User;
 

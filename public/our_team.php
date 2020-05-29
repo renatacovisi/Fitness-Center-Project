@@ -1,5 +1,6 @@
 <?php
 require('config.php');
+//sets page title
 $results['pageTitle'] = 'Our Team';
 require('../app/views/header.php');
 ?>

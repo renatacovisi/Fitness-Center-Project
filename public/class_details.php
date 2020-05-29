@@ -1,5 +1,4 @@
 <?php
-$root = realpath($_SERVER["DOCUMENT_ROOT"]);
 require_once("config.php");
 require(FIXED_PATH."/Fitness-Center-Project/classes/Class_.php");
 require_once(FIXED_PATH."/Fitness-Center-Project/app/src/session.php");
@@ -11,6 +10,7 @@ $id= isset($_GET['id']) ? $_GET['id'] : "";
 //get the Class_ object with getById method
 $classToShow = Class_::getById($id);
 
+//sets the page title
 $results['pageTitle'] = $classToShow->name;
 require('../app/views/header.php');
 ?>

@@ -1,12 +1,14 @@
 <?php
 require_once(FIXED_PATH."/Fitness-Center-Project/app/src/session.php");
 
+//verify if there is an allowed user set and if it is allowed to execute actions in the page, if not, redirects to index
 if (isset($results['allowedUserTypes']) && !in_array($user->type, $results['allowedUserTypes'], true)) {
     $location = isset($results['redirectionLocation']) ? $results['redirectionLocation'] : WEB_URL_PREFIX . "/Fitness-Center-Project/public/index.php";
     header( "Location: " . $location );
     exit;
 }
 
+//sets the page title
 $pageTitle = isset($results['pageTitle']) ? $results['pageTitle'] . ' | Sunrise Fitness Center' : 'Sunrise Fitness Center';
 ?>
 
@@ -95,6 +97,7 @@ $pageTitle = isset($results['pageTitle']) ? $results['pageTitle'] . ' | Sunrise 
             </ul>
             <!-- buttons -->
             <div class="d-block float-right">
+<!--                if the user is public, shows sing in and sign up, if the user is admin or member, shows logout-->
                 <?php if ($user->type == "public") {?>
                 <a role="button" class="fColorIndigo btn btn-light m-1 ml-3 d-block buttonSize noShadow"
                    href="<?php echo WEB_URL_PREFIX."/Fitness-Center-Project/public/registration.php" ?>">Sign Up</a>

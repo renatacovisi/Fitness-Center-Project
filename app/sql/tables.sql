@@ -109,7 +109,7 @@ INSERT INTO class (name, shortDescription, longDescription, timetable, image, pl
     '10h45', '../app/images/seated_heart.svg', 'Butterfly', '#' );
 
 INSERT INTO class (name, shortDescription, longDescription, timetable, image, plan, externalLink)
-    VALUES ('Power Vinyasa', 'Invigorating, powerful, energetic form of yoga where participants move or “flow” from pose to pose.',
+    VALUES ('Power Vinyasa', 'Invigorating, powerful, energetic form of yoga where participants move or flow from pose to pose.',
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at tortor erat. Donec rutrum ac justo vel pharetra. Morbi eu felis at sem finibus pulvinar. Fusce aliquam, enim in ultricies faucibus, mauris sapien mollis velit, vel sagittis massa magna tincidunt risus. Curabitur blandit consectetur accumsan. Duis ac lacus metus. Suspendisse potenti. Ut imperdiet ipsum ligula, sed molestie mi congue sit amet. Ut efficitur magna et nisi elementum rhoncus. Pellentesque fringilla elit justo, at varius mauris ultricies non. Sed nec imperdiet tellus, quis euismod massa. Cras eget augue eros. Proin diam lectus, condimentum at odio a, mollis ullamcorper est. Donec tincidunt magna vel ligula bibendum, at consequat velit viverra. Praesent quis velit iaculis, mattis augue sed, accumsan nisi. Donec luctus ex sed felis elementum, ut rutrum justo mattis.',
     '11h45', '../app/images/two_legs_up.svg', 'Butterfly', '#' );
 
@@ -128,55 +128,6 @@ INSERT INTO class (name, shortDescription, longDescription, timetable, image, pl
     VALUES ('Zumba', 'Dance inspired exercise classes.',
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at tortor erat. Donec rutrum ac justo vel pharetra. Morbi eu felis at sem finibus pulvinar. Fusce aliquam, enim in ultricies faucibus, mauris sapien mollis velit, vel sagittis massa magna tincidunt risus. Curabitur blandit consectetur accumsan. Duis ac lacus metus. Suspendisse potenti. Ut imperdiet ipsum ligula, sed molestie mi congue sit amet. Ut efficitur magna et nisi elementum rhoncus. Pellentesque fringilla elit justo, at varius mauris ultricies non. Sed nec imperdiet tellus, quis euismod massa. Cras eget augue eros. Proin diam lectus, condimentum at odio a, mollis ullamcorper est. Donec tincidunt magna vel ligula bibendum, at consequat velit viverra. Praesent quis velit iaculis, mattis augue sed, accumsan nisi. Donec luctus ex sed felis elementum, ut rutrum justo mattis.',
     '19h45', '../app/images/hold_leg_up.svg', 'Butterfly', '#' );
-
-
-/*
- *
- *
- * created by Cristina
- *
- *
- */
-
-DROP TABLE IF EXISTS teacher;
-CREATE TABLE teacher
-(
-    id          int unsigned NOT NULL auto_increment,
-    name        varchar(255) NOT NULL,
-    surname     varchar(255) NOT NULL,
-    text        varchar(400) NOT NULL,
-    description varchar(255) NOT NULL,
-    photoLink   varchar(255) NOT NULL,
-
-    PRIMARY KEY (id)
-);
-
-
-INSERT INTO teacher (name, surname, text, description, photoLink)
-VALUES ('Audrey', 'OConnell', 'Audrey completed her 200hrs YTT in Hatha yoga and has been mentored by senior Iyengar teacher, Orla Punch for the past three years', 'Her classes are focused on alignment, strength and relaxation', '../app/images/our_team_audrey.jpg');
-
-
-INSERT INTO teacher (name, surname, text, description, photoLink)
-VALUES ('Nance', 'McGowen', 'Nance has experience in many styles including Childrens yoga, Restorative, Ashtanga, Trauma Sensitive Yoga, and Yin yoga', 'Her classes are focused on flexibility ad relaxation', '../app/images/our_team_nance.jpg');
-
-
-INSERT INTO teacher (name, surname, text, description, photoLink)
-VALUES ('Zoe', 'Burke', 'Hailing from Australia, Zoe found Yoga and quickly fell in love. She moved to Ireland and completed her 250hrs Yoga Teacher Training at Samadhi, Orla Punch for the past three years', 'Zoe teaches a strong vinyasa practice', '../app/images/our_team_zoe.jpg');
-
-
-INSERT INTO teacher (name, surname, text, description, photoLink)
-VALUES ('Patrick', 'Prince', 'Patrick is a yoga and breath-work teacher. He took his teacher training in Goa, India, studying the lineages of Hatha, Vinyasa and Therapeutic yoga', 'His yoga classes are breath focused and based on alignment and conscious movement', '../app/images/our_team_patrick.jpg');
-
-
-INSERT INTO teacher (name, surname, text, description, photoLink)
-VALUES ('Paul', 'OBrien', 'Paul spent his youth training in London. He began to train in India in 2004 where he spent 2 years experiencing yoga as a way of life', 'His main practice there was in the Ashtanga Vinyasa tradition', '../app/images/our_team_paul.jpg');
-
-
-INSERT INTO teacher (name, surname, text, description, photoLink)
-VALUES ('Julie', 'Lyane', 'Julie originally qualified in Sports Therapy, Rehab and PT. She completed her 250hrs YT Training with The Yoga Rooms in Dublin', 'Her classes are energetic and challenging', '../app/images/our_team_julie.jpg');
-
-
-
 
 DROP TABLE IF EXISTS testimonial;
 CREATE TABLE testimonial (
@@ -222,18 +173,6 @@ CREATE TABLE contactUs
 
 
 
--- DROP TABLE IF EXISTS enrollement;
--- CREATE TABLE enrollement
--- (
---     user_id  int  NOT NULL,
---     class_id int  NOT NULL,
---     date     date NOT NULL,
---
---         FOREIGN KEY (user_id) REFERENCES user (id)
---         FOREIGN KEY (class_id) REFERENCES class(id)
---         ON UPDATE CASCADE ON DELETE,
--- );
-
 DROP TABLE IF EXISTS page;
 CREATE TABLE page (
                       id int unsigned NOT NULL auto_increment,
@@ -252,72 +191,4 @@ VALUES ('Alex', 'member' );
 INSERT INTO page (name, level)
 VALUES ('Cristina', 'public' );
 
---
--- DROP TABLE IF EXISTS permission;
--- CREATE TABLE permission
--- (
---     user_id         int unsigned NOT NULL auto_increment,
---     permissionLevel varchar(255) NOT NULL,
---
---     FOREIGN KEY (user_id) REFERENCES user (id)
---     ON UPDATE CASCADE ON DELETE,
---
--- );
---
--- INSERT INTO permission (permissionLevel)
--- VALUES ('admin' );
---
--- INSERT INTO permission (permissionLevel)
--- VALUES ('member' );
---
--- INSERT INTO permission (permissionLevel)
--- VALUES ('member' );
 
-
-
-
-DROP TABLE IF EXISTS faq;
-CREATE TABLE faq (
-                       id int unsigned NOT NULL auto_increment,
-                       question varchar(400) NOT NULL,
-                       answer varchar(400) NOT NULL,
-                       link varchar(400) NOT NULL,
-
-                       PRIMARY KEY (id)
-);
-
-
-
-INSERT INTO faq (question, answer, link)
-VALUES ('Which plans does Sunrise Fitness Centre offer and how can I join', 'We have three plans with different number of classes that you can do. You can have more information in our registration page', 'registration.php' );
-
-INSERT INTO faq (question, answer, link)
-VALUES ('Which plans does Sunrise Fitness Centre offer and how can I join', 'Yes, of course. You can change it by contacting us', 'contact_us.php');
-
-INSERT INTO faq (question, answer, link )
-VALUES ('Can I transfer my plan to another person?', 'No, you can not. You can cancel your plan whenever you want, and the another person can register themselvES directly on our registration page', 'contact_us.php');
-
-
-INSERT INTO faq (question, answer, link )
-VALUES ('Which plans does Sunrise Fitness Centre offer and how can I join', '', 'contact_us.php' );
-
-
-
-INSERT INTO faq (question, answer, link )
-VALUES ('Which plans does Sunrise Fitness Centre offer and how can I join', '', 'contact_us.php' );
-
-
-
-
-DROP TABLE IF EXISTS jumbotron;
-CREATE TABLE jumbotron (
-                       id int unsigned NOT NULL auto_increment,
-                       title varchar(100) NOT NULL,
-                       text varchar(255) NOT NULL,
-                       link varchar(255) NOT NULL,
-                       type varchar(20) NOT NULL,
-                       buttonText varchar(20) NOT NULL,
-                       photoLink varchar(255) NOT NULL,
-                       page_id_fk varchar (255) NOT NULL,
-                       PRIMARY KEY (id)
-);

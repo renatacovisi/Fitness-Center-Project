@@ -4,15 +4,20 @@
 require_once("config.php");
 require_once(FIXED_PATH."/Fitness-Center-Project/classes/ContactUs.php");
 
+//sets the results to be an array
 $results = Array();
 
+//sets the action
 $action = isset($_GET['action']) ? $_GET['action'] : '';
 
+//sets the id
 $messageId = isset($_GET['id']) ? $_GET['id'] : '';
 
+//initialize the actions variables
 $results['showSeeMessagesForm'] = false;
 $results['showMessageView'] = false;
 
+//switch between the actions following the allowed user types
 switch ($action) {
     case 'showSeeMessagesForm':
     case 'deleteMessage':
@@ -26,7 +31,10 @@ switch ($action) {
     default:
         $messageId = '';
 }
+
+//sets the location to redirect the user if necessary
 $results['redirectionLocation'] = WEB_URL_PREFIX . "/Fitness-Center-Project/public/contact_us.php";
+//sets the page title
 $results['pageTitle'] = 'Contact us';
 require('../app/views/header.php');
 
@@ -72,7 +80,7 @@ if ($action == 'seeMessage') {
         $results['messageToSee'] = ContactUs::getById($messageId);
     }
 }
-
+//creates a list of messages and puts it inside results or if the list is empty sends an empty array
 $messages = ContactUs::getList(50);
 $results['messagesList'] = isset($messages['results']) ? $messages['results'] : [];
 

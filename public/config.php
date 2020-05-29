@@ -10,8 +10,11 @@ define( "TEMPLATE_PATH", "templates" );
 define( "ADMIN_USERNAME", "admin" );
 define( "ADMIN_PASSWORD", "mypass" );
 define( "CLASSES_PER_PAGE", 8);
+//sets if it is on the local machine or in the remote server
 define( "LOCAL", true);
 $root = realpath($_SERVER["DOCUMENT_ROOT"]);
+
+//changes the paths for each case
 if (LOCAL) {
     define("FIXED_PATH", $root);
     define("WEB_URL_PREFIX", "");
@@ -26,7 +29,7 @@ require_once(FIXED_PATH."/Fitness-Center-Project/app/src/connection.php");
 
 function handleException( $exception ) {
     echo "Sorry, a problem occurred. Please try again later.";
-    echo $exception;
+    error_log( $exception );
 }
 
 set_exception_handler( 'handleException' );
