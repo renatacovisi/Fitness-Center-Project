@@ -51,7 +51,7 @@ require('../app/views/header.php');
             <div class="d-inline-block container-fluid">
                 <a role="button"
                    class="fColorIndigo btn btn-light m-1 ml-3 d-block buttonSize noShadow overlapButton float-right mr-5"
-                   href="/Fitness-Center-Project/public/index.php?action=showEditCarousel">Edit</a>
+                   href="<?php echo WEB_URL_PREFIX."/Fitness-Center-Project/public/index.php?action=showEditCarousel" ?>">Edit</a>
             </div>
         <?php } ?>
 
@@ -142,7 +142,7 @@ require('../app/views/header.php');
             <div class="d-inline-block container-fluid">
 <!--                the button redirects the admin user to the index, that redirects to the index_edit to show the edit modal-->
                 <a role="button" class="fColorIndigo btn btn-light m-1 ml-3 buttonSize float-right noShadow mr-5"
-                   href="/Fitness-Center-Project/public/index.php?action=showEditPosts">Edit</a>
+                   href="<?php echo WEB_URL_PREFIX."/Fitness-Center-Project/public/index.php?action=showEditPosts" ?>">Edit</a>
             </div>
         <?php } ?>
     </section>

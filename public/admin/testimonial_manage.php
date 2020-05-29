@@ -3,10 +3,10 @@
 $root = realpath($_SERVER["DOCUMENT_ROOT"]);
 
 //require config file
-require_once("$root/Fitness-Center-project/public/config.php");
+require_once('FIXED_PATH'.'/public/config.php');
 //require Post file to be able to control the uploads of images by the admin
-require_once("$root/Fitness-Center-project/classes/Testimonial.php");
-require_once("$root/Fitness-Center-project/app/src/session.php");
+require_once('FIXED_PATH'.'classes/Testimonial.php');
+require_once('FIXED_PATH'.'app/src/session.php');
 
 
 
@@ -56,10 +56,10 @@ if ($results["showApproveTestimonialForm"]) {
                         <td><?php echo $testimonial->className ?></td>
                         <td><?php echo $testimonial->creationDate ?></td>
                         <td>
-                            <a class="float-right mx-1" href="/Fitness-Center-project/public/testimonial.php?action=approveTestimonial&id=<?php echo $testimonial->id ?>"
+                            <a class="float-right mx-1" href="<?php echo WEB_URL_PREFIX."/Fitness-Center-Project/public/testimonial.php?action=approveTestimonial&id=<?php echo $testimonial->id ?>" ?>"
                                onclick="return confirm('Approve This Testimonial?')">
                             <i class="fas fa-check-circle"></i></a>
-                            <a class="float-right mx-1" href="/Fitness-Center-project/public/testimonial.php?action=deleteTestimonial&id=<?php echo $testimonial->id ?>"
+                            <a class="float-right mx-1" href="<?php echo WEB_URL_PREFIX."/Fitness-Center-Project/public/testimonial.php?action=deleteTestimonial&id=<?php echo $testimonial->id ?>" ?>"
                                onclick="return confirm('Delete This Testimonial?')">
                             <i class="fas fa-trash-alt "></i> </a>
                         </td>

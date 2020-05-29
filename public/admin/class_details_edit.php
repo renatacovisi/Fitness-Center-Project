@@ -3,10 +3,10 @@
 $root = realpath($_SERVER["DOCUMENT_ROOT"]);
 
 //require config file
-require_once("$root/Fitness-Center-project/public/config.php");
+require_once(FIXED_PATH."/Fitness-Center-project/public/config.php");
 //require Post file to be able to control the uploads of images by the admin
-require_once("$root/Fitness-Center-project/classes/Class_.php");
-require_once("$root/Fitness-Center-project/app/src/session.php");
+require_once(FIXED_PATH."/Fitness-Center-project/classes/Class_.php");
+require_once(FIXED_PATH."/Fitness-Center-project/app/src/session.php");
 
 
 //inserts the values coming from the index_edit.php after creation of the post
@@ -85,13 +85,13 @@ if ($results["showEditClassForm"]) {
 //                                $data['results'] = array_merge($data1['results'], $data2['results'], $data3['results']);
 //                                foreach ($data['results'] as $class) { ?>
 <!--                                    <a role="button" class="dropdown-item"-->
-<!--                                       href="/Fitness-Center-Project/public/index.php?action=showEditClass&id=--><?php //echo $class->id ?><!--">--><?php //echo $class->name ?><!--</a>-->
+<!--                                       href="<?php echo WEB_URL_PREFIX."/Fitness-Center-Project/public/index.php?action=showEditClass&id=--><?php //echo $class->id ?><!--" ?>">--><?php //echo $class->name ?><!--</a>-->
 <!--                                --><?php //} ?>
 <!--                            </div>-->
 <!--                        </div>-->
                         <!--                        delete button that triggers a confirmation dialog and deletes the selected post-->
 <!--                        <a class="btn btn-secondary mt-2 buttonSizeAdm"-->
-<!--                           href="/Fitness-Center-Project/public/index.php?action=deleteClass&id=--><?php //echo $classToEdit->id ?><!--"-->
+<!--                           href="<?php echo WEB_URL_PREFIX."/Fitness-Center-Project/public/index.php?action=deleteClass&id=--><?php //echo $classToEdit->id ?><!--" ?>"-->
 <!--                           role="button" onclick="return confirm('Delete This Article?')">Delete</a>-->
 <!--                    </div>-->
 

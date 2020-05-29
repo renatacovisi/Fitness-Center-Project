@@ -1,8 +1,8 @@
 <?php
 $root = realpath($_SERVER["DOCUMENT_ROOT"]);
-require_once("$root/Fitness-Center-project/public/config.php");
-require("$root/Fitness-Center-project/classes/Class_.php");
-require_once("$root/Fitness-Center-project/app/src/session.php");
+require_once(FIXED_PATH."/Fitness-Center-project/public/config.php");
+require(FIXED_PATH."/Fitness-Center-project/classes/Class_.php");
+require_once(FIXED_PATH."/Fitness-Center-project/app/src/session.php");
 
 
 //get the id of the class

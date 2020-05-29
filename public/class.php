@@ -1,7 +1,7 @@
 <?php
 $root = realpath($_SERVER["DOCUMENT_ROOT"]);
 #Include the config file - configuration settings are available to the script
-require_once("$root/Fitness-Center-project/public/config.php");
+require_once(FIXED_PATH."/Fitness-Center-project/public/config.php");
 require("../classes/Class_.php");
 
 
@@ -92,7 +92,7 @@ require('../app/views/header.php');
 
 <main class="">
     <?php
-    require("$root/Fitness-Center-project/public/admin/class_details_edit.php")
+    require(FIXED_PATH."/Fitness-Center-project/public/admin/class_details_edit.php")
     ?>
     <!-- jumbotron -->
     <section class="jumbotron jumbotron-fluid rounded classesImage text-white">
@@ -110,7 +110,7 @@ require('../app/views/header.php');
         <div class="d-inline-block container-fluid">
             <!--                the button redirects the admin user to the index, that redirects to the index_edit to show the edit modal-->
             <a role="button" class="fColorIndigo btn btn-light m-1 ml-3 buttonSize float-right noShadow mr-5"
-               href="/Fitness-Center-Project/public/class.php?action=showCreateNewClass">Create New</a>
+               href="<?php echo WEB_URL_PREFIX."/Fitness-Center-Project/public/class.php?action=showCreateNewClass" ?>">Create New</a>
         </div>
     <?php } ?>
 
@@ -125,13 +125,13 @@ require('../app/views/header.php');
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $class->name ?>
                             <?php if ($user->type == 'admin' || $user->type == 'member') { ?>
-                            <a class="float-right mx-1" href="/Fitness-Center-project/public/class_details.php?id=<?php echo $class->id ?>">
+                            <a class="float-right mx-1" href="<?php echo WEB_URL_PREFIX."/Fitness-Center-Project/public/class_details.php?id=<?php echo $class->id ?>" ?>">
                                     <i class="fas fa-plus-circle fColorYellow"></i></a>
                             <?php }
                             if ($user->type == 'admin') { ?>
-                                <a class="float-right mx-1" href="/Fitness-Center-project/public/class.php?action=showEditClassForm&id=<?php echo $class->id ?>">
+                                <a class="float-right mx-1" href="<?php echo WEB_URL_PREFIX."/Fitness-Center-Project/public/class.php?action=showEditClassForm&id=<?php echo $class->id ?>" ?>">
                                     <i class="fas fa-edit fColorYellow"></i></a>
-                                <a class="float-right mx-1" href="/Fitness-Center-project/public/class.php?action=deleteClass&id=<?php echo $class->id ?>"
+                                <a class="float-right mx-1" href="<?php echo WEB_URL_PREFIX."/Fitness-Center-Project/public/class.php?action=deleteClass&id=<?php echo $class->id ?>" ?>"
                                    onclick="return confirm('Delete This Class?')">
                                     <i class="fas fa-trash-alt fColorYellow"></i></a>
 

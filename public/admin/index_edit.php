@@ -3,10 +3,10 @@
 $root = realpath($_SERVER["DOCUMENT_ROOT"]);
 
 //require config file
-require_once("$root/Fitness-Center-project/public/config.php");
+require_once(FIXED_PATH."/Fitness-Center-project/public/config.php");
 //require Post file to be able to control the uploads of images by the admin
-require_once("$root/Fitness-Center-project/classes/Post.php");
-require_once("$root/Fitness-Center-project/app/src/session.php");
+require_once(FIXED_PATH."/Fitness-Center-project/classes/Post.php");
+require_once(FIXED_PATH."/Fitness-Center-project/app/src/session.php");
 
 
 //inserts the values coming from the index_edit.php after creation of the post
@@ -82,17 +82,17 @@ if ($results['showEditPosts']) {
                             $data2 = Post::getList(50, "offers");
                             foreach ($data1['results'] as $post) { ?>
                                 <a role="button" class="dropdown-item"
-                                   href="/Fitness-Center-Project/public/index.php?action=showEditPosts&id=<?php echo $post->id ?>"><?php echo $post->title ?></a>
+                                   href="<?php echo WEB_URL_PREFIX."/Fitness-Center-Project/public/index.php?action=showEditPosts&id=<?php echo $post->id ?>" ?>"><?php echo $post->title ?></a>
                             <?php } ?>
                             <?php foreach ($data2['results'] as $post) { ?>
                                 <a role="button" class="dropdown-item"
-                                   href="/Fitness-Center-Project/public/index.php?action=showEditPosts&id=<?php echo $post->id ?>"><?php echo $post->title ?></a>
+                                   href="<?php echo WEB_URL_PREFIX."/Fitness-Center-Project/public/index.php?action=showEditPosts&id=<?php echo $post->id ?>" ?>"><?php echo $post->title ?></a>
                             <?php } ?>
                         </div>
                     </div>
 <!--                        delete button that triggers a confirmation dialog and deletes the selected post-->
                     <a class="btn btn-secondary mt-2 buttonSizeAdm"
-                       href="/Fitness-Center-Project/public/index.php?action=deletePost&id=<?php echo $postToEdit->id ?>"
+                       href="<?php echo WEB_URL_PREFIX."/Fitness-Center-Project/public/index.php?action=deletePost&id=<?php echo $postToEdit->id ?>" ?>"
                        role="button" onclick="return confirm('Delete This Article?')">Delete</a>
                     </div>
 
@@ -117,7 +117,7 @@ if ($results['showEditPosts']) {
 <!--                    </button>-->
 <!--                </div>-->
 <!--                <div class="modal-body fColorIndigo">-->
-<!--                    <form action="/Fitness-Center-Project/app/src/upload.php?action=saveCarousel" method="post"-->
+<!--                    <form action="<?php echo WEB_URL_PREFIX."/Fitness-Center-Project/app/src/upload.php?action=saveCarousel" ?>" method="post"-->
 <!--                          enctype="multipart/form-data">-->
 <!--                        <label class="font-weight-bold mt-1" for="fileToUpload">Select image to upload:</label>-->
 <!--                        <input type="file" name="fileToUpload" id="fileToUpload" class="d-block">-->
