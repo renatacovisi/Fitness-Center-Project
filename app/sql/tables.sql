@@ -215,8 +215,9 @@ CREATE TABLE contactUs
 (
     id         int unsigned NOT NULL auto_increment,
     name       varchar(255) NOT NULL,
-    email      varchar(100) NOT NULL UNIQUE,
+    email      varchar(100) NOT NULL,
     phone      varchar(255) NOT NULL,
+    title      varchar(255) NOT NULL,
     message    mediumtext,
     PRIMARY KEY (id)
 );
