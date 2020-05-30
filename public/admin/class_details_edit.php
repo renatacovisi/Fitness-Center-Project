@@ -30,7 +30,7 @@ if ($results["showEditClassForm"]) {
 
                     <!-- sets the correct url to be called in the form depending on the existence of an id that means that is an edition or non existence that means an creation-->
                     <?php
-                    $url = isset($classToEdit->id) ? '/Fitness-Center-Project/public/class.php?action=editClass&id=' . $classToEdit->id : '/Fitness-Center-Project/app/src/upload.php?action=saveClass'
+                    $url = isset($classToEdit->id) ? WEB_URL_PREFIX.'/Fitness-Center-Project/public/class.php?action=editClass&id=' . $classToEdit->id : WEB_URL_PREFIX.'/Fitness-Center-Project/app/src/upload.php?action=saveClass'
                     ?>
                     <!-- inserts the url in the action of the form-->
                     <form action="<?php echo $url ?>" method="post" enctype="multipart/form-data">

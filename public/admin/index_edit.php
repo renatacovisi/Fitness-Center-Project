@@ -30,7 +30,7 @@ if ($results['showEditPosts']) {
 
                     <!-- sets the correct url to be called in the form depending on the existence of an id that means that is an edition or non existence that means an creation-->
                     <?php
-                    $url = isset($postToEdit->id) ? '/Fitness-Center-Project/public/index.php?action=editPost&id=' . $postToEdit->id : '/Fitness-Center-Project/app/src/upload.php?action=savePost'
+                    $url = isset($postToEdit->id) ? WEB_URL_PREFIX.'/Fitness-Center-Project/public/index.php?action=editPost&id=' . $postToEdit->id : WEB_URL_PREFIX.'/Fitness-Center-Project/app/src/upload.php?action=savePost'
                     ?>
                     <!-- inserts the url in the action of the form-->
                     <form action="<?php echo $url ?>" method="post" enctype="multipart/form-data">
