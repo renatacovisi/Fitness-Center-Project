@@ -73,7 +73,7 @@ if (isset($_POST['submitPost'])) {
     // create a new Post object
     $post = new Post;
     //assign the link received to the post photo link
-    $post->photoLink = '/Fitness-Center-Project/app/src/'. $target_file;
+    $post->photoLink = WEB_URL_PREFIX.'/Fitness-Center-Project/app/src/'. $target_file;
 
     //store the values received in the post to the other variables
     $post->storeFormValues($_POST);
@@ -94,7 +94,7 @@ if (isset($_POST['submitClass'])) {
     // create a new Post object
     $class = new Class_;
     //assign the link received to the post photo link
-    $class->image = '/Fitness-Center-Project/app/src/'. $target_file;
+    $class->image = WEB_URL_PREFIX.'/Fitness-Center-Project/app/src/'. $target_file;
 
     //store the values received in the post to the other variables
     $class->storeFormValues($_POST);
